@@ -1,0 +1,108 @@
+.apartment {
+  width: 100%;
+  min-height: 5.5rem;
+  background: #f5f1bf;
+  display: grid;
+  grid-template-columns: 45% 30% 25%;
+  grid-template-areas:
+    "placement size price"
+    "details details details";
+  cursor: pointer;
+  /* padding: 0.5rem 1rem; */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px 0 0 2px;
+}
+
+.apartment__padding {
+  padding: 0.5rem 1rem;
+}
+
+.apartmentLocation {
+  grid-area: placement;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-areas: "image description";
+}
+
+.apartment_image {
+  grid-area: image;
+  margin-left: 1rem;
+  /* background-image: url("https://img.yad2.co.il/Pic/202202/08/2_1/o/y2_1_09156_20220208115749.jpeg?l=5&c=3&w=195&h=117"); */
+}
+
+.location {
+  grid-area: description;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.apartment__location__street {
+  font-size: 1rem;
+  color: #363636;
+}
+
+.apartmentLocation__city {
+  font-size: 0.875rem;
+  color: #363636;
+}
+
+.apartmentData {
+  grid-area: size;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.apartmentData__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.apartmentData__innner__value {
+  font: 1rem;
+  color: #363636;
+}
+
+.appartmentData__inner__key {
+  font-size: 0.875rem;
+  color: #00000080;
+}
+
+.apartmentPrice {
+  grid-area: price;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.apartmentPrice__inner__key {
+  font-size: 0.8125rem;
+  color: #00000080;
+}
+
+.apartmentDetails {
+  grid-area: details;
+  width: 100%;
+  min-height: auto;
+  color: #363636;
+  padding: 5px 15px 10px 10px;
+  font-size: 14px;
+  background-color: white;
+  position: relative;
+}
+
+.apartmentDetails__header {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.apartmentDescription {
+}

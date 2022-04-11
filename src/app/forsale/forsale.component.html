@@ -1,0 +1,362 @@
+<app-header></app-header>
+<div class="container">
+  <div class="main">
+    <!-- <div class="searchBar">
+      <div class="searchBar__header">
+        <span class="searchBar__header__question_FontSize">
+          <span class="searchBar__header__question">
+            איזה נכס ל<span class="searchBar__header__question__lemchira">מכירה</span> תרצו לחפש?
+          </span>
+        </span>
+        <div class="searchBar__header__alerts">
+          <button class="searchBar__header__alerts_Button">
+            <span class="button_text">
+              <svg data-v-536cc0dd="" width="20" height="20" viewBox="0 0 20 20" class="bell_icon orange">
+                <g data-v-536cc0dd="" transform="translate(2 1)">
+                  <ellipse data-v-536cc0dd="" cx="7.206" cy="14.44" fill="#999" stroke="#999" stroke-width=".926"
+                    rx="1.9" ry="1.878" transform="rotate(18 9.206 14.44)"></ellipse>
+                  <path data-v-536cc0dd="" fill="#999" stroke="#999" stroke-width=".5"
+                    d="M12.8231052,15.8320384 L1.59588336,12.1600933 C0.741326334,11.8806041 0.269836303,10.9686617 0.542985389,10.1224645 C0.815755737,9.27744069 1.72954622,8.81726719 2.58246568,9.09622075 C2.65893815,9.12123163 2.74258017,9.07909159 2.76739036,9.00223131 L3.8459642,5.66088349 C4.61481752,3.27902861 6.84212555,1.71637786 9.30527285,1.73266656 L9.38971013,1.47108564 C9.6874779,0.548621518 10.6844662,0.047077824 11.6140351,0.351100142 C12.5450902,0.655608518 13.0578164,1.64918572 12.7595436,2.57321436 L12.6750952,2.83482976 C14.6772473,4.27905538 15.566613,6.86145268 14.797923,9.24280184 L13.7193491,12.5841497 C13.6940463,12.6625362 13.7361292,12.7441081 13.8140718,12.7695998 C14.6656729,13.0481222 15.1376194,13.9612666 14.8647776,14.8065116 C14.5919484,15.6517178 13.6770509,16.1113276 12.8231052,15.8320384 Z"
+                    class="bell_stroke"></path>
+                  <path data-v-536cc0dd="" fill="#EEE"
+                    d="M9.59960261,2.62300607 L9.94192819,2.64576241 L10.2321685,1.74661782 C10.3809686,1.2856454 10.8799668,1.03461995 11.3443694,1.18650621 C11.8102812,1.33888607 12.0663829,1.83516822 11.9170852,2.29768218 L11.626842,3.19683568 L11.9170605,3.38096657 C13.7800716,4.56296579 14.6361763,6.85847156 13.9554646,8.96726966 L12.8768908,12.3086175 C12.7026263,12.8484768 13.0012781,13.4273719 13.5444061,13.6050059 C13.9311015,13.7314774 14.1461096,14.1474854 14.0223193,14.5309794 C13.8985247,14.9144864 13.481759,15.1238537 13.092771,14.9966324 L1.86554913,11.3246872 C1.47584389,11.1972313 1.26136338,10.7823892 1.38544376,10.3979967 C1.50929716,10.0143073 1.92520534,9.80486117 2.31279991,9.93162681 C2.85466526,10.1088478 3.43614333,9.81589092 3.60984873,9.27776349 L4.68842257,5.93641567 C5.369295,3.82711954 7.40211168,2.47692622 9.59960261,2.62300607 Z"
+                    class="bell_fill"></path>
+                </g>
+              </svg>
+              קבלו התראות במייל על החיפוש
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="searchBar__data">
+        <div class="searchBar__data__values">
+          <span class="searchBarHeadersText">חפשו אזור, עיר, שכונה או רחוב</span>
+          <input placeholder="לדוגמא: אחוזה, חיפה" class="searchBar__data__city_Input" type="text">
+        </div>
+        <div class="searchBar__data__values">
+          <span class="searchBarHeadersText">סוג נכס</span>
+          <button class="searchBar__data_Dropdown" (click)="onAssetClick()">
+            <span class="searchBar__data__asset_Dropdown_Text">בחרו סוגי נכסים</span>
+            <i [ngClass]="isAssetArrowDown ? 'arrow down' : 'arrow up'"></i>
+          </button>
+          <div *ngIf="!isAssetArrowDown" class="searchBar__data__asset_Dropdown__values">
+            <div class="searchBar__data__asset_Dropdown__value__margin">
+              <div class="searchBar__data__asset_Dropdown__value">
+                <div class="searchBar__data__asset_Dropdown__value__right">
+                  <div (click)="onAssetCheckboxClick()" class="searchBar__data__asset__checkboxContainer">
+                    <span class="checkbox"></span>
+                    <span>כל סוגי נכסים</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value__margin">
+              <div class="searchBar__data__asset_Dropdown__value">
+                <div class="searchBar__data__asset_Dropdown__value__right">
+                  <span class="checkbox"></span>
+                  <span>דירות</span>
+                </div>
+                <div class="searchBar__data__asset_Dropdown__value__container" (click)="onApartmentsAssetArrowClick()">
+                  <i [ngClass]="isApartmentsAssetArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+                </div>
+              </div>
+              <div *ngIf="!isApartmentsAssetArrowDown" class="assetsList">
+                <div class="asset" *ngFor="let asset of apartmentAssets">
+                  <input class="checkbox" type="checkbox">
+                  {{ asset }}
+                </div>
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value__margin">
+              <div class="searchBar__data__asset_Dropdown__value">
+                <div class="searchBar__data__asset_Dropdown__value__right">
+                  <span class="checkbox"></span>
+                  <span>בתים</span>
+                </div>
+                <div class="searchBar__data__asset_Dropdown__value__container" (click)="onHousesAssetArrowClick()">
+                  <i [ngClass]="isHousesAssetArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="!isHousesAssetArrowDown" class="assetsList">
+              <div class="asset" *ngFor="let asset of housesAssets">
+                <input class="checkbox" type="checkbox">
+                {{ asset }}
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value__margin">
+              <div class="searchBar__data__asset_Dropdown__value">
+                <div class="searchBar__data__asset_Dropdown__value__right">
+                  <span class="checkbox"></span>
+                  <span>סוגים נוספים</span>
+                </div>
+                <div class="searchBar__data__asset_Dropdown__value__container" (click)="onAnotherAssetsArrowClick()">
+                  <i [ngClass]="isAnotherAssetsArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!isAnotherAssetsArrowDown" class="assetsList">
+              <div class="asset" *ngFor="let asset of anotherAssets">
+                <input class="checkbox" type="checkbox">
+                {{ asset }}
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value topBorder">
+              <div></div>
+              <button class="searchBar__data__asset_Dropdown__choiceButton">בחירה</button>
+            </div>
+          </div>
+        </div>
+        <div class="searchBar__data__values">
+          <span class="searchBarHeadersText">חדרים</span>
+          <button class="searchBar__data_Dropdown" (click)="onRoomsClick()">
+            <span class="searchBar__data__asset_Dropdown_Text">חדרים</span>
+            <i [ngClass]="isRoomsArrowDown ? 'arrow down' : 'arrow up'"></i>
+          </button>
+          <div *ngIf="!isRoomsArrowDown" class="roomsMenu">
+            <input autocomplete="off" placeholder="מ-" class="roomsMenu_dropdown"
+              (click)="onRoomsMenuFromButtonClick()" />
+            <button class="roomsMenu__from_Button" (click)="onRoomsMenuFromButtonClick()">
+              <i [ngClass]="isRoomsFromArrowDown ? 'arrow down' : 'arrow up'"></i>
+            </button>
+            <div *ngIf="!isRoomsFromArrowDown"
+              class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__from__position">
+              <div class="roomsMenu__from_Dropdown__item">הכל</div>
+              <div class="roomsMenu__from_Dropdown__item">1</div>
+              <div class="roomsMenu__from_Dropdown__item">1.5</div>
+              <div class="roomsMenu__from_Dropdown__item">2</div>
+              <div class="roomsMenu__from_Dropdown__item">2.5</div>
+              <div class="roomsMenu__from_Dropdown__item">3</div>
+              <div class="roomsMenu__from_Dropdown__item">3.5</div>
+              <div class="roomsMenu__from_Dropdown__item">4</div>
+              <div class="roomsMenu__from_Dropdown__item">4.5</div>
+              <div class="roomsMenu__from_Dropdown__item">5</div>
+              <div class="roomsMenu__from_Dropdown__item">5.5</div>
+              <div class="roomsMenu__from_Dropdown__item">6</div>
+              <div class="roomsMenu__from_Dropdown__item">6.5</div>
+              <div class="roomsMenu__from_Dropdown__item">7</div>
+              <div class="roomsMenu__from_Dropdown__item">7.5</div>
+              <div class="roomsMenu__from_Dropdown__item">8</div>
+              <div class="roomsMenu__from_Dropdown__item">8.5</div>
+              <div class="roomsMenu__from_Dropdown__item">9</div>
+              <div class="roomsMenu__from_Dropdown__item">9.5</div>
+              <div class="roomsMenu__from_Dropdown__item">10</div>
+              <div class="roomsMenu__from_Dropdown__item">10.5</div>
+              <div class="roomsMenu__from_Dropdown__item">11</div>
+              <div class="roomsMenu__from_Dropdown__item">11.5</div>
+              <div class="roomsMenu__from_Dropdown__item">12</div>
+            </div>
+            <input autocomplete="off" placeholder="עד-" class="roomsMenu_dropdown"
+              (click)="onRoomsMenuToButtonClick()" />
+            <button class="roomsMenu__to_Button" (click)="onRoomsMenuToButtonClick()">
+              <i [ngClass]="isRoomsToArrowDown ? 'arrow down' : 'arrow up'"></i>
+            </button>
+            <div *ngIf="!isRoomsToArrowDown"
+              class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__to__position">
+              <div class="roomsMenu__from_Dropdown__item">הכל</div>
+              <div class="roomsMenu__from_Dropdown__item">1</div>
+              <div class="roomsMenu__from_Dropdown__item">1.5</div>
+              <div class="roomsMenu__from_Dropdown__item">2</div>
+              <div class="roomsMenu__from_Dropdown__item">2.5</div>
+              <div class="roomsMenu__from_Dropdown__item">3</div>
+              <div class="roomsMenu__from_Dropdown__item">3.5</div>
+              <div class="roomsMenu__from_Dropdown__item">4</div>
+              <div class="roomsMenu__from_Dropdown__item">4.5</div>
+              <div class="roomsMenu__from_Dropdown__item">5</div>
+              <div class="roomsMenu__from_Dropdown__item">5.5</div>
+              <div class="roomsMenu__from_Dropdown__item">6</div>
+              <div class="roomsMenu__from_Dropdown__item">6.5</div>
+              <div class="roomsMenu__from_Dropdown__item">7</div>
+              <div class="roomsMenu__from_Dropdown__item">7.5</div>
+              <div class="roomsMenu__from_Dropdown__item">8</div>
+              <div class="roomsMenu__from_Dropdown__item">8.5</div>
+              <div class="roomsMenu__from_Dropdown__item">9</div>
+              <div class="roomsMenu__from_Dropdown__item">9.5</div>
+              <div class="roomsMenu__from_Dropdown__item">10</div>
+              <div class="roomsMenu__from_Dropdown__item">10.5</div>
+              <div class="roomsMenu__from_Dropdown__item">11</div>
+              <div class="roomsMenu__from_Dropdown__item">11.5</div>
+              <div class="roomsMenu__from_Dropdown__item">12</div>
+            </div>
+          </div>
+        </div>
+        <div class="searchBar__data__values">
+          <span class="searchBarHeadersText">מחיר</span>
+          <div class="searchBar__data__values__price">
+            <input class="searchBar__data__values__price_FromTo" type="text" placeholder="מ-">
+            <input class="searchBar__data__values__price_FromTo" type="text" placeholder="עד-">
+          </div>
+        </div>
+        <div class="searchBar__data__values">
+          <span class="searchBarHeadersText invisible">מחיר</span>
+          <button class="advancedSearch_Button" (click)="onAdvancedSearchButtonClick()">
+            <span [ngClass]="isPlusInCircle ? 'advancedSearch_Button__plus' : 'advancedSearch_Button__x'"
+              class="advancedSearch_Button__plus">&#8853;</span>
+            <span class="advancedSearch_Button_Text">חיפוש מתקדם</span>
+          </button>
+        </div>
+        <div class="searchBar__data__values">
+          <span class="searchBarHeadersText invisible">מחיר</span>
+          <button class="searchButton">
+            <span class="searchButton__lens">&#9906;</span>
+            <span class="a">חיפוש</span>
+          </button>
+        </div>
+      </div>
+    </div> -->
+    <app-search-bar></app-search-bar>
+    <!-- <div *ngIf="!isPlusInCircle" class="advancedSearch">
+      <div class="advancedSearch__header">מאפייני דירה</div>
+      <div class="advancedSearch__top">
+        <div class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
+          <input class="checkbox" type="checkbox">
+          {{ item }}
+        </div>
+      </div>
+      <div class="advancedSearch__center">
+        <div class="advancedSearch__center__data">
+          קומה
+          <div class="advancedSearch__center__data__boxesArea">
+            <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <i class="advancedSearch_boxArrow" [ngClass]="isStoriesFromArrowDown ? 'arrow down' : 'arrow up'"
+              (click)="onStoriesFromArrowClick()"></i>
+            <div *ngIf="!isStoriesFromArrowDown" class="storiesDropdownList">
+              <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
+                {{ value }}
+              </div>
+            </div>
+
+            <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <i (click)="onStoriesToArrowClick()" class="advancedSearch_boxArrow__to"
+              [ngClass]="isStoriesToArrowDown ? 'arrow down' : 'arrow up'"></i>
+            <div *ngIf="!isStoriesToArrowDown" class="storiesDropdownList storiesToDropdownListMargin">
+              <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
+                {{ value }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="advancedSearch__center__data">
+          גודל דירה
+          <div class="advancedSearch__center__data__boxesArea">
+            <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+
+            <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+          </div>
+        </div>
+
+        <div class="advancedSearch__center__data">
+          תאריך כניסה
+          <div class="advancedSearch__center__data__boxesArea">
+            <input placeholder="החל מ- הזינו תאריך" class="advancedSearch__center__dateBox" type="text">
+            <i class="fa advancedSearch__dateBoxSign">&#xf073;</i>
+            <div class="advancedSearch__center__immediateEntrance">
+              <input class="checkbox" type="checkbox">
+              כניסה מיידית
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="advancedSearch__bottom">
+        <div class="advancedSearch__bottom__freeSearch">
+          חיפוש חופשי
+          <input type="text" class="advancedSearch__bottom__freeSearch_Input">
+        </div>
+        <div class="advancedSearch__bottom__moshavimKibuzim">
+          <input disabled class="checkbox" type="checkbox">
+          הצגת מושבים וקיבוצים בלבד
+          <i class="fa fa-question-circle" style="margin-right: 5px;font-size:18px;color:#ccc"></i>
+        </div>
+      </div>
+
+      <div class="advancedSearch__footer">
+        <div></div>
+        <button class="advancedSearch__footer__searchButton">חיפוש</button>
+        <button class="advancedSearch__footer__clearButton">נקה</button>
+      </div>
+
+    </div> -->
+
+    <div class="realEstatePaging">
+      <div>
+        <span class="realEstatePaging__rashi">ראשי</span>
+        <span class="realEstatePaging__forwardSlash">/</span>
+        <span class="realEstatePaging__nadlan">נדל"ן למכירה</span>
+      </div>
+      <div>
+        <button class="realEstatePaging__negishut">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="realEstatePaging__negishut__image"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+          </svg>
+          <span class="realEstatePaging__negishut__text">נגישות</span>
+        </button>
+      </div>
+    </div>
+    <div class="sortFilterBar">
+      <div class="sortFilterBar__area">
+        <label class="sortFilterBar__text">מיין לפי</label>
+        <button class="sortFilterBar__sort_Dropdown_Button" appDropdown>
+          <span class="sortFilterBar__text">לפי תאריך</span>
+          <i [ngClass]="'arrow down'"></i>
+        </button>
+        <div style="display: none;" class="sortFilterBar__sort_Dropdown">
+          <div class="sortFilterBar__sort_Dropdown__item">
+            <!-- <input class="sortFilterRadioButton" type="radio" name="sortBy"> -->
+            <div class="sortFilterRadioButton checkedRadioButtonBorder">
+              <div class="pointInRadioButton"></div>
+            </div>
+            לפי תאריך
+          </div>
+          <div class="sortFilterBar__sort_Dropdown__item">
+            <!-- <input class="sortFilterRadioButton" type="radio" name="sortBy"> -->
+            <div class="sortFilterRadioButton">
+              <!-- <div class="pointInRadioButton"></div> -->
+            </div>
+            מחיר - מהזול ליקר
+          </div>
+          <div class="sortFilterBar__sort_Dropdown__item">
+            <!-- <input class="sortFilterRadioButton" type="radio" name="sortBy"> -->
+            <div class="sortFilterRadioButton">
+              <!-- <div class="pointInRadioButton"></div> -->
+            </div>
+            מחיר - מהיקר לזול
+          </div>
+        </div>
+      </div>
+      <div class="sortFilterBar__area">
+        <button (click)="onFilterResultsClick()" class="sortFilterBar__filter">
+          <i class="fa">&#xf0b0;</i>
+          <span class="sortFilterBar__text">סנן תוצאות</span>
+        </button>
+        <div *ngIf="isFilterResultsDropDownShown" class="sortFilterBar__filter_Dropdown">
+          <div appCheckbox class="sortFilterBar__filter__Dropdown__item">
+            <!-- <input class="checkbox" type="checkbox"> -->
+            <span class="checkbox"></span>
+            עם מחיר
+          </div>
+          <div appCheckbox class="sortFilterBar__filter__Dropdown__item">
+            <!-- <input class="checkbox" type="checkbox"> -->
+            <span class="checkbox"></span>
+            עם תמונה
+          </div>
+          <div class="sortFilterBar__filter__Dropdown__footer">
+            <label class="sortFilterBar__filter__Dropdown__cleaning">ניקוי</label>
+            <label class="sortFilterBar__filter__Dropdown__filtering">סינון</label>
+          </div>
+        </div>
+        <button class="sortFilterBar__filter">
+          <i class="fa">&#xf041;</i>
+          <span class="sortFilterBar__text">תצוגת מפה</span>
+        </button>
+      </div>
+    </div>
+    <app-apartments></app-apartments>
+  </div>
+  <div class="footer"></div>
+</div>

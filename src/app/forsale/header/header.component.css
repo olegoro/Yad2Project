@@ -1,0 +1,286 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.upperHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 5px solid #ff7100;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.upperHeader__flex {
+  display: flex;
+  flex-direction: row;
+  min-width: 120px;
+  flex-wrap: wrap;
+}
+
+.upperHeader__yad2 {
+  width: 5.625rem;
+  height: 4.375rem;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.upperHeader__yad2__Img {
+  width: 5.625rem;
+  height: 3.371875rem;
+}
+
+.upperHeader__link {
+  /* padding: 0 1.25rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 4.375rem;
+  cursor: pointer;
+  color: #363636;
+}
+
+.upperHeader__link:hover {
+  background-color: #eeeeee;
+}
+
+.upperHeader__realEstate {
+  width: 4.608125rem;
+  background-color: #eeeeee;
+}
+
+.upperHeader__car {
+  width: 4.128125rem;
+}
+
+.upperHeader__secondHand {
+  width: 5.7425rem;
+}
+
+.upperHeader__jobsIL {
+  width: 6.465625rem;
+}
+
+.upperHeader__businessesForSale {
+  width: 8.4825rem;
+}
+
+.upperHeader__pets {
+  width: 6.931875rem;
+}
+
+.upperHeader__professionals {
+  width: 7.2325rem;
+}
+
+.upperHeader__more {
+  width: 4.63875rem;
+}
+
+.upperHeader__bell {
+  width: 6.80875rem;
+  color: #ff7100;
+}
+
+.upperHeader__heart {
+  width: 9.944375rem;
+  color: #ff7100;
+}
+
+.upperHeader__user {
+  /* font-size: 4.4375rem; */
+  color: #ff7100;
+  width: 8.574375rem;
+}
+
+.upperHeader__flex .fa {
+  font-size: 1.125rem;
+}
+
+.upperHeader__heart_Span {
+  font-size: 1.875rem;
+}
+
+.upperHeader__user .fa {
+  font-size: 1.5rem;
+}
+
+.upperHeader__postNewAdd {
+  width: 16rem;
+  height: 4.375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.upperHeader__postNewAdd_Link {
+  height: 2.5rem;
+  width: 12.0625rem;
+  border-radius: 1.25rem;
+  background-color: #0fca80;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.upperHeader__postNewAdd_Link:hover {
+  background-color: #03633c;
+}
+
+.upperHeader__postNewAdd_Link_Text {
+  color: #fff;
+}
+
+.upperHeader__postNewAdd_Link_Text__plus {
+  margin-left: 0.5rem;
+  color: #fff;
+}
+
+.link__text {
+  color: #363636;
+}
+
+.lowerHeader {
+  height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.lowerHeader__right {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  padding: 0 7rem;
+  flex-wrap: wrap;
+}
+
+.lowerHeader__left {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  padding-left: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.lowerHeader__link {
+  height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lowerHeader__link:hover {
+  background-color: #eeeeee;
+}
+
+.lowerHeader__right__sale {
+  width: 5.11625rem;
+  color: #ff7100;
+  font-weight: 600;
+  border-bottom: 3px #ff7100 solid;
+}
+
+.lowerHeader__right__renting {
+  width: 5.525625rem;
+}
+
+.lowerHeader__right__partnersApartments {
+  width: 8rem;
+}
+
+.lowerHeader__right__commercialRealEstate {
+  width: 7.503125rem;
+}
+
+.lowerHeader__right__yadata {
+  width: 12.6775rem;
+}
+
+.lowerHeader__right__yadata_img {
+  margin-left: 0.3125rem;
+}
+
+.lowerHeader__right__yad1 {
+  width: 11.411875rem;
+}
+
+.lowerHeader__right_img {
+  margin-left: 0.3125rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #363636;
+  align-self: center;
+}
+
+.lowerHeader__right__yad1_img {
+  width: 1.855625rem;
+  height: 0.9375rem;
+}
+
+.lowerHeader__right__doron {
+  width: 11.925rem;
+}
+
+.lowerHeader__right__doron_img {
+  width: 1.3125rem;
+  height: 1.3125rem;
+}
+
+.lowerHeader__right__konesNehasim {
+  width: 8.83rem;
+}
+
+.lowerHeader__right__konesNehasim__img {
+  width: 1.5rem;
+  height: 1.5625rem;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #363636;
+}
+
+.left {
+  transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+}
+
+@media (max-width: 1539px) {
+  .link__text {
+    display: none;
+  }
+
+  .upperHeader__bell {
+    width: 52px;
+  }
+
+  .upperHeader__heart {
+    width: 51px;
+  }
+
+  .upperHeader__user {
+    width: 71px;
+  }
+}

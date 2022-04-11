@@ -1,0 +1,132 @@
+<span class="searchBarHeadersText">סוג נכס</span>
+<button class="searchBar__data_Dropdown" appDropdown>
+  <span class="searchBar__data__asset_Dropdown_Text">{{numberOfChosenAssetTypes === maxAmountOfChosenAssets ||
+    numberOfChosenAssetTypes === 0
+    ? 'בחרו סוגי נכסים' : numberOfChosenAssetTypes + ' סוגי נכסים'}} </span>
+  <i [ngClass]="'arrow down'"></i>
+</button>
+<div style="display: none;" class="searchBar__data__asset_Dropdown__values">
+  <div class="searchBar__data__asset_Dropdown__value__margin">
+    <div class="searchBar__data__asset_Dropdown__value">
+      <div class="searchBar__data__asset_Dropdown__value__right">
+        <div (click)="onCheckOrUncheckAllAssets()" appCheckbox class="searchBar__data__asset__checkboxContainer">
+          <span id="checkboxAllAssets" [ngClass]="isAllAssetsChecked ? 'clickedCheckboxBackground' : ''"
+            class="checkbox"></span>
+          <span>כל סוגי נכסים</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="searchBar__data__asset_Dropdown__value__margin">
+    <div class="searchBar__data__asset_Dropdown__value">
+      <div class="searchBar__data__asset_Dropdown__value__right">
+        <div (click)="onCheckOrUncheckAssetsTypes(selectedApartmentData, maxAmountOfApartmentSubtypes)" appCheckbox
+          class="searchBar__data__asset__checkboxContainer">
+          <span id="apartmentAssetCheckbox" class="checkbox"
+            [ngClass]="selectedApartmentData.isAllTypesOfSubtypeChecked ? 'clickedCheckboxBackground' : ''"></span>
+          <span>
+            דירות
+            <span class="searchBar__assetTypeDropdown__assetsAmountText">
+              {{ selectedApartmentData.isAllTypesOfSubtypeChecked || selectedApartmentData.subtypesChecksCounter >
+              0 ?
+              'נבחרו ' +
+              selectedApartmentData.subtypesChecksCounter
+              + ' סוגים' : '' }}
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="searchBar__data__asset_Dropdown__value__container" (click)="onApartmentsAssetArrowClick()">
+        <i [ngClass]="isApartmentsAssetArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+      </div>
+    </div>
+    <div *ngIf="!isApartmentsAssetArrowDown" class="assetsList">
+      <div class="asset" *ngFor="let asset of apartmentAssets; let i = index">
+        <div appCheckbox
+          (click)="onCheckOrUncheckAssetsType(selectedApartmentData, maxAmountOfApartmentSubtypes, 'apartmentType_' + i, i)"
+          class="searchBar__data__asset__checkboxContainer">
+          <span [id]="'apartmentType_' + i"
+            [ngClass]="selectedApartmentData.isSubtypeCheckedArray[i] ? 'clickedCheckboxBackground' : ''"
+            class="checkbox"></span>
+          {{ asset }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="searchBar__data__asset_Dropdown__value__margin">
+    <div class="searchBar__data__asset_Dropdown__value">
+      <div class="searchBar__data__asset_Dropdown__value__right">
+        <div (click)="onCheckOrUncheckAssetsTypes(selectedHousesData, maxAmountOfHousesSubtypes)" appCheckbox
+          class="searchBar__data__asset__checkboxContainer">
+          <span id="housesAssetCheckbox" class="checkbox"
+            [ngClass]="selectedHousesData.isAllTypesOfSubtypeChecked ? 'clickedCheckboxBackground' : ''"></span>
+          <span>
+            בתים
+            <span class="searchBar__assetTypeDropdown__assetsAmountText">
+              {{ selectedHousesData.isAllTypesOfSubtypeChecked || selectedHousesData.subtypesChecksCounter >
+              0 ?
+              'נבחרו ' +
+              selectedHousesData.subtypesChecksCounter
+              + ' סוגים' : '' }}
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="searchBar__data__asset_Dropdown__value__container" (click)="onHousesAssetArrowClick()">
+        <i [ngClass]="isHousesAssetArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isHousesAssetArrowDown" class="assetsList">
+    <div class="asset" *ngFor="let asset of housesAssets; let i = index">
+      <div (click)="onCheckOrUncheckAssetsType(selectedHousesData, maxAmountOfHousesSubtypes, 'houseType_' + i, i)"
+        appCheckbox class="searchBar__data__asset__checkboxContainer">
+        <span [id]="'houseType_' + i"
+          [ngClass]="selectedHousesData.isSubtypeCheckedArray[i] ? 'clickedCheckboxBackground' : ''"
+          class="checkbox"></span>
+        {{ asset }}
+      </div>
+    </div>
+  </div>
+  <div class="searchBar__data__asset_Dropdown__value__margin">
+    <div class="searchBar__data__asset_Dropdown__value">
+      <div class="searchBar__data__asset_Dropdown__value__right">
+        <div (click)="onCheckOrUncheckAssetsTypes(selectedAdditionalData, maxAmountOfAdditionalTypesSubtypes)"
+          appCheckbox class="searchBar__data__asset__checkboxContainer">
+          <span id="additionalAssetsCheckbox" class="checkbox"
+            [ngClass]="selectedAdditionalData.isAllTypesOfSubtypeChecked ? 'clickedCheckboxBackground' : ''"></span>
+          <span>
+            סוגים נוספים
+            <span class="searchBar__assetTypeDropdown__assetsAmountText">
+              {{ selectedAdditionalData.isAllTypesOfSubtypeChecked ||
+              selectedAdditionalData.subtypesChecksCounter > 0
+              ?
+              'נבחרו ' +
+              selectedAdditionalData.subtypesChecksCounter
+              + ' סוגים' : '' }}
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="searchBar__data__asset_Dropdown__value__container" (click)="onAnotherAssetsArrowClick()">
+        <i [ngClass]="isAnotherAssetsArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isAnotherAssetsArrowDown" class="assetsList">
+    <div class="asset" *ngFor="let asset of anotherAssets; let i = index">
+      <div appCheckbox
+        (click)="onCheckOrUncheckAssetsType(selectedAdditionalData, maxAmountOfAdditionalTypesSubtypes, 'addtionalTypesType_' + i, i)"
+        class="searchBar__data__asset__checkboxContainer">
+        <span [id]="'addtionalTypesType_' + i"
+          [ngClass]="selectedAdditionalData.isSubtypeCheckedArray[i] ? 'clickedCheckboxBackground' : ''"
+          class="checkbox"></span>
+        {{ asset }}
+      </div>
+    </div>
+  </div>
+  <div class="searchBar__data__asset_Dropdown__value topBorder">
+    <div></div>
+    <button class="searchBar__data__asset_Dropdown__choiceButton">בחירה</button>
+  </div>
+</div>

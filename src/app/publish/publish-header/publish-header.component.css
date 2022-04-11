@@ -1,0 +1,56 @@
+.header__div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.header__right__publishNewAdv {
+  color: #363636;
+  font-size: 18px;
+  margin-right: 0.625rem;
+}
+
+.header__left__user {
+  color: #ff7100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.header__div__userImage {
+  width: 22px;
+  height: 22px;
+}
+
+.header__left__contact {
+  margin: 0 1rem;
+  color: #363636;
+  cursor: pointer;
+}
+
+.header__left__close__button {
+  width: 81px;
+  height: 31px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #363636;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.header__left__close__button__sign {
+  font-size: 1.5em;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  color: #606060;
+}

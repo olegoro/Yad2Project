@@ -1,0 +1,63 @@
+<!-- <div class="container">
+  <div class="header">
+    <a class="headerLink" routerLink="">
+      <img src="https://assets.yad2.co.il/login/logo.svg" alt="Yad2">
+    </a>
+  </div>
+  <div class="form"> -->
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="form__greeting">היי, נעים להכיר</div>
+  <div class="form__textBox__div">
+    מייל
+    <input class="form__textBox" placeholder="yourmail@email.co.il" ngModel name="email" #email="ngModel" required
+      email>
+    <span class="spanAlert" *ngIf="!email.valid && email.touched">
+      יש להקליד מייל</span>
+  </div>
+  <div class="form__textBox__div">
+    סיסמא
+    <input class="form__textBox" name="password" ngModel placeholder="הקלדת סיסמא" #password="ngModel">
+    <i class="far fa-eye" id="togglePassword"></i>
+  </div>
+  <div class="form__textBox__div">
+    אימות סיסמא
+    <input class="form__textBox" type="password" placeholder="הקלדת סיסמא">
+    <i class="far fa-eye" id="togglePassword"></i>
+  </div>
+  <div class="form__submit">
+    <button class="form__submitButton" type="submit">המשך</button>
+  </div>
+  <div class="form__NoAccount">
+    כבר יש לך חשבון?<a (click)="onLoginClick()" class="form__NoAccount__subscriptionLink">להתחברות</a>
+  </div>
+</form>
+<!-- </div> -->
+<!-- <div class="description">
+    <div class="description__div">
+      <h1>
+        <span class="description__div__Sentence">לקנות מהר, למכור מהר.</span>
+        <br />
+        <span class="description__div__Sentence">ויש לנו אחלה כלים לזה.</span>
+      </h1>
+    </div>
+    <div class="description__images">
+      <div class="description__image__div">
+        <img src="https://assets.yad2.co.il/login/icon_alert.svg" alt="">
+        <span class="description__image__text">התראות</span>
+      </div>
+      <div class="description__image__div">
+        <img src="https://assets.yad2.co.il/login/icon_chat.svg" alt="">
+        <span class="description__image__text">צ'אט</span>
+      </div>
+      <div class="description__image__div">
+        <img src="https://assets.yad2.co.il/login/icon_publish.svg" alt="">
+        <span class="description__image__text">פרסום מודעה</span>
+      </div>
+      <div class="description__image__div">
+        <img src="https://assets.yad2.co.il/login/icon_profile.svg" alt="">
+        <span class="description__image__text">אזור אישי</span>
+      </div>
+    </div>
+  </div> -->
+<!-- <div class="footer"></div> -->
+<!-- </div> -->

@@ -1,0 +1,101 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 8% 92%;
+  grid-template-areas:
+    "header header header"
+    ". main .";
+
+  background: #f9f9f9;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+}
+
+.main {
+  grid-area: main;
+  background: white;
+  margin-top: 40px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgb(12 0 51 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+form {
+  padding: 10px 40px;
+}
+
+.main__field {
+  display: flex;
+  flex-direction: column;
+  width: 263.36px;
+  margin: 23px 0;
+}
+
+.main__Select {
+  cursor: pointer;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  text-indent: 8px;
+}
+
+.main__Input {
+  text-indent: 8px;
+  height: 38px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 0;
+}
+
+.main__HouseNumber__Input__Width {
+  width: 130.77px;
+}
+
+.main__floor__Input__Width {
+  width: 176.77px;
+}
+
+.upperHeader__postNewAdd_Link {
+  height: 2.5rem;
+  width: 8rem;
+  border-radius: 1.25rem;
+  background-color: #0fca80;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-color: #0fca80;
+  border-width: 0px;
+  cursor: pointer;
+}
+
+.upperHeader__postNewAdd_Link_Text {
+  color: #fff;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.spanAlert {
+  color: red;
+}

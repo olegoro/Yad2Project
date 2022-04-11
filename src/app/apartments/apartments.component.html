@@ -1,0 +1,33 @@
+<div appApartments class="apartment" *ngFor="let apartment of apartments">
+  <div class="apartmentLocation apartment__padding">
+    <div class="apartment_image">
+      <img [src]="apartment.imagePath" alt="{{apartment.imagePath}}" style="max-height: 70px;">
+    </div>
+    <div class="location">
+      <span class="apartment__location__street">{{apartment.street}} {{apartment.assetNumber}}</span>
+      <span class="apartmentLocation__city">{{apartment.asset}}, {{apartment.city}}</span>
+    </div>
+  </div>
+  <div class="apartmentData apartment__padding">
+    <div class="apartmentData__inner">
+      <span class="apartmentData__innner__value">{{apartment.numberOfRooms}}</span>
+      <span class="appartmentData__inner__key">חדרים</span>
+    </div>
+    <div class="apartmentData__inner">
+      <span class="apartmentData__innner__value">{{apartment.floor}}</span>
+      <span class="appartmentData__inner__key">קומה</span>
+    </div>
+    <div class="apartmentData__inner">
+      <span class="apartmentData__innner__value">{{apartment.size}}</span>
+      <span class="appartmentData__inner__key">מ"ר</span>
+    </div>
+  </div>
+  <div class="apartmentPrice apartment__padding">
+    <span>{{apartment.price}} &#x20AA;</span>
+    <span class="apartmentPrice__inner__key">עודכן היום</span>
+  </div>
+  <div style="display: none;" class="apartmentDetails">
+    <div class="apartmentDetails__header">תיאור הנכס</div>
+    <div class="apartmentDescription">{{ apartment.assetDescription }}</div>
+  </div>
+</div>

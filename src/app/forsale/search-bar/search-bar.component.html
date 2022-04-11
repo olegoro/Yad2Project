@@ -1,0 +1,285 @@
+<div class="searchBar">
+  <div class="searchBar__header">
+    <span class="searchBar__header__question_FontSize">
+      <span class="searchBar__header__question">
+        איזה נכס ל<span class="searchBar__header__question__lemchira">מכירה</span> תרצו לחפש?
+      </span>
+    </span>
+    <div class="searchBar__header__alerts">
+      <button class="searchBar__header__alerts_Button">
+        <span>
+          <svg class="svgBell" data-v-536cc0dd="" width="20" height="20" viewBox="0 0 20 20" class="bell_icon orange">
+            <g data-v-536cc0dd="" transform="translate(2 1)">
+              <ellipse data-v-536cc0dd="" cx="7.206" cy="14.44" fill="#999" stroke="#999" stroke-width=".926" rx="1.9"
+                ry="1.878" transform="rotate(18 9.206 14.44)"></ellipse>
+              <path data-v-536cc0dd="" fill="#999" stroke="#999" stroke-width=".5"
+                d="M12.8231052,15.8320384 L1.59588336,12.1600933 C0.741326334,11.8806041 0.269836303,10.9686617 0.542985389,10.1224645 C0.815755737,9.27744069 1.72954622,8.81726719 2.58246568,9.09622075 C2.65893815,9.12123163 2.74258017,9.07909159 2.76739036,9.00223131 L3.8459642,5.66088349 C4.61481752,3.27902861 6.84212555,1.71637786 9.30527285,1.73266656 L9.38971013,1.47108564 C9.6874779,0.548621518 10.6844662,0.047077824 11.6140351,0.351100142 C12.5450902,0.655608518 13.0578164,1.64918572 12.7595436,2.57321436 L12.6750952,2.83482976 C14.6772473,4.27905538 15.566613,6.86145268 14.797923,9.24280184 L13.7193491,12.5841497 C13.6940463,12.6625362 13.7361292,12.7441081 13.8140718,12.7695998 C14.6656729,13.0481222 15.1376194,13.9612666 14.8647776,14.8065116 C14.5919484,15.6517178 13.6770509,16.1113276 12.8231052,15.8320384 Z"
+                class="bell_stroke"></path>
+              <path data-v-536cc0dd="" fill="#EEE"
+                d="M9.59960261,2.62300607 L9.94192819,2.64576241 L10.2321685,1.74661782 C10.3809686,1.2856454 10.8799668,1.03461995 11.3443694,1.18650621 C11.8102812,1.33888607 12.0663829,1.83516822 11.9170852,2.29768218 L11.626842,3.19683568 L11.9170605,3.38096657 C13.7800716,4.56296579 14.6361763,6.85847156 13.9554646,8.96726966 L12.8768908,12.3086175 C12.7026263,12.8484768 13.0012781,13.4273719 13.5444061,13.6050059 C13.9311015,13.7314774 14.1461096,14.1474854 14.0223193,14.5309794 C13.8985247,14.9144864 13.481759,15.1238537 13.092771,14.9966324 L1.86554913,11.3246872 C1.47584389,11.1972313 1.26136338,10.7823892 1.38544376,10.3979967 C1.50929716,10.0143073 1.92520534,9.80486117 2.31279991,9.93162681 C2.85466526,10.1088478 3.43614333,9.81589092 3.60984873,9.27776349 L4.68842257,5.93641567 C5.369295,3.82711954 7.40211168,2.47692622 9.59960261,2.62300607 Z"
+                class="bell_fill"></path>
+            </g>
+          </svg>
+          קבלו התראות במייל על החיפוש
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="searchBar__data">
+    <div class="searchBar__data__values">
+      <span class="searchBarHeadersText">חפשו אזור, עיר, שכונה או רחוב</span>
+      <input placeholder="לדוגמא: אחוזה, חיפה" class="searchBar__data__city_Input" type="text">
+    </div>
+    <div class="searchBar__data__values">
+      <app-asset-type-selection></app-asset-type-selection>
+    </div>
+    <!-- <div class="searchBar__data__values">
+      <span class="searchBarHeadersText">סוג נכס</span>
+      <button class="searchBar__data_Dropdown" appDropdown>
+        <span class="searchBar__data__asset_Dropdown_Text">{{numberOfChosenAssetTypes === maxAmountOfChosenAssets ||
+          numberOfChosenAssetTypes === 0
+          ? 'בחרו סוגי נכסים' : numberOfChosenAssetTypes + ' סוגי נכסים'}} </span>
+        <i [ngClass]="'arrow down'"></i>
+      </button>
+      <div style="display: none;" class="searchBar__data__asset_Dropdown__values">
+        <div class="searchBar__data__asset_Dropdown__value__margin">
+          <div class="searchBar__data__asset_Dropdown__value">
+            <div class="searchBar__data__asset_Dropdown__value__right">
+              <div (click)="onCheckOrUncheckAllAssets()" appCheckbox class="searchBar__data__asset__checkboxContainer">
+                <span id="checkboxAllAssets" [ngClass]="isAllAssetsChecked ? 'clickedCheckboxBackground' : ''"
+                  class="checkbox"></span>
+                <span>כל סוגי נכסים</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="searchBar__data__asset_Dropdown__value__margin">
+          <div class="searchBar__data__asset_Dropdown__value">
+            <div class="searchBar__data__asset_Dropdown__value__right">
+              <div (click)="onCheckOrUncheckAssetsTypes(selectedApartmentData, maxAmountOfApartmentSubtypes)"
+                appCheckbox class="searchBar__data__asset__checkboxContainer">
+                <span id="apartmentAssetCheckbox" class="checkbox"
+                  [ngClass]="selectedApartmentData.isAllTypesOfSubtypeChecked ? 'clickedCheckboxBackground' : ''"></span>
+                <span>
+                  דירות
+                  <span class="searchBar__assetTypeDropdown__assetsAmountText">
+                    {{ selectedApartmentData.isAllTypesOfSubtypeChecked || selectedApartmentData.subtypesChecksCounter >
+                    0 ?
+                    'נבחרו ' +
+                    selectedApartmentData.subtypesChecksCounter
+                    + ' סוגים' : '' }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value__container" (click)="onApartmentsAssetArrowClick()">
+              <i [ngClass]="isApartmentsAssetArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+            </div>
+          </div>
+          <div *ngIf="!isApartmentsAssetArrowDown" class="assetsList">
+            <div class="asset" *ngFor="let asset of apartmentAssets; let i = index">
+              <div appCheckbox
+                (click)="onCheckOrUncheckAssetsType(selectedApartmentData, maxAmountOfApartmentSubtypes, 'apartmentType_' + i, i)"
+                class="searchBar__data__asset__checkboxContainer">
+                <span [id]="'apartmentType_' + i"
+                  [ngClass]="selectedApartmentData.isSubtypeChecked[i] ? 'clickedCheckboxBackground' : ''"
+                  class="checkbox"></span>
+                {{ asset }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="searchBar__data__asset_Dropdown__value__margin">
+          <div class="searchBar__data__asset_Dropdown__value">
+            <div class="searchBar__data__asset_Dropdown__value__right">
+              <div (click)="onCheckOrUncheckAssetsTypes(selectedHousesData, maxAmountOfHousesSubtypes)" appCheckbox
+                class="searchBar__data__asset__checkboxContainer">
+                <span id="housesAssetCheckbox" class="checkbox"
+                  [ngClass]="selectedHousesData.isAllTypesOfSubtypeChecked ? 'clickedCheckboxBackground' : ''"></span>
+                <span>
+                  בתים
+                  <span class="searchBar__assetTypeDropdown__assetsAmountText">
+                    {{ selectedHousesData.isAllTypesOfSubtypeChecked || selectedHousesData.subtypesChecksCounter >
+                    0 ?
+                    'נבחרו ' +
+                    selectedHousesData.subtypesChecksCounter
+                    + ' סוגים' : '' }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value__container" (click)="onHousesAssetArrowClick()">
+              <i [ngClass]="isHousesAssetArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!isHousesAssetArrowDown" class="assetsList">
+          <div class="asset" *ngFor="let asset of housesAssets; let i = index">
+            <div
+              (click)="onCheckOrUncheckAssetsType(selectedHousesData, maxAmountOfHousesSubtypes, 'houseType_' + i, i)"
+              appCheckbox class="searchBar__data__asset__checkboxContainer">
+              <span [id]="'houseType_' + i"
+                [ngClass]="selectedHousesData.isSubtypeChecked[i] ? 'clickedCheckboxBackground' : ''"
+                class="checkbox"></span>
+              {{ asset }}
+            </div>
+          </div>
+        </div>
+        <div class="searchBar__data__asset_Dropdown__value__margin">
+          <div class="searchBar__data__asset_Dropdown__value">
+            <div class="searchBar__data__asset_Dropdown__value__right">
+              <div (click)="onCheckOrUncheckAssetsTypes(selectedAdditionalData, maxAmountOfAdditionalTypesSubtypes)"
+                appCheckbox class="searchBar__data__asset__checkboxContainer">
+                <span id="additionalAssetsCheckbox" class="checkbox"
+                  [ngClass]="selectedAdditionalData.isAllTypesOfSubtypeChecked ? 'clickedCheckboxBackground' : ''"></span>
+                <span>
+                  סוגים נוספים
+                  <span class="searchBar__assetTypeDropdown__assetsAmountText">
+                    {{ selectedAdditionalData.isAllTypesOfSubtypeChecked ||
+                    selectedAdditionalData.subtypesChecksCounter > 0
+                    ?
+                    'נבחרו ' +
+                    selectedAdditionalData.subtypesChecksCounter
+                    + ' סוגים' : '' }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="searchBar__data__asset_Dropdown__value__container" (click)="onAnotherAssetsArrowClick()">
+              <i [ngClass]="isAnotherAssetsArrowDown ? 'bigArrow down' : 'bigArrow up'"></i>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!isAnotherAssetsArrowDown" class="assetsList">
+          <div class="asset" *ngFor="let asset of anotherAssets; let i = index">
+            <div appCheckbox
+              (click)="onCheckOrUncheckAssetsType(selectedAdditionalData, maxAmountOfAdditionalTypesSubtypes, 'addtionalTypesType_' + i, i)"
+              class="searchBar__data__asset__checkboxContainer">
+              <span [id]="'addtionalTypesType_' + i"
+                [ngClass]="selectedAdditionalData.isSubtypeChecked[i] ? 'clickedCheckboxBackground' : ''"
+                class="checkbox"></span>
+              {{ asset }}
+            </div>
+          </div>
+        </div>
+        <div class="searchBar__data__asset_Dropdown__value topBorder">
+          <div></div>
+          <button class="searchBar__data__asset_Dropdown__choiceButton">בחירה</button>
+        </div>
+      </div>
+    </div> -->
+    <div class="searchBar__data__values">
+      <span class="searchBarHeadersText">חדרים</span>
+      <button class="searchBar__data_Dropdown" appDropdown>
+        <span class="searchBar__data__asset_Dropdown_Text">חדרים</span>
+        <i [ngClass]="'arrow down'"></i>
+      </button>
+      <div style="display: none;" class="roomsMenu">
+        <input autocomplete="off" placeholder="מ-" class="roomsMenu_dropdown" />
+        <button class="roomsMenu__from_Button" appDropdown>
+          <i [ngClass]="'arrow down'"></i>
+        </button>
+        <div style="display: none;" class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__from__position">
+          <div *ngFor="let value of numberOfRooms;" class="roomsMenu_Dropdown__item">{{value}}</div>
+        </div>
+        <input autocomplete="off" placeholder="עד-" class="roomsMenu_dropdown" />
+        <button class="roomsMenu__to_Button" appDropdown>
+          <i [ngClass]="'arrow down'"></i>
+        </button>
+        <div style="display: none;" class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__to__position">
+          <div *ngFor="let value of numberOfRooms;" class="roomsMenu_Dropdown__item">{{value}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="searchBar__data__values">
+      <span class="searchBarHeadersText">מחיר</span>
+      <div class="searchBar__data__values__price">
+        <input class="searchBar__data__values__price_FromTo" type="text" placeholder="מ-">
+        <input class="searchBar__data__values__price_FromTo" type="text" placeholder="עד-">
+      </div>
+    </div>
+    <div class="searchBar__data__values">
+      <span class="searchBarHeadersText invisible">מחיר</span>
+      <button class="advancedSearch_Button" (click)="onAdvancedSearchButtonClick()">
+        <span [ngClass]="isPlusInCircle ? 'advancedSearch_Button__plus' : 'advancedSearch_Button__x'"
+          class="advancedSearch_Button__plus">&#8853;</span>
+        <span class="advancedSearch_Button_Text">חיפוש מתקדם</span>
+      </button>
+    </div>
+    <div class="searchBar__data__values">
+      <span class="searchBarHeadersText invisible">מחיר</span>
+      <button class="searchButton">
+        <span class="searchButton__lens">&#9906;</span>
+        <span class="a">חיפוש</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="!isPlusInCircle" class="advancedSearch">
+  <div class="advancedSearch__header">מאפייני דירה</div>
+  <div class="advancedSearch__top">
+    <div appCheckbox class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
+      <span class="checkbox"></span>
+      {{ item }}
+    </div>
+  </div>
+  <div class="advancedSearch__center">
+    <div class="advancedSearch__center__data">
+      קומה
+      <div class="advancedSearch__center__data__boxesArea">
+        <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+        <div appDropdown>
+          <i class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
+        </div>
+        <div style="display: none;" class="storiesDropdownList">
+          <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
+            {{ value }}
+          </div>
+        </div>
+        <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+        <div appDropdown>
+          <i class="advancedSearch_boxArrow__to" [ngClass]="'arrow down'"></i>
+        </div>
+        <div style="display: none;" class="storiesDropdownList storiesToDropdownListMargin">
+          <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
+            {{ value }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="advancedSearch__center__data">
+      גודל דירה
+      <div class="advancedSearch__center__data__boxesArea">
+        <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+        <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+      </div>
+    </div>
+    <div class="advancedSearch__center__data">
+      תאריך כניסה
+      <div class="advancedSearch__center__data__boxesArea">
+        <input placeholder="החל מ- הזינו תאריך" class="advancedSearch__center__dateBox" type="text">
+        <i class="fa advancedSearch__dateBoxSign">&#xf073;</i>
+        <div appCheckbox class="advancedSearch__center__immediateEntrance">
+          <span class="checkbox"></span>
+          כניסה מיידית
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="advancedSearch__bottom">
+    <div class="advancedSearch__bottom__freeSearch">
+      חיפוש חופשי
+      <input type="text" class="advancedSearch__bottom__freeSearch_Input">
+    </div>
+    <div class="advancedSearch__bottom__moshavimKibuzim">
+      <input disabled class="checkbox" type="checkbox">
+      הצגת מושבים וקיבוצים בלבד
+      <i class="fa fa-question-circle" style="margin-right: 5px;font-size:18px;color:#ccc"></i>
+    </div>
+  </div>
+  <div class="advancedSearch__footer">
+    <div></div>
+    <button class="advancedSearch__footer__searchButton">חיפוש</button>
+    <button class="advancedSearch__footer__clearButton">נקה</button>
+  </div>
+</div>
