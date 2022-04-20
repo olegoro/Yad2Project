@@ -91,17 +91,33 @@ export class AssetTypeSelectionComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onApartmentsAssetArrowClick() {
-    this.isApartmentsAssetArrowDown = !this.isApartmentsAssetArrowDown;
+  onAssetArrowClick(
+    isApartmentsAssetArrowDown,
+    isHousesAssetArrowDown,
+    isAnotherAssetsArrowDown
+  ) {
+    this.isApartmentsAssetArrowDown = !this.isApartmentsAssetArrowDown
+      ? true
+      : isApartmentsAssetArrowDown;
+    this.isHousesAssetArrowDown = !this.isHousesAssetArrowDown
+      ? true
+      : isHousesAssetArrowDown;
+    this.isAnotherAssetsArrowDown = !this.isAnotherAssetsArrowDown
+      ? true
+      : isAnotherAssetsArrowDown;
   }
 
-  onHousesAssetArrowClick() {
-    this.isHousesAssetArrowDown = !this.isHousesAssetArrowDown;
-  }
+  // onApartmentsAssetArrowClick() {
+  //   this.isApartmentsAssetArrowDown = !this.isApartmentsAssetArrowDown;
+  // }
 
-  onAnotherAssetsArrowClick() {
-    this.isAnotherAssetsArrowDown = !this.isAnotherAssetsArrowDown;
-  }
+  // onHousesAssetArrowClick() {
+  //   this.isHousesAssetArrowDown = !this.isHousesAssetArrowDown;
+  // }
+
+  // onAnotherAssetsArrowClick() {
+  //   this.isAnotherAssetsArrowDown = !this.isAnotherAssetsArrowDown;
+  // }
 
   private checkOrUncheckSubtypes(
     selectedAssetData: SelectedAssetData,

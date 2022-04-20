@@ -1,74 +1,109 @@
-import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  HostListener,
+  ElementRef,
+  Renderer2,
+  ViewChild,
+  Output,
+  EventEmitter,
+  Input,
+} from '@angular/core';
 
 @Directive({
   selector: '[appDropdown]',
 })
 export class DropdownDirective {
   isArrowDown = true;
-  private i;
-  private sibling;
+  private static countEntries = 0;
+  @Output() dropdownClicked = new EventEmitter<boolean>();
+
+  // private i;
+  // private sibling;
+  private static containedTargets = [];
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  @HostListener('click') showOrHideDropdown() {
-    console.log(this.el.nativeElement);
-    this.sibling = this.renderer.nextSibling(this.el.nativeElement);
-    this.i = this.el.nativeElement.querySelector('i');
-    if (this.isArrowDown) {
-      this.renderer.removeClass(this.i, 'down');
-      this.renderer.addClass(this.i, 'up');
-      this.sibling.style.display = 'flex';
+  @HostListener('click', ['$event']) showOrHideDropdown(event: Event) {
+    // let dropdownList = this.el.nativeElement.querySelector('.dropdownList');
+    // let dropdownArrow = this.el.nativeElement.querySelector('.arrow');
+    // let contains = this.el.nativeElement.contains(event.target);
+    // let children = [
+    //   this.el.nativeElement.querySelector('.dropdown'),
+    //   ...this.el.nativeElement.querySelector('.dropdown').children,
+    // ];
+    // if (contains) {
+    //   if (this.isArrowDown) {
+    //     this.openDropdown(dropdownArrow, dropdownList);
+    //   } else if (children.includes(event.target)) {
+    //     this.closeDropdown(dropdownArrow, dropdownList);
+    //   }
+    // } else {
+    //   if (!this.isArrowDown) {
+    //     this.closeDropdown(dropdownArrow, dropdownList);
+    //   }
+    // }
+  }
+
+  // @ViewChild('sdfgsdfg') insideElement;
+  @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
+    // let dropdownList = this.el.nativeElement.querySelector('.dropdownList');
+    // let dropdownArrow = this.el.nativeElement.querySelector('i');
+    // let contains = this.el.nativeElement.contains(event.target);
+    // let children = [
+    //   this.el.nativeElement.querySelector('.searchBar__data_Dropdown'),
+    //   ...this.el.nativeElement.querySelector('.searchBar__data_Dropdown')
+    //     .children,
+    // ];
+    // if (contains) {
+    //   if (this.isArrowDown) {
+    //     this.openDropdown(dropdownArrow, dropdownList);
+    //   } else if (children.includes(event.target)) {
+    //     this.closeDropdown(dropdownArrow, dropdownList);
+    //   }
+    // } else {
+    //   if (!this.isArrowDown) {
+    //     this.closeDropdown(dropdownArrow, dropdownList);
+    //   }
+    // }
+    // ***************************
+    // let dropdownList = this.el.nativeElement.querySelector('.dropdownList');
+    // let dropdownArrow = this.el.nativeElement.querySelector('i');
+    // let contains = this.el.nativeElement.contains(event.target);
+    // if (!contains && !this.isArrowDown) {
+    //   this.closeDropdown(dropdownArrow, dropdownList);
+    // }
+
+    let dropdownList = this.el.nativeElement.querySelector('.dropdownList');
+    let dropdownArrow = this.el.nativeElement.querySelector('.arrow');
+    let contains = this.el.nativeElement.contains(event.target);
+    let children = [
+      this.el.nativeElement.querySelector('.dropdown'),
+      ...this.el.nativeElement.querySelector('.dropdown').children,
+    ];
+    if (contains) {
+      if (this.isArrowDown) {
+        this.openDropdown(dropdownArrow, dropdownList);
+      } else if (children.includes(event.target)) {
+        this.closeDropdown(dropdownArrow, dropdownList);
+      }
     } else {
-      this.renderer.removeClass(this.i, 'up');
-      this.renderer.addClass(this.i, 'down');
-      this.sibling.style.display = 'none';
+      if (!this.isArrowDown) {
+        this.closeDropdown(dropdownArrow, dropdownList);
+      }
     }
+  }
+
+  private openDropdown(dropdownArrow, dropdownList) {
+    this.renderer.removeClass(dropdownArrow, 'down');
+    this.renderer.addClass(dropdownArrow, 'up');
+    dropdownList.style.display = 'flex';
     this.isArrowDown = !this.isArrowDown;
   }
 
-  @HostListener('document:click', ['$event']) toggleOpen(event: Event) {}
-
-  // @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
-  // this.i = this.el.nativeElement.querySelector('i');
-  // this.sibling = this.renderer.nextSibling(this.el.nativeElement);
-
-  // if (this.sibling.contains(this.el.nativeElement)) {
-  //   console.log(this.el);
-  // }
-
-  // if (this.el.nativeElement.className === 'roomsMenu__from_Button') {
-  //   console.log(this.el.nativeElement.className);
-  // }
-
-  // if (!this.el.nativeElement.contains(event.target)) {
-  //   if (
-  //     this.sibling.className !== 'roomsMenu' &&
-  //     this.sibling.className !== 'searchBar__data__asset_Dropdown__values'
-  //   ) {
-  //     this.renderer.removeClass(this.i, 'up');
-  //     this.renderer.addClass(this.i, 'down');
-  //     this.sibling.style.display = 'none';
-  //     this.isArrowDown = true;
-  //   }
-  // }
-
-  // }
-
-  // @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
-  //   // console.log(this.renderer.parentNode(this.el.nativeElement));
-  //   // this.isArrowDown = this.el.nativeElement.contains(event.target)
-  //   //   ? !this.isArrowDown
-  //   //   : false;
-
-  //   if (!this.el.nativeElement.contains(event.target)) {
-  //     this.renderer.removeClass(this.i, 'down');
-  //     this.renderer.addClass(this.i, 'up');
-  //     this.sibling.style.display = 'flex';
-  //   } else {
-  //     this.renderer.removeClass(this.i, 'up');
-  //     this.renderer.addClass(this.i, 'down');
-  //     this.sibling.style.display = 'none';
-  //   }
-  //   this.isArrowDown = !this.isArrowDown;
-  // }
+  private closeDropdown(dropdownArrow, dropdownList) {
+    this.renderer.removeClass(dropdownArrow, 'up');
+    this.renderer.addClass(dropdownArrow, 'down');
+    dropdownList.style.display = 'none';
+    this.isArrowDown = !this.isArrowDown;
+  }
 }
