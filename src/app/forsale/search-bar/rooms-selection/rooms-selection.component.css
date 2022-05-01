@@ -1,0 +1,95 @@
+.arrowSize {
+  width: 18px;
+  height: 18px;
+}
+
+.roomsMenu {
+  padding: 0.9375rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);
+  width: 11.25rem;
+  height: 5rem;
+  position: absolute;
+  top: 3.8125rem;
+  left: -1.1875rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.roomsMenu_dropdown {
+  font-size: 0.875rem;
+  outline: none;
+  padding: 0.625rem;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  background-color: #fff;
+  height: 2.5rem;
+  width: 4.6875rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* color: #999999;
+  font-size: 14px; */
+}
+
+.roomsMenu__from_Button {
+  width: 20px;
+  height: 0px;
+  position: absolute;
+  left: 93px;
+  border: 0;
+  background-color: #fff;
+  bottom: 49px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.roomsMenu__to_Button {
+  width: 20px;
+  height: 0;
+  position: absolute;
+  right: 135px;
+  border: 0;
+  background-color: #fff;
+  bottom: 49px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.roomsMenu__values_Dropdown {
+  width: 4.6875rem;
+  max-height: 20rem;
+  border: 1px solid #ccc;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.roomsMenu__values_Dropdown__from__position {
+  top: 75px;
+  right: 15px;
+}
+
+.roomsMenu_Dropdown__item {
+  width: 3.5rem;
+  height: 2.5rem;
+  color: #363636;
+  font-size: 0.875rem;
+  padding: 0.6875rem 0.625rem;
+  cursor: pointer;
+}
+
+.roomsMenu_Dropdown__item:hover {
+  background-color: #eeeeee;
+}
+
+.roomsMenu__values_Dropdown__to__position {
+  top: 75px;
+  right: 90px;
+}

@@ -120,7 +120,12 @@ body {
   cursor: pointer;
 }
 
-.searchBar__data__asset_Dropdown_Text {
+.placeholderText {
   color: #999999;
+  font-size: 14px;
+}
+
+.regularText {
+  color: #000000;
   font-size: 14px;
 }

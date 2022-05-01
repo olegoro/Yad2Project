@@ -9,6 +9,7 @@ import { ForsaleComponent } from './forsale.component';
 import { HeaderComponent } from './header/header.component';
 import { AssetTypeSelectionComponent } from './search-bar/asset-type-selection/asset-type-selection.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { RoomsSelectionComponent } from './search-bar/rooms-selection/rooms-selection.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     AssetTypeSelectionComponent,
     ApartmentsComponent,
     ApartmentsDirective,
+    RoomsSelectionComponent,
   ],
   imports: [SharedModule],
   exports: [

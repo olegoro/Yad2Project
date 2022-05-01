@@ -1,0 +1,42 @@
+<div class="searchBar__data__values">
+  <span class="searchBarHeadersText">חדרים</span>
+  <div (clickedOutside)="closeSubDropdown()" appDropdown>
+    <!-- appDropdown -->
+    <button class="searchBar__data_Dropdown dropdown">
+      <!-- חדרים -->
+      <span #roomsDropdownText [ngClass]="(roomsDropdownText.innerText === 'חדרים') ? 'placeholderText' : 'regularText'"
+        class="searchBar__data__asset_Dropdown_Text">חדרים</span>
+      <i [ngClass]="'arrow down'"></i>
+    </button>
+    <div style="display: none;" class="roomsMenu dropdownList">
+      <input #fromDropdown autocomplete="off" (click)="openFromSubDropdown(isFromDropdownOpened)" placeholder="מ-"
+        class="roomsMenu_dropdown" [ngClass]="fromDropdown.value === '' ? 'placeholderText': 'regularText'" />
+      <!-- appDropdown -->
+      <button (click)="openOrCloseSubDropdown(true, false)" class="roomsMenu__from_Button">
+        <div class="arrowSize">
+          <i [ngClass]="isFromDropdownOpened ? 'arrow up' : 'arrow down'"></i>
+        </div>
+      </button>
+      <!-- *ngIf="isFromDropdownOpened" -->
+      <div [ngStyle]="isFromDropdownOpened ? {'visibility': 'visible'} : {'visibility': 'hidden'}"
+        class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__from__position">
+        <div (click)="onNumberOfRoomsValueFromClick(fromDropdown, toDropdown, value, roomsDropdownText)"
+          *ngFor="let value of numberOfRoomsFrom;let i=index" class="roomsMenu_Dropdown__item">{{value}}</div>
+      </div>
+      <input #toDropdown autocomplete="off" (click)="openToSubDropdown(isToDropdownOpened)" placeholder="עד-"
+        class="roomsMenu_dropdown" [ngClass]="toDropdown.value === '' ? 'placeholderText': 'regularText'" />
+      <!-- appDropdown -->
+      <button (click)="openOrCloseSubDropdown(false, true)" class="roomsMenu__to_Button">
+        <div class="arrowSize">
+          <i [ngClass]="isToDropdownOpened ? 'arrow up' : 'arrow down'"></i>
+        </div>
+      </button>
+      <!-- *ngIf="isToDropdownOpened" -->
+      <div [ngStyle]="isToDropdownOpened ? {'visibility': 'visible'} : {'visibility': 'hidden'}"
+        class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__to__position">
+        <div (click)="onNumberOfRoomsValueToClick(toDropdown, fromDropdown ,value, roomsDropdownText)"
+          *ngFor="let value of numberOfRoomsTo;" class="roomsMenu_Dropdown__item">{{value}}</div>
+      </div>
+    </div>
+  </div>
+</div>

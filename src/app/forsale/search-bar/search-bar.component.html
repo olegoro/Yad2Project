@@ -33,33 +33,30 @@
 
     <app-asset-type-selection class="assetTypeSelection"></app-asset-type-selection>
 
-
-    <div class="searchBar__data__values">
+    <app-rooms-selection></app-rooms-selection>
+    <!-- <div class="searchBar__data__values">
       <span class="searchBarHeadersText">חדרים</span>
-      <!-- appDropdown -->
-      <button class="searchBar__data_Dropdown">
+      <button appDropdown class="searchBar__data_Dropdown">
         <span class="searchBar__data__asset_Dropdown_Text">חדרים</span>
         <i [ngClass]="'arrow down'"></i>
       </button>
       <div style="display: none;" class="roomsMenu">
         <input autocomplete="off" placeholder="מ-" class="roomsMenu_dropdown" />
-        <!-- appDropdown -->
-        <button class="roomsMenu__from_Button">
+        <button appDropdown class="roomsMenu__from_Button">
           <i [ngClass]="'arrow down'"></i>
         </button>
         <div style="display: none;" class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__from__position">
           <div *ngFor="let value of numberOfRooms;" class="roomsMenu_Dropdown__item">{{value}}</div>
         </div>
         <input autocomplete="off" placeholder="עד-" class="roomsMenu_dropdown" />
-        <!-- appDropdown -->
-        <button class="roomsMenu__to_Button">
+        <button appDropdown class="roomsMenu__to_Button">
           <i [ngClass]="'arrow down'"></i>
         </button>
         <div style="display: none;" class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__to__position">
           <div *ngFor="let value of numberOfRooms;" class="roomsMenu_Dropdown__item">{{value}}</div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="searchBar__data__values">
       <span class="searchBarHeadersText">מחיר</span>
       <div class="searchBar__data__values__price">

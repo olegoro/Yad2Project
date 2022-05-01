@@ -3,7 +3,9 @@
   <div appDropdown>
     <!-- appDropdown -->
     <button class="searchBar__data_Dropdown dropdown">
-      <span class="searchBar__data__asset_Dropdown_Text">{{numberOfChosenAssetTypes === maxAmountOfChosenAssets ||
+      <span
+        [ngClass]="(numberOfChosenAssetTypes === 0 || numberOfChosenAssetTypes === maxAmountOfChosenAssets) ? 'placeholderText' : 'regularText'">{{numberOfChosenAssetTypes
+        === maxAmountOfChosenAssets ||
         numberOfChosenAssetTypes === 0
         ? 'בחרו סוגי נכסים' : numberOfChosenAssetTypes + ' סוגי נכסים'}} </span>
       <i [ngClass]="'arrow down'"></i>

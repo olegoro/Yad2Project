@@ -63,12 +63,6 @@
   flex-wrap: wrap;
 }
 
-/* .searchBar__data__values {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-} */
-
 .searchBar__data__city_Input {
   font-size: 0.875rem;
   padding: 0.625rem;
@@ -80,117 +74,11 @@
   appearance: none;
 }
 
-/* .searchBarHeadersText {
-  font-size: 14px;
-  color: #363636;
-  margin-bottom: 4px;
-} */
-
-/* .searchBar__data_Dropdown {
-  width: 9.115rem;
-  height: 2.5rem;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  font-size: 0.875rem;
-  line-height: 1.0625rem;
-  color: #999;
-  background-color: #fff;
-  padding: 0 0.625rem 0 0.8rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-} */
-
-/* .searchBar__data__asset_Dropdown_Text {
-  color: #999999;
-  font-size: 14px;
-} */
-
-/* .searchBar__data__asset_Dropdown__values {
-  width: 17.329375rem;
-  min-height: 16.08625rem;
-  color: #363636;
-  background-color: #ffffff;
-  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);
-  position: absolute;
-  top: 3.8125rem;
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .searchBar__data__asset_Dropdown__value {
-  width: 17.329375rem;
-  height: 2.75rem;
-  padding: 0 1.25rem;
-  background-color: #f9f9f9;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-} */
-
-/* .searchBar__data__asset_Dropdown__value__margin {
-  margin-bottom: 10px;
-} */
-
-/* .searchBar__data__asset__checkboxContainer {
-  min-width: 193px;
-  cursor: pointer;
-} */
-
-/* .searchBar__data__asset_Dropdown__value__right {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-} */
-
-/* .searchBar__data__asset_Dropdown__value__container {
-  text-align: left;
-  width: 40px;
-  cursor: pointer;
-} */
-
-/* .assetsList {
-  width: 17.5rem;
-  min-height: 12.5rem;
-  padding: 0 1.25rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-} */
-
-/* .asset {
-  width: 15rem;
-  height: 3.125rem;
-  padding: 0 1.25rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-} */
-
 .topBorder {
   border-top: 1px solid #eee;
 }
 
-/* .searchBar__data__asset_Dropdown__choiceButton {
-  border: none;
-  color: #ff7100;
-  font-weight: 600;
-  background-color: transparent;
-} */
-
-/* .searchBar__assetTypeDropdown__assetsAmountText {
-  color: #999999;
-  font-size: 14px;
-  padding-right: 4px;
-} */
-
-.roomsMenu {
+/* .roomsMenu {
   padding: 0.9375rem;
   background-color: #fff;
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);
@@ -203,9 +91,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.roomsMenu_dropdown {
+/* .roomsMenu_dropdown {
   font-size: 0.875rem;
   outline: none;
   padding: 0.625rem;
@@ -220,9 +108,9 @@
   justify-content: space-between;
   color: #999999;
   font-size: 14px;
-}
+} */
 
-.roomsMenu__from_Button {
+/* .roomsMenu__from_Button {
   width: 20px;
   height: 0;
   position: absolute;
@@ -231,9 +119,9 @@
   background-color: #fff;
   bottom: 49px;
   cursor: pointer;
-}
+} */
 
-.roomsMenu__values_Dropdown {
+/* .roomsMenu__values_Dropdown {
   width: 4.6875rem;
   height: 20rem;
   border: 1px solid #ccc;
@@ -243,23 +131,23 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
-}
+} */
 
-.roomsMenu__values_Dropdown__from__position {
+/* .roomsMenu__values_Dropdown__from__position {
   top: 75px;
   right: 15px;
-}
+} */
 
-.roomsMenu_Dropdown__item {
+/* .roomsMenu_Dropdown__item {
   width: 3.5rem;
   height: 2.5rem;
   color: #363636;
   font-size: 0.875rem;
   padding: 0.6875rem 0.625rem;
   cursor: pointer;
-}
+} */
 
-.roomsMenu__from_Dropdown__item:hover {
+/* .roomsMenu__from_Dropdown__item:hover {
   background-color: #eeeeee;
 }
 
@@ -272,12 +160,12 @@
   background-color: #fff;
   bottom: 50px;
   cursor: pointer;
-}
+} */
 
-.roomsMenu__values_Dropdown__to__position {
+/* .roomsMenu__values_Dropdown__to__position {
   top: 75px;
   right: 90px;
-}
+} */
 
 .advancedSearch_Button {
   display: flex;

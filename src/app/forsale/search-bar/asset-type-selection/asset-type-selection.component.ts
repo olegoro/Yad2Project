@@ -107,18 +107,6 @@ export class AssetTypeSelectionComponent implements OnInit {
       : isAnotherAssetsArrowDown;
   }
 
-  // onApartmentsAssetArrowClick() {
-  //   this.isApartmentsAssetArrowDown = !this.isApartmentsAssetArrowDown;
-  // }
-
-  // onHousesAssetArrowClick() {
-  //   this.isHousesAssetArrowDown = !this.isHousesAssetArrowDown;
-  // }
-
-  // onAnotherAssetsArrowClick() {
-  //   this.isAnotherAssetsArrowDown = !this.isAnotherAssetsArrowDown;
-  // }
-
   private checkOrUncheckSubtypes(
     selectedAssetData: SelectedAssetData,
     maxCheckedSubtypes: number
