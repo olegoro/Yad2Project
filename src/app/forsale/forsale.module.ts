@@ -1,6 +1,7 @@
 // import { CommonModule } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { ApartmentsComponent } from '../apartments/apartments.component';
 import { ApartmentsDirective } from '../apartments/apartments.directive';
@@ -21,7 +22,7 @@ import { RoomsSelectionComponent } from './search-bar/rooms-selection/rooms-sele
     ApartmentsDirective,
     RoomsSelectionComponent,
   ],
-  imports: [SharedModule],
+  imports: [SharedModule, FormsModule],
   exports: [
     ForsaleComponent,
     HeaderComponent,

@@ -34,33 +34,12 @@
     <app-asset-type-selection class="assetTypeSelection"></app-asset-type-selection>
 
     <app-rooms-selection></app-rooms-selection>
-    <!-- <div class="searchBar__data__values">
-      <span class="searchBarHeadersText">חדרים</span>
-      <button appDropdown class="searchBar__data_Dropdown">
-        <span class="searchBar__data__asset_Dropdown_Text">חדרים</span>
-        <i [ngClass]="'arrow down'"></i>
-      </button>
-      <div style="display: none;" class="roomsMenu">
-        <input autocomplete="off" placeholder="מ-" class="roomsMenu_dropdown" />
-        <button appDropdown class="roomsMenu__from_Button">
-          <i [ngClass]="'arrow down'"></i>
-        </button>
-        <div style="display: none;" class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__from__position">
-          <div *ngFor="let value of numberOfRooms;" class="roomsMenu_Dropdown__item">{{value}}</div>
-        </div>
-        <input autocomplete="off" placeholder="עד-" class="roomsMenu_dropdown" />
-        <button appDropdown class="roomsMenu__to_Button">
-          <i [ngClass]="'arrow down'"></i>
-        </button>
-        <div style="display: none;" class="roomsMenu__values_Dropdown roomsMenu__values_Dropdown__to__position">
-          <div *ngFor="let value of numberOfRooms;" class="roomsMenu_Dropdown__item">{{value}}</div>
-        </div>
-      </div>
-    </div> -->
+
     <div class="searchBar__data__values">
       <span class="searchBarHeadersText">מחיר</span>
       <div class="searchBar__data__values__price">
-        <input class="searchBar__data__values__price_FromTo" type="text" placeholder="מ-">
+        <input [(ngModel)]="priceFrom" (keyup)="keyPressNumbers($event)" class="searchBar__data__values__price_FromTo"
+          type="text" placeholder="מ-">
         <input class="searchBar__data__values__price_FromTo" type="text" placeholder="עד-">
       </div>
     </div>
