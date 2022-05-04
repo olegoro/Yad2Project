@@ -38,9 +38,10 @@
     <div class="searchBar__data__values">
       <span class="searchBarHeadersText">מחיר</span>
       <div class="searchBar__data__values__price">
-        <input [(ngModel)]="priceFrom" (keyup)="keyPressNumbers($event)" class="searchBar__data__values__price_FromTo"
-          type="text" placeholder="מ-">
-        <input class="searchBar__data__values__price_FromTo" type="text" placeholder="עד-">
+        <input appCurrencyInput [(ngModel)]='priceFrom' (valueEntered)="onPriceValueFromEntered($event)" type="text"
+          class="searchBar__data__values__price_FromTo" placeholder="מ-">
+        <input appCurrencyInput [(ngModel)]='priceTo' (valueEntered)="onPriceValueToEntered($event)"
+          class="searchBar__data__values__price_FromTo" type="text" placeholder="עד-">
       </div>
     </div>
     <div class="searchBar__data__values">
@@ -73,7 +74,6 @@
       קומה
       <div class="advancedSearch__center__data__boxesArea">
         <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <!-- appDropdown -->
         <div>
           <i class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
         </div>
@@ -83,7 +83,6 @@
           </div>
         </div>
         <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <!-- appDropdown -->
         <div>
           <i class="advancedSearch_boxArrow__to" [ngClass]="'arrow down'"></i>
         </div>

@@ -7,6 +7,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
   priceFrom: string = '';
+  priceTo: string = '';
   isPlusInCircle = true;
 
   numberOfRooms = [
@@ -82,41 +83,11 @@ export class SearchBarComponent implements OnInit {
     this.isPlusInCircle = !this.isPlusInCircle;
   }
 
-  keyPressNumbers(event) {
-    let price = event.which ? event.which : event.keyCode;
-    let typedValue: string = event.target.value;
+  onPriceValueFromEntered(priceForm) {
+    this.priceFrom = priceForm;
+  }
 
-    if (typedValue === '0') {
-      this.priceFrom = '';
-    }
-    // Only Numbers 0-9
-    if (price < 48 || price > 57) {
-      this.priceFrom = typedValue.substring(0, typedValue.length - 1);
-      return false;
-    } else if (typedValue.length <= 10) {
-      if (typedValue.length <= 7) {
-        if (typedValue.length >= 4) {
-          typedValue = typedValue.replace(',', '');
-
-          this.priceFrom =
-            typedValue.substring(0, typedValue.length - 3) +
-            ',' +
-            typedValue.substring(typedValue.length - 3);
-        }
-      } else {
-        typedValue = typedValue.replace(/,/g, '');
-
-        this.priceFrom =
-          typedValue.substring(0, typedValue.length - 6) +
-          ',' +
-          typedValue.substring(typedValue.length - 6, typedValue.length - 3) +
-          ',' +
-          typedValue.substring(typedValue.length - 3);
-      }
-
-      return true;
-    } else {
-      this.priceFrom = typedValue.substring(0, typedValue.length - 1);
-    }
+  onPriceValueToEntered(priceTo) {
+    this.priceTo = priceTo;
   }
 }
