@@ -7,7 +7,7 @@
   /* width: 100vw; */
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 1fr 985.75px 1fr;
   grid-template-rows: auto 0.5fr;
   grid-template-areas:
     ". main ."

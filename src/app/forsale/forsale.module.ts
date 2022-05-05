@@ -1,5 +1,4 @@
 // import { CommonModule } from '@angular/common';
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -11,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { AssetTypeSelectionComponent } from './search-bar/asset-type-selection/asset-type-selection.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RoomsSelectionComponent } from './search-bar/rooms-selection/rooms-selection.component';
+import { AdvancedSearchComponent } from './search-bar/advanced-search/advanced-search.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { RoomsSelectionComponent } from './search-bar/rooms-selection/rooms-sele
     ApartmentsComponent,
     ApartmentsDirective,
     RoomsSelectionComponent,
+    AdvancedSearchComponent,
   ],
   imports: [SharedModule, FormsModule],
   exports: [

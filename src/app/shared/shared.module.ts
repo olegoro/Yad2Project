@@ -1,13 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { DropdownDirective } from './dropdown.directive';
 import { CurrencyInputDirective } from './currency-input.directive';
+import { CheckboxDirective } from './checkbox.directive';
 
 @NgModule({
-  declarations: [DropdownDirective, CurrencyInputDirective],
+  declarations: [DropdownDirective, CurrencyInputDirective, CheckboxDirective],
   imports: [CommonModule],
-  exports: [DropdownDirective, CurrencyInputDirective, CommonModule],
+  exports: [
+    DropdownDirective,
+    CurrencyInputDirective,
+    CommonModule,
+    CheckboxDirective,
+  ],
 })
 export class SharedModule {}

@@ -16,7 +16,7 @@ import { PublishAssetComponent } from './publish/publish-asset/publish-asset.com
 import { ApartmentService } from './apartments/apartments.service';
 // import { SearchBarComponent } from './forsale/search-bar/search-bar.component';
 // import { DropdownDirective } from './shared/dropdown.directive';
-import { CheckboxDirective } from './shared/checkbox.directive';
+// import { CheckboxDirective } from './shared/checkbox.directive';
 // import { ApartmentsDirective } from './apartments/apartments.directive';
 // import { AssetTypeSelectionComponent } from './forsale/search-bar/asset-type-selection/asset-type-selection.component';
 import { ForsaleModule } from './forsale/forsale.module';
@@ -36,7 +36,7 @@ import { SharedModule } from './shared/shared.module';
     PublishAssetComponent,
     // SearchBarComponent,
     // DropdownDirective,
-    CheckboxDirective,
+    // CheckboxDirective,
     // ApartmentsDirective,
     // AssetTypeSelectionComponent,
   ],

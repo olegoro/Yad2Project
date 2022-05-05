@@ -1,37 +1,3 @@
-/* .searchBar__data__values {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-} */
-
-/* .searchBarHeadersText {
-  font-size: 14px;
-  color: #363636;
-  margin-bottom: 4px;
-} */
-
-/* .searchBar__data_Dropdown {
-  width: 9.115rem;
-  height: 2.5rem;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  font-size: 0.875rem;
-  line-height: 1.0625rem;
-  color: #999;
-  background-color: #fff;
-  padding: 0 0.625rem 0 0.8rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-} */
-
-/* .searchBar__data__asset_Dropdown_Text {
-  color: #999999;
-  font-size: 14px;
-} */
-
 .searchBar__data__asset_Dropdown__values {
   width: 17.329375rem;
   min-height: 16.08625rem;
