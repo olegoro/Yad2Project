@@ -111,7 +111,7 @@
   margin-right: 8px;
 }
 
-.advancedSearch {
+/* .advancedSearch {
   height: 29.875rem;
   color: #363636;
   background: #ffffff;
@@ -133,9 +133,9 @@
   flex-flow: row wrap;
   align-items: center;
   border-bottom: 1px solid #ccc;
-}
+} */
 
-.advancedSearch__checkboxArea {
+/* .advancedSearch__checkboxArea {
   width: 11rem;
   height: 2.8125rem;
   padding: 10px;
@@ -150,9 +150,9 @@
   height: 19px;
   margin: 3px 5px;
   cursor: pointer;
-}
+} */
 
-.advancedSearch__center {
+/* .advancedSearch__center {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -169,9 +169,9 @@
   width: 17.019375rem;
   height: 5.0625rem;
   padding: 0.625rem;
-}
+} */
 
-.advancedSearch__center__data__boxesArea {
+/* .advancedSearch__center__data__boxesArea {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -190,23 +190,23 @@
 
 .advancedSearch__center__boxWidth {
   width: 7.6975rem;
-}
+} */
 
-.advancedSearch_boxArrow {
+/* .advancedSearch_boxArrow {
   position: absolute;
   top: 1.0625rem;
   right: 6.5625rem;
   cursor: pointer;
-}
+} */
 
-.advancedSearch_boxArrow__to {
+/* .advancedSearch_boxArrow__to {
   position: absolute;
   cursor: pointer;
   top: 1.0625rem;
   right: 235px;
-}
+} */
 
-.advancedSearch__center__dateBox {
+/* .advancedSearch__center__dateBox {
   width: 11.748125rem;
   height: 2.5rem;
   background: #ffffff;
@@ -214,17 +214,17 @@
   border-radius: 2px;
   border: 1px solid #ccc;
   font-size: 0.9375rem;
-}
+} */
 
-.advancedSearch__dateBoxSign {
+/* .advancedSearch__dateBoxSign {
   font-size: 1.5625rem;
   color: #ccc;
   left: 5rem;
   top: 0.625rem;
   position: absolute;
-}
+} */
 
-.advancedSearch__center__immediateEntrance {
+/* .advancedSearch__center__immediateEntrance {
   min-width: 8rem;
   min-height: 2.8125rem;
   color: #363636;
@@ -237,9 +237,9 @@
   justify-content: center;
   padding-bottom: 3.4375rem;
   align-self: flex-end;
-}
+} */
 
-.advancedSearch__bottom {
+/* .advancedSearch__bottom {
   min-height: 6.375rem;
   margin: 0 2.5rem;
   padding: 0.625rem 0;
@@ -247,9 +247,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-}
+} */
 
-.advancedSearch__bottom__freeSearch {
+/* .advancedSearch__bottom__freeSearch {
   width: 22rem;
   height: 5.0625rem;
   display: flex;
@@ -265,9 +265,9 @@
   outline: none;
   border: 1px solid #ccc;
   border-radius: 1px;
-}
+} */
 
-.advancedSearch__bottom__moshavimKibuzim {
+/* .advancedSearch__bottom__moshavimKibuzim {
   width: 16.443125rem;
   height: 2.8125rem;
   margin: 0 0 0.625rem;
@@ -276,9 +276,9 @@
   flex-direction: row;
   align-items: center;
   color: #ccc;
-}
+} */
 
-.advancedSearch__footer {
+/* .advancedSearch__footer {
   min-height: 65px;
   color: #363636;
   margin: 0 2.5rem;
@@ -286,9 +286,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.advancedSearch__footer__searchButton {
+/* .advancedSearch__footer__searchButton {
   width: 4.375rem;
   height: 2.5625rem;
   color: #ffffff;
@@ -300,9 +300,9 @@
 
 .advancedSearch__footer__searchButton:hover {
   background: #bf6205;
-}
+} */
 
-.advancedSearch__footer__clearButton {
+/* .advancedSearch__footer__clearButton {
   width: 4.6875rem;
   height: 0.9375rem;
   color: #363636;
@@ -312,9 +312,9 @@
   cursor: pointer;
   text-align: center;
   background-color: initial;
-}
+} */
 
-.storiesDropdownList {
+/* .storiesDropdownList {
   width: 7.6975rem;
   height: 20rem;
   color: #363636;
@@ -326,22 +326,22 @@
   top: 55px;
   display: flex;
   flex-direction: column;
-}
+} */
 
-.storiesDropdownItem {
+/* .storiesDropdownItem {
   width: 6.51rem;
   height: 2.5rem;
   padding: 0.6875rem 0.625rem;
   cursor: pointer;
-}
+} */
 
-.storiesDropdownItem:hover {
+/* .storiesDropdownItem:hover {
   background: #eeeeee;
-}
+} */
 
-.storiesToDropdownListMargin {
+/* .storiesToDropdownListMargin {
   right: 129px;
-}
+} */
 
 .searchButton {
   display: flex;

@@ -61,7 +61,8 @@
     </div>
   </div>
 </div>
-<div *ngIf="!isPlusInCircle" class="advancedSearch">
+<app-advanced-search [isOpenedAdvancedSearch]="!isPlusInCircle"></app-advanced-search>
+<!-- <div *ngIf="!isPlusInCircle" class="advancedSearch">
   <div class="advancedSearch__header">מאפייני דירה</div>
   <div class="advancedSearch__top">
     <div appCheckbox class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
@@ -130,4 +131,4 @@
     <button class="advancedSearch__footer__searchButton">חיפוש</button>
     <button class="advancedSearch__footer__clearButton">נקה</button>
   </div>
-</div>
+</div> -->

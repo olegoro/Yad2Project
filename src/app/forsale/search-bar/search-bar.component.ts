@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,7 +8,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 export class SearchBarComponent implements OnInit {
   priceFrom: string = '';
   priceTo: string = '';
-  isPlusInCircle = true;
+  @Input() isPlusInCircle = true;
 
   numberOfRooms = [
     'הכל',
@@ -61,19 +61,19 @@ export class SearchBarComponent implements OnInit {
     '17',
   ];
 
-  advancedSearchCheckboxData = [
-    'חניה',
-    'מעלית',
-    'מיזוג',
-    'מרפסת',
-    'ממ"ד',
-    'סורגים',
-    'מחסן',
-    'גישה לנכים',
-    'משופצת',
-    'מרוהטת',
-    'בבלעדיות',
-  ];
+  // advancedSearchCheckboxData = [
+  //   'חניה',
+  //   'מעלית',
+  //   'מיזוג',
+  //   'מרפסת',
+  //   'ממ"ד',
+  //   'סורגים',
+  //   'מחסן',
+  //   'גישה לנכים',
+  //   'משופצת',
+  //   'מרוהטת',
+  //   'בבלעדיות',s
+  // ];
 
   constructor() {}
 
