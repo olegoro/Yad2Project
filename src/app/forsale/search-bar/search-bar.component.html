@@ -47,9 +47,11 @@
     <div class="searchBar__data__values">
       <span class="searchBarHeadersText invisible">מחיר</span>
       <button class="advancedSearch_Button" (click)="onAdvancedSearchButtonClick()">
+        <span *ngIf="numberOfCheckedApartmentProperties > 0" class="checkedApartmentPropertiesIndicator"></span>
         <span [ngClass]="isPlusInCircle ? 'advancedSearch_Button__plus' : 'advancedSearch_Button__x'"
           class="advancedSearch_Button__plus">&#8853;</span>
-        <span class="advancedSearch_Button_Text">חיפוש מתקדם</span>
+        <span class="advancedSearch_Button_Text">חיפוש מתקדם <span *ngIf="numberOfCheckedApartmentProperties > 0">
+            ({{ numberOfCheckedApartmentProperties }})</span></span>
       </button>
     </div>
     <div class="searchBar__data__values">
@@ -61,74 +63,6 @@
     </div>
   </div>
 </div>
-<app-advanced-search [isOpenedAdvancedSearch]="!isPlusInCircle"></app-advanced-search>
-<!-- <div *ngIf="!isPlusInCircle" class="advancedSearch">
-  <div class="advancedSearch__header">מאפייני דירה</div>
-  <div class="advancedSearch__top">
-    <div appCheckbox class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
-      <div class="advancedSearch__checkboxItemArea">
-        <span class="checkbox"></span>
-        {{ item }}
-      </div>
-    </div>
-  </div>
-  <div class="advancedSearch__center">
-    <div class="advancedSearch__center__data">
-      קומה
-      <div class="advancedSearch__center__data__boxesArea">
-        <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <div>
-          <i class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
-        </div>
-        <div style="display: none;" class="storiesDropdownList">
-          <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
-            {{ value }}
-          </div>
-        </div>
-        <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <div>
-          <i class="advancedSearch_boxArrow__to" [ngClass]="'arrow down'"></i>
-        </div>
-        <div style="display: none;" class="storiesDropdownList storiesToDropdownListMargin">
-          <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
-            {{ value }}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="advancedSearch__center__data">
-      גודל דירה
-      <div class="advancedSearch__center__data__boxesArea">
-        <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-      </div>
-    </div>
-    <div class="advancedSearch__center__data">
-      תאריך כניסה
-      <div class="advancedSearch__center__data__boxesArea">
-        <input placeholder="החל מ- הזינו תאריך" class="advancedSearch__center__dateBox" type="text">
-        <i class="fa advancedSearch__dateBoxSign">&#xf073;</i>
-        <div appCheckbox class="advancedSearch__center__immediateEntrance">
-          <span class="checkbox"></span>
-          כניסה מיידית
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="advancedSearch__bottom">
-    <div class="advancedSearch__bottom__freeSearch">
-      חיפוש חופשי
-      <input type="text" class="advancedSearch__bottom__freeSearch_Input">
-    </div>
-    <div class="advancedSearch__bottom__moshavimKibuzim">
-      <input disabled class="checkbox" type="checkbox">
-      הצגת מושבים וקיבוצים בלבד
-      <i class="fa fa-question-circle" style="margin-right: 5px;font-size:18px;color:#ccc"></i>
-    </div>
-  </div>
-  <div class="advancedSearch__footer">
-    <div></div>
-    <button class="advancedSearch__footer__searchButton">חיפוש</button>
-    <button class="advancedSearch__footer__clearButton">נקה</button>
-  </div>
-</div> -->
+<app-advanced-search (apartmentPropertyClicked)="onApartmentPropertyClicked($event)"
+  [isOpenedAdvancedSearch]="!isPlusInCircle">
+</app-advanced-search>

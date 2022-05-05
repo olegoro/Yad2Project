@@ -8,6 +8,7 @@ import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 export class SearchBarComponent implements OnInit {
   priceFrom: string = '';
   priceTo: string = '';
+  numberOfCheckedApartmentProperties = 0;
   @Input() isPlusInCircle = true;
 
   numberOfRooms = [
@@ -61,20 +62,6 @@ export class SearchBarComponent implements OnInit {
     '17',
   ];
 
-  // advancedSearchCheckboxData = [
-  //   'חניה',
-  //   'מעלית',
-  //   'מיזוג',
-  //   'מרפסת',
-  //   'ממ"ד',
-  //   'סורגים',
-  //   'מחסן',
-  //   'גישה לנכים',
-  //   'משופצת',
-  //   'מרוהטת',
-  //   'בבלעדיות',s
-  // ];
-
   constructor() {}
 
   ngOnInit(): void {}
@@ -89,5 +76,10 @@ export class SearchBarComponent implements OnInit {
 
   onPriceValueToEntered(priceTo) {
     this.priceTo = priceTo;
+  }
+
+  onApartmentPropertyClicked(numberOfCheckedApartmentProperties: number) {
+    this.numberOfCheckedApartmentProperties =
+      numberOfCheckedApartmentProperties;
   }
 }

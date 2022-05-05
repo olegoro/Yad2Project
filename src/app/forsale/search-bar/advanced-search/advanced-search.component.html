@@ -1,7 +1,8 @@
 <div *ngIf="isOpenedAdvancedSearch" class="advancedSearch">
   <div class="advancedSearch__header">מאפייני דירה</div>
   <div class="advancedSearch__top">
-    <div appCheckbox class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
+    <div appCheckbox #apartmentProperty class="advancedSearch__checkboxArea"
+      (click)="onApartmentPropertyCheck(apartmentProperty)" *ngFor="let item of advancedSearchCheckboxData">
       <div class="advancedSearch__checkboxItemArea">
         <span class="checkbox"></span>
         {{ item }}
