@@ -23,6 +23,9 @@ export class AdvancedSearchComponent implements OnInit {
 
   isDropdownOpened = false;
 
+  apartmentSizeFrom: string = '';
+  apartmentSizeTo: string = '';
+
   advancedSearchCheckboxData = [
     'חניה',
     'מעלית',
@@ -132,7 +135,6 @@ export class AdvancedSearchComponent implements OnInit {
         } else {
           this.floorsTo = [...this.advancedStoriesAmountValues];
         }
-        floors = [...this.advancedStoriesAmountValues];
       }
     } else {
       if (selectedFloor === 'הכל') {
@@ -172,6 +174,16 @@ export class AdvancedSearchComponent implements OnInit {
       secondInput.value = '';
     }
   }
-}
 
-//**************************************** */
+  //********************************** */
+
+  onApartmentSizeFromValueEntered(apartmentSizeFrom) {
+    this.apartmentSizeFrom = apartmentSizeFrom;
+  }
+
+  onApartmentSizeToValueEntered(apartmentSizeTo) {
+    this.apartmentSizeTo = apartmentSizeTo;
+  }
+
+  /********************************* */
+}

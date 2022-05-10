@@ -47,8 +47,10 @@
     <div class="advancedSearch__center__data">
       גודל דירה
       <div class="advancedSearch__center__data__boxesArea">
-        <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+        <input appAmountInput [(ngModel)]='apartmentSizeFrom' (valueEntered)="onApartmentSizeFromValueEntered($event)"
+          placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+        <input appAmountInput [(ngModel)]='apartmentSizeTo' (valueEntered)="onApartmentSizeToValueEntered($event)"
+          placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
       </div>
     </div>
     <div class="advancedSearch__center__data">

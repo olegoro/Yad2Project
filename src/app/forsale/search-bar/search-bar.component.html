@@ -38,9 +38,9 @@
     <div class="searchBar__data__values">
       <span class="searchBarHeadersText">מחיר</span>
       <div class="searchBar__data__values__price">
-        <input appCurrencyInput [(ngModel)]='priceFrom' (valueEntered)="onPriceValueFromEntered($event)" type="text"
+        <input appAmountInput [(ngModel)]='priceFrom' (valueEntered)="onPriceValueFromEntered($event)" type="text"
           class="searchBar__data__values__price_FromTo" placeholder="מ-">
-        <input appCurrencyInput [(ngModel)]='priceTo' (valueEntered)="onPriceValueToEntered($event)"
+        <input appAmountInput [(ngModel)]='priceTo' (valueEntered)="onPriceValueToEntered($event)"
           class="searchBar__data__values__price_FromTo" type="text" placeholder="עד-">
       </div>
     </div>

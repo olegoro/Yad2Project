@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { DropdownDirective } from './dropdown.directive';
-import { CurrencyInputDirective } from './currency-input.directive';
+import { CurrencyInputDirective } from './amount-input.directive';
 import { CheckboxDirective } from './checkbox.directive';
 
 @NgModule({
