@@ -127,6 +127,11 @@ export class AdvancedSearchComponent implements OnInit {
       if (selectedFloor !== 'הכל') {
         this.updateDropdownList(selectedFloor, secondInput);
       } else {
+        if (secondInput.id === 'inputFromDropdown') {
+          this.floorsFrom = [...this.advancedStoriesAmountValues];
+        } else {
+          this.floorsTo = [...this.advancedStoriesAmountValues];
+        }
         floors = [...this.advancedStoriesAmountValues];
       }
     } else {
@@ -168,3 +173,5 @@ export class AdvancedSearchComponent implements OnInit {
     }
   }
 }
+
+//**************************************** */
