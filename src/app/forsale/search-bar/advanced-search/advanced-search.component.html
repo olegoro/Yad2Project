@@ -13,22 +13,33 @@
     <div class="advancedSearch__center__data">
       קומה
       <div class="advancedSearch__center__data__boxesArea">
-        <input placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <div>
-          <i class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
-        </div>
-        <div style="display: none;" class="storiesDropdownList">
-          <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
-            {{ value }}
+        <div appDropdown>
+          <div class="dropdown">
+            <input id="inputFromDropdown" #floorFrom placeholder="מ-"
+              class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <div class="arrowContainer">
+              <i #arrowFrom class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
+            </div>
+            <div #dropdownListFloorFrom style="display: none;" class="storiesDropdownList dropdownList">
+              <div class="storiesDropdownItem" *ngFor="let value of floorsFrom"
+                (click)="onFloorValueClick(floorFrom, floorTo, value)">{{ value }}
+              </div>
+            </div>
           </div>
         </div>
-        <input placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
-        <div>
-          <i class="advancedSearch_boxArrow__to" [ngClass]="'arrow down'"></i>
-        </div>
-        <div style="display: none;" class="storiesDropdownList storiesToDropdownListMargin">
-          <div class="storiesDropdownItem" *ngFor="let value of advancedStoriesAmountValues">
-            {{ value }}
+        <div appDropdown>
+          <div class="dropdown">
+            <input id="inputToDropdown" #floorTo placeholder="עד-"
+              class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <div class="arrowContainer_to">
+              <i #arrowTo class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
+            </div>
+            <div #dropdownListFloorTo style="display: none;"
+              class="storiesDropdownList storiesToDropdownListMargin dropdownList">
+              <div class="storiesDropdownItem" *ngFor="let value of floorsTo"
+                (click)="onFloorValueClick(floorTo, floorFrom, value, dropdownListFloorTo, arrowTo)">{{ value }}
+              </div>
+            </div>
           </div>
         </div>
       </div>

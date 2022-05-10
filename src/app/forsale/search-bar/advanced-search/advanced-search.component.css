@@ -79,11 +79,28 @@
   width: 7.6975rem;
 }
 
+.arrowContainer {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 11px;
+  right: 100px;
+  cursor: pointer;
+}
+
 .advancedSearch_boxArrow {
   position: absolute;
-  top: 1.0625rem;
-  right: 6.5625rem;
+  top: 5px;
+  right: 6px;
+}
+
+.arrowContainer_to {
+  width: 18px;
+  height: 18px;
   cursor: pointer;
+  position: absolute;
+  top: 11px;
+  right: 230px;
 }
 
 .storiesDropdownList {
@@ -109,13 +126,6 @@
 
 .storiesDropdownItem:hover {
   background: #eeeeee;
-}
-
-.advancedSearch_boxArrow__to {
-  position: absolute;
-  cursor: pointer;
-  top: 1.0625rem;
-  right: 235px;
 }
 
 .storiesToDropdownListMargin {
