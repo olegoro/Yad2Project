@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appCurrencyInput]',
+  selector: '[appAmountInput]',
 })
 export class CurrencyInputDirective {
   @Input() priceFrom: string = '';

@@ -20,10 +20,14 @@ export class DropdownDirective {
     let dropdownList = this.el.nativeElement.querySelector('.dropdownList');
     let dropdownArrow = this.el.nativeElement.querySelector('.arrow');
     let contains = this.el.nativeElement.contains(event.target);
+
     let children = [
       this.el.nativeElement.querySelector('.dropdown'),
-      ...this.el.nativeElement.querySelector('.dropdown').children,
+      ...this.el.nativeElement
+        .querySelector('.dropdown')
+        .getElementsByTagName('*'),
     ];
+
     if (contains) {
       if (this.isArrowDown) {
         this.openDropdown(dropdownArrow, dropdownList);
