@@ -21,6 +21,7 @@ import { ApartmentService } from './apartments/apartments.service';
 // import { AssetTypeSelectionComponent } from './forsale/search-bar/asset-type-selection/asset-type-selection.component';
 import { ForsaleModule } from './forsale/forsale.module';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ForsaleModule,
     SharedModule,
+    BrowserAnimationsModule,
   ],
   providers: [ApartmentService],
   bootstrap: [AppComponent],

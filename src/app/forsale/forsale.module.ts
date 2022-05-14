@@ -1,6 +1,9 @@
 // import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { ApartmentsComponent } from '../apartments/apartments.component';
 import { ApartmentsDirective } from '../apartments/apartments.directive';
@@ -23,7 +26,13 @@ import { AdvancedSearchComponent } from './search-bar/advanced-search/advanced-s
     RoomsSelectionComponent,
     AdvancedSearchComponent,
   ],
-  imports: [SharedModule, FormsModule],
+  imports: [
+    SharedModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+  ],
   exports: [
     ForsaleComponent,
     HeaderComponent,

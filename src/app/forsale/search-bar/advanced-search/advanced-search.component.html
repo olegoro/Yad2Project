@@ -1,9 +1,8 @@
 <div *ngIf="isOpenedAdvancedSearch" class="advancedSearch">
   <div class="advancedSearch__header">מאפייני דירה</div>
   <div class="advancedSearch__top">
-    <div appCheckbox #apartmentProperty class="advancedSearch__checkboxArea"
-      (click)="onApartmentPropertyCheck(apartmentProperty)" *ngFor="let item of advancedSearchCheckboxData">
-      <div class="advancedSearch__checkboxItemArea">
+    <div #apartmentProperty class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
+      <div (click)="onApartmentPropertyCheck(apartmentProperty)" appCheckbox class="advancedSearch__checkboxItemArea">
         <span class="checkbox"></span>
         {{ item }}
       </div>
@@ -56,8 +55,20 @@
     <div class="advancedSearch__center__data">
       תאריך כניסה
       <div class="advancedSearch__center__data__boxesArea">
-        <input placeholder="החל מ- הזינו תאריך" class="advancedSearch__center__dateBox" type="text">
-        <i class="fa advancedSearch__dateBoxSign">&#xf073;</i>
+        <input readonly [matDatepicker]="datepicker" matInput placeholder="החל מ- הזינו תאריך"
+          class="advancedSearch__center__dateBox" type="text">
+        <!-- <mat-form-field> -->
+        <!-- <input [matDatepicker]="datepicker" matInput placeholder="החל מ- הזינו תאריך"
+          class="advancedSearch__center__dateBox" type="text"> -->
+        <!-- <mat-datepicker #datepicker></mat-datepicker> -->
+        <div class="datePickerSignContainer">
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        </div>
+        <!-- <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle> -->
+
+        <mat-datepicker #datepicker></mat-datepicker>
+        <!-- </mat-form-field> -->
+        <!-- <i class="fa advancedSearch__dateBoxSign">&#xf073;</i> -->
         <div appCheckbox class="advancedSearch__center__immediateEntrance">
           <span class="checkbox"></span>
           כניסה מיידית
