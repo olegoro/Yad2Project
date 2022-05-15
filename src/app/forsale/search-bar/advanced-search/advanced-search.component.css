@@ -76,6 +76,10 @@ mat-datepicker-toggle {
   position: absolute;
 }
 
+.immediateEntranceCheckboxContainer:hover {
+  cursor: pointer;
+}
+
 .advancedSearch__center__box {
   font-size: 0.875rem;
   outline: none;

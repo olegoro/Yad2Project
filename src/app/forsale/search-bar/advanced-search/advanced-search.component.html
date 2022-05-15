@@ -19,9 +19,7 @@
             <div class="arrowContainer">
               <i #arrowFrom class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
             </div>
-            <div #dropdownListFloorFrom style="display: none;" class="stori
-            +
-            esDropdownList dropdownList">
+            <div #dropdownListFloorFrom style="display: none;" class="storiesDropdownList dropdownList">
               <div class="storiesDropdownItem" *ngFor="let value of floorsFrom"
                 (click)="onFloorValueClick(floorFrom, floorTo, value)">{{ value }}
               </div>
@@ -65,9 +63,12 @@
           <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
         </div>
         <mat-datepicker color="primary" #datepicker></mat-datepicker>
-        <div appCheckbox class="advancedSearch__center__immediateEntrance">
-          <span class="checkbox"></span>
-          כניסה מיידית
+        <div class="advancedSearch__center__immediateEntrance">
+          <div class="immediateEntranceCheckboxContainer" appCheckbox>
+            <span class="checkbox"></span>
+            כניסה מיידית
+          </div>
+
         </div>
       </div>
     </div>

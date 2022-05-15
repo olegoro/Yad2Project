@@ -16,7 +16,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 export class AdvancedSearchComponent implements OnInit {
   @Input() isOpenedAdvancedSearch = false;
   @Output() apartmentPropertyClicked = new EventEmitter<number>();
-  numberOfCheckedApartmentProperties: number = 0;
+  numberOfAdvancedSearchSelections: number = 0;
   isApartmentPropertyChecked = false;
 
   isFromDropdownOpened = false;
@@ -64,38 +64,6 @@ export class AdvancedSearchComponent implements OnInit {
     '17',
   ];
 
-  monthsCalendarHebrew = [
-    'ינואר',
-    'פברואר',
-    'מרץ',
-    'אפריל',
-    'מאי',
-    'יוני',
-    'יולי',
-    'אוגוסט',
-    'ספטמבר',
-    'אוקטובר',
-    'נובמבר',
-    'דצמבר',
-  ];
-
-  monthsCalendarEnglish = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  selectedDate;
-
   floorsFrom = [...this.advancedStoriesAmountValues];
   floorsTo = [...this.advancedStoriesAmountValues];
 
@@ -108,11 +76,11 @@ export class AdvancedSearchComponent implements OnInit {
       .querySelector('.checkbox')
       .classList.contains('clickedCheckboxBackground');
 
-    this.numberOfCheckedApartmentProperties = this.isApartmentPropertyChecked
-      ? this.numberOfCheckedApartmentProperties + 1
-      : this.numberOfCheckedApartmentProperties - 1;
+    this.numberOfAdvancedSearchSelections = this.isApartmentPropertyChecked
+      ? this.numberOfAdvancedSearchSelections + 1
+      : this.numberOfAdvancedSearchSelections - 1;
 
-    this.apartmentPropertyClicked.emit(this.numberOfCheckedApartmentProperties);
+    this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
   }
 
   //************************************** */
@@ -122,6 +90,12 @@ export class AdvancedSearchComponent implements OnInit {
     secondInput: HTMLInputElement,
     selectedFloor: any
   ) {
+    this.updateNumberOfSelectionsOnSelectingFloor(
+      selectedInput,
+      secondInput,
+      selectedFloor
+    );
+
     this.setDropdownSelectedFloorValue(
       selectedInput,
       secondInput,
@@ -132,6 +106,30 @@ export class AdvancedSearchComponent implements OnInit {
       secondInput,
       selectedFloor
     );
+  }
+
+  private updateNumberOfSelectionsOnSelectingFloor(
+    selectedInput: HTMLInputElement,
+    secondInput: HTMLInputElement,
+    selectedFloor: any
+  ) {
+    if (
+      (secondInput.value === '' || secondInput.value === 'הכל') &&
+      (selectedInput.value === '' || selectedInput.value === 'הכל') &&
+      selectedFloor != '' &&
+      selectedFloor != 'הכל'
+    ) {
+      this.numberOfAdvancedSearchSelections++;
+    } else if (
+      selectedInput.value !== 'הכל' &&
+      selectedInput.value !== '' &&
+      (secondInput.value === 'הכל' || secondInput.value === '') &&
+      (selectedFloor === '' || selectedFloor === 'הכל')
+    ) {
+      this.numberOfAdvancedSearchSelections--;
+    }
+
+    this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
   }
 
   private setCorrectFloorsValuesToDropdownList(

@@ -49,10 +49,9 @@ body {
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
-
   position: relative;
-  height: 1em;
-  width: 1em;
+  min-width: 16px;
+  min-height: 16px;
 }
 
 .checkbox:hover {
@@ -130,5 +129,11 @@ body {
   font-size: 14px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
