@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Renderer2,
 } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-advanced-search',
@@ -62,6 +63,38 @@ export class AdvancedSearchComponent implements OnInit {
     '16',
     '17',
   ];
+
+  monthsCalendarHebrew = [
+    'ינואר',
+    'פברואר',
+    'מרץ',
+    'אפריל',
+    'מאי',
+    'יוני',
+    'יולי',
+    'אוגוסט',
+    'ספטמבר',
+    'אוקטובר',
+    'נובמבר',
+    'דצמבר',
+  ];
+
+  monthsCalendarEnglish = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  selectedDate;
 
   floorsFrom = [...this.advancedStoriesAmountValues];
   floorsTo = [...this.advancedStoriesAmountValues];
@@ -184,6 +217,4 @@ export class AdvancedSearchComponent implements OnInit {
   onApartmentSizeToValueEntered(apartmentSizeTo) {
     this.apartmentSizeTo = apartmentSizeTo;
   }
-
-  /********************************* */
 }

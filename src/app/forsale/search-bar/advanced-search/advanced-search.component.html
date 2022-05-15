@@ -57,20 +57,14 @@
     <div class="advancedSearch__center__data">
       תאריך כניסה
       <div class="advancedSearch__center__data__boxesArea">
-        <input readonly [matDatepicker]="datepicker" matInput placeholder="החל מ- הזינו תאריך"
-          class="advancedSearch__center__dateBox" type="text">
-        <!-- <mat-form-field> -->
-        <!-- <input [matDatepicker]="datepicker" matInput placeholder="החל מ- הזינו תאריך"
-          class="advancedSearch__center__dateBox" type="text"> -->
-        <!-- <mat-datepicker #datepicker></mat-datepicker> -->
-        <div class="datePickerSignContainer">
+        <div>
+          <input readonly matInput [matDatepicker]="datepicker" placeholder="החל מ- הזינו תאריך"
+            class="advancedSearch__center__dateBox" type="text">
+        </div>
+        <div (click)="datepicker.open()" class="datePickerSignContainer">
           <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
         </div>
-        <!-- <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle> -->
-
-        <mat-datepicker #datepicker></mat-datepicker>
-        <!-- </mat-form-field> -->
-        <!-- <i class="fa advancedSearch__dateBoxSign">&#xf073;</i> -->
+        <mat-datepicker color="primary" #datepicker></mat-datepicker>
         <div appCheckbox class="advancedSearch__center__immediateEntrance">
           <span class="checkbox"></span>
           כניסה מיידית
