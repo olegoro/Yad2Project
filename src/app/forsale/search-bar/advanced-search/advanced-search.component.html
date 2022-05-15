@@ -1,14 +1,8 @@
 <div *ngIf="isOpenedAdvancedSearch" class="advancedSearch">
   <div class="advancedSearch__header">מאפייני דירה</div>
   <div class="advancedSearch__top">
-<<<<<<< HEAD
     <div #apartmentProperty class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
       <div (click)="onApartmentPropertyCheck(apartmentProperty)" appCheckbox class="advancedSearch__checkboxItemArea">
-=======
-    <div appCheckbox #apartmentProperty class="advancedSearch__checkboxArea"
-      (click)="onApartmentPropertyCheck(apartmentProperty)" *ngFor="let item of advancedSearchCheckboxData">
-      <div class="advancedSearch__checkboxItemArea">
->>>>>>> caedefba0bc9e3ba280b43bae3becc67196d529d
         <span class="checkbox"></span>
         {{ item }}
       </div>
@@ -25,7 +19,9 @@
             <div class="arrowContainer">
               <i #arrowFrom class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
             </div>
-            <div #dropdownListFloorFrom style="display: none;" class="storiesDropdownList dropdownList">
+            <div #dropdownListFloorFrom style="display: none;" class="stori
+            +
+            esDropdownList dropdownList">
               <div class="storiesDropdownItem" *ngFor="let value of floorsFrom"
                 (click)="onFloorValueClick(floorFrom, floorTo, value)">{{ value }}
               </div>

@@ -50,8 +50,10 @@
         <span *ngIf="numberOfCheckedApartmentProperties > 0" class="checkedApartmentPropertiesIndicator"></span>
         <span [ngClass]="isPlusInCircle ? 'advancedSearch_Button__plus' : 'advancedSearch_Button__x'"
           class="advancedSearch_Button__plus">&#8853;</span>
-        <span class="advancedSearch_Button_Text">חיפוש מתקדם <span *ngIf="numberOfCheckedApartmentProperties > 0">
-            ({{ numberOfCheckedApartmentProperties }})</span></span>
+        <span class="advancedSearch_Button_Text">חיפוש מתקדם
+          <span *ngIf="numberOfCheckedApartmentProperties > 0"> ({{ numberOfCheckedApartmentProperties }})</span>
+
+        </span>
       </button>
     </div>
     <div class="searchBar__data__values">
