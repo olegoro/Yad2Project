@@ -26,6 +26,8 @@ export class AdvancedSearchComponent implements OnInit {
 
   apartmentSizeFrom: string = '';
   apartmentSizeTo: string = '';
+  isApartmentSizeFromEmpty = true;
+  isApartmentSizeToEmpty = true;
 
   advancedSearchCheckboxData = [
     'חניה',
@@ -209,10 +211,38 @@ export class AdvancedSearchComponent implements OnInit {
   //********************************** */
 
   onApartmentSizeFromValueEntered(apartmentSizeFrom) {
+    if (this.isApartmentSizeFromEmpty && apartmentSizeFrom !== '') {
+      if (this.isApartmentSizeToEmpty) {
+        this.numberOfAdvancedSearchSelections++;
+      }
+      this.isApartmentSizeFromEmpty = false;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    } else if (!this.isApartmentSizeFromEmpty && apartmentSizeFrom === '') {
+      if (this.isApartmentSizeToEmpty) {
+        this.numberOfAdvancedSearchSelections--;
+      }
+      this.isApartmentSizeFromEmpty = true;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    }
+
     this.apartmentSizeFrom = apartmentSizeFrom;
   }
-
   onApartmentSizeToValueEntered(apartmentSizeTo) {
+    if (this.isApartmentSizeToEmpty && apartmentSizeTo !== '') {
+      if (this.isApartmentSizeFromEmpty) {
+        this.numberOfAdvancedSearchSelections++;
+      }
+
+      this.isApartmentSizeToEmpty = false;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    } else if (!this.isApartmentSizeToEmpty && apartmentSizeTo === '') {
+      if (this.isApartmentSizeFromEmpty) {
+        this.numberOfAdvancedSearchSelections--;
+      }
+      this.isApartmentSizeToEmpty = true;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    }
+
     this.apartmentSizeTo = apartmentSizeTo;
   }
 }

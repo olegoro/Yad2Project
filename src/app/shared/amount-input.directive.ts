@@ -67,9 +67,7 @@ export class CurrencyInputDirective {
         this.priceFrom = typedValue;
       }
     } else {
-      console.log('Before: ' + typedValue + '/' + typedValue.length);
       typedValue = typedValue.replace(/,/g, '');
-      console.log('After: ' + typedValue + '/' + typedValue.length);
       if (typedValue.length >= 7 && typedValue.length < 10) {
         this.priceFrom =
           typedValue.substring(0, typedValue.length - 6) +
