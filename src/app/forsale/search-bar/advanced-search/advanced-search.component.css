@@ -255,3 +255,9 @@ mat-datepicker-toggle {
   text-align: center;
   background-color: initial;
 }
+
+.BBBBBB {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: red;
+}

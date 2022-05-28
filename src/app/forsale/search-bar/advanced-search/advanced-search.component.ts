@@ -6,7 +6,10 @@ import {
   EventEmitter,
   Renderer2,
 } from '@angular/core';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import {
+  MatDatepicker,
+  MatDatepickerInputEvent,
+} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-advanced-search',
@@ -28,6 +31,8 @@ export class AdvancedSearchComponent implements OnInit {
   apartmentSizeTo: string = '';
   isApartmentSizeFromEmpty = true;
   isApartmentSizeToEmpty = true;
+
+  isEntranceDateInputEmpty = true;
 
   advancedSearchCheckboxData = [
     'חניה',
@@ -244,5 +249,17 @@ export class AdvancedSearchComponent implements OnInit {
     }
 
     this.apartmentSizeTo = apartmentSizeTo;
+  }
+
+  openDatepicker(datepicker: MatDatepicker<Date>) {
+    datepicker.open();
+  }
+
+  addOneToNumberOfAdvancedSelections() {
+    if (this.isEntranceDateInputEmpty) {
+      this.numberOfAdvancedSearchSelections++;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.isEntranceDateInputEmpty = false;
+    }
   }
 }
