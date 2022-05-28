@@ -57,7 +57,8 @@
       <div class="advancedSearch__center__data__boxesArea">
         <div>
           <input #entranceDateInput readonly matInput [matDatepicker]="datepicker" placeholder="החל מ- הזינו תאריך"
-            (dateInput)="addOneToNumberOfAdvancedSelections()" class="advancedSearch__center__dateBox" type="text">
+            (dateInput)="addOneToNumberOfAdvancedSelections(immediateEntranceCheckbox)"
+            class="advancedSearch__center__dateBox" type="text">
         </div>
         <div (click)="openDatepicker(datepicker, entranceDateInput)" class="datePickerSignContainer">
           <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
@@ -66,11 +67,11 @@
         <mat-datepicker color="primary" #datepicker></mat-datepicker>
 
         <div class="advancedSearch__center__immediateEntrance">
-          <div class="immediateEntranceCheckboxContainer" appCheckbox>
-            <span class="checkbox"></span>
+          <div (click)="checkOrUncheckImmediateEntrance(immediateEntranceCheckbox, entranceDateInput)"
+            class="immediateEntranceCheckboxContainer" appCheckbox>
+            <span #immediateEntranceCheckbox class="checkbox"></span>
             כניסה מיידית
           </div>
-
         </div>
       </div>
     </div>

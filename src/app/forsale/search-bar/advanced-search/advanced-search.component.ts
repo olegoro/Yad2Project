@@ -255,11 +255,52 @@ export class AdvancedSearchComponent implements OnInit {
     datepicker.open();
   }
 
-  addOneToNumberOfAdvancedSelections() {
+  addOneToNumberOfAdvancedSelections(immediateEntranceCheckbox) {
     if (this.isEntranceDateInputEmpty) {
       this.numberOfAdvancedSearchSelections++;
       this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
       this.isEntranceDateInputEmpty = false;
+
+      if (
+        immediateEntranceCheckbox.classList.contains(
+          'clickedCheckboxBackground'
+        )
+      ) {
+        // immediateEntranceCheckbox.removeClass('clickedCheckboxBackground');
+        this.renderer.removeClass(
+          immediateEntranceCheckbox,
+          'clickedCheckboxBackground'
+        );
+
+        this.numberOfAdvancedSearchSelections--;
+        this.apartmentPropertyClicked.emit(
+          this.numberOfAdvancedSearchSelections
+        );
+      }
+    }
+  }
+
+  checkOrUncheckImmediateEntrance(
+    immediateEntranceCheckbox,
+    entranceDateInput
+  ) {
+    if (
+      immediateEntranceCheckbox.classList.contains('clickedCheckboxBackground')
+    ) {
+      if (entranceDateInput.value !== '') {
+        entranceDateInput.value = '';
+        this.isEntranceDateInputEmpty = true;
+        this.numberOfAdvancedSearchSelections--;
+        this.apartmentPropertyClicked.emit(
+          this.numberOfAdvancedSearchSelections
+        );
+      }
+
+      this.numberOfAdvancedSearchSelections++;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    } else {
+      this.numberOfAdvancedSearchSelections--;
+      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
     }
   }
 }
