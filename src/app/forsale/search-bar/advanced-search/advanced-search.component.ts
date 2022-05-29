@@ -5,6 +5,8 @@ import {
   Output,
   EventEmitter,
   Renderer2,
+  HostListener,
+  ElementRef,
 } from '@angular/core';
 import {
   MatDatepicker,
@@ -33,6 +35,8 @@ export class AdvancedSearchComponent implements OnInit {
   isApartmentSizeToEmpty = true;
 
   isEntranceDateInputEmpty = true;
+
+  isEmptyFreeSearch = true;
 
   advancedSearchCheckboxData = [
     'חניה',
@@ -74,7 +78,7 @@ export class AdvancedSearchComponent implements OnInit {
   floorsFrom = [...this.advancedStoriesAmountValues];
   floorsTo = [...this.advancedStoriesAmountValues];
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {}
 
@@ -301,6 +305,30 @@ export class AdvancedSearchComponent implements OnInit {
     } else {
       this.numberOfAdvancedSearchSelections--;
       this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    }
+  }
+
+  @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
+    let advanceSearchInput = this.el.nativeElement.querySelector(
+      '.advancedSearch__bottom__freeSearch_Input'
+    );
+
+    let contains = advanceSearchInput.contains(event.target);
+
+    if (!contains) {
+      if (advanceSearchInput.value !== '' && this.isEmptyFreeSearch) {
+        this.numberOfAdvancedSearchSelections++;
+        this.apartmentPropertyClicked.emit(
+          this.numberOfAdvancedSearchSelections
+        );
+        this.isEmptyFreeSearch = false;
+      } else if (advanceSearchInput.value === '' && !this.isEmptyFreeSearch) {
+        this.numberOfAdvancedSearchSelections--;
+        this.apartmentPropertyClicked.emit(
+          this.numberOfAdvancedSearchSelections
+        );
+        this.isEmptyFreeSearch = true;
+      }
     }
   }
 }
