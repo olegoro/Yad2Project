@@ -14,6 +14,7 @@ import { AssetTypeSelectionComponent } from './search-bar/asset-type-selection/a
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RoomsSelectionComponent } from './search-bar/rooms-selection/rooms-selection.component';
 import { AdvancedSearchComponent } from './search-bar/advanced-search/advanced-search.component';
+import { AdvancedSearchDirective } from './search-bar/advanced-search/advanced-search.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AdvancedSearchComponent } from './search-bar/advanced-search/advanced-s
     ApartmentsDirective,
     RoomsSelectionComponent,
     AdvancedSearchComponent,
+    AdvancedSearchDirective,
   ],
   imports: [
     SharedModule,

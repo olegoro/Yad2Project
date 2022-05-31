@@ -20,7 +20,7 @@ import {
 })
 export class AdvancedSearchComponent implements OnInit {
   @Input() isOpenedAdvancedSearch = false;
-  @Output() apartmentPropertyClicked = new EventEmitter<number>();
+  @Output() advancedSearchNewDataAdded = new EventEmitter<number>();
   numberOfAdvancedSearchSelections: number = 0;
   isApartmentPropertyChecked = false;
 
@@ -91,7 +91,7 @@ export class AdvancedSearchComponent implements OnInit {
       ? this.numberOfAdvancedSearchSelections + 1
       : this.numberOfAdvancedSearchSelections - 1;
 
-    this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    this.advancedSearchNewDataAdded.emit(this.numberOfAdvancedSearchSelections);
   }
 
   //************************************** */
@@ -140,7 +140,7 @@ export class AdvancedSearchComponent implements OnInit {
       this.numberOfAdvancedSearchSelections--;
     }
 
-    this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+    this.advancedSearchNewDataAdded.emit(this.numberOfAdvancedSearchSelections);
   }
 
   private setCorrectFloorsValuesToDropdownList(
@@ -225,13 +225,17 @@ export class AdvancedSearchComponent implements OnInit {
         this.numberOfAdvancedSearchSelections++;
       }
       this.isApartmentSizeFromEmpty = false;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
     } else if (!this.isApartmentSizeFromEmpty && apartmentSizeFrom === '') {
       if (this.isApartmentSizeToEmpty) {
         this.numberOfAdvancedSearchSelections--;
       }
       this.isApartmentSizeFromEmpty = true;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
     }
 
     this.apartmentSizeFrom = apartmentSizeFrom;
@@ -243,13 +247,17 @@ export class AdvancedSearchComponent implements OnInit {
       }
 
       this.isApartmentSizeToEmpty = false;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
     } else if (!this.isApartmentSizeToEmpty && apartmentSizeTo === '') {
       if (this.isApartmentSizeFromEmpty) {
         this.numberOfAdvancedSearchSelections--;
       }
       this.isApartmentSizeToEmpty = true;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
     }
 
     this.apartmentSizeTo = apartmentSizeTo;
@@ -262,7 +270,9 @@ export class AdvancedSearchComponent implements OnInit {
   addOneToNumberOfAdvancedSelections(immediateEntranceCheckbox) {
     if (this.isEntranceDateInputEmpty) {
       this.numberOfAdvancedSearchSelections++;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
       this.isEntranceDateInputEmpty = false;
 
       if (
@@ -277,7 +287,7 @@ export class AdvancedSearchComponent implements OnInit {
         );
 
         this.numberOfAdvancedSearchSelections--;
-        this.apartmentPropertyClicked.emit(
+        this.advancedSearchNewDataAdded.emit(
           this.numberOfAdvancedSearchSelections
         );
       }
@@ -295,16 +305,20 @@ export class AdvancedSearchComponent implements OnInit {
         entranceDateInput.value = '';
         this.isEntranceDateInputEmpty = true;
         this.numberOfAdvancedSearchSelections--;
-        this.apartmentPropertyClicked.emit(
+        this.advancedSearchNewDataAdded.emit(
           this.numberOfAdvancedSearchSelections
         );
       }
 
       this.numberOfAdvancedSearchSelections++;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
     } else {
       this.numberOfAdvancedSearchSelections--;
-      this.apartmentPropertyClicked.emit(this.numberOfAdvancedSearchSelections);
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
     }
   }
 
@@ -313,21 +327,23 @@ export class AdvancedSearchComponent implements OnInit {
       '.advancedSearch__bottom__freeSearch_Input'
     );
 
-    let contains = advanceSearchInput.contains(event.target);
+    if (advanceSearchInput != null) {
+      let contains = advanceSearchInput.contains(event.target);
 
-    if (!contains) {
-      if (advanceSearchInput.value !== '' && this.isEmptyFreeSearch) {
-        this.numberOfAdvancedSearchSelections++;
-        this.apartmentPropertyClicked.emit(
-          this.numberOfAdvancedSearchSelections
-        );
-        this.isEmptyFreeSearch = false;
-      } else if (advanceSearchInput.value === '' && !this.isEmptyFreeSearch) {
-        this.numberOfAdvancedSearchSelections--;
-        this.apartmentPropertyClicked.emit(
-          this.numberOfAdvancedSearchSelections
-        );
-        this.isEmptyFreeSearch = true;
+      if (!contains) {
+        if (advanceSearchInput.value !== '' && this.isEmptyFreeSearch) {
+          this.numberOfAdvancedSearchSelections++;
+          this.advancedSearchNewDataAdded.emit(
+            this.numberOfAdvancedSearchSelections
+          );
+          this.isEmptyFreeSearch = false;
+        } else if (advanceSearchInput.value === '' && !this.isEmptyFreeSearch) {
+          this.numberOfAdvancedSearchSelections--;
+          this.advancedSearchNewDataAdded.emit(
+            this.numberOfAdvancedSearchSelections
+          );
+          this.isEmptyFreeSearch = true;
+        }
       }
     }
   }

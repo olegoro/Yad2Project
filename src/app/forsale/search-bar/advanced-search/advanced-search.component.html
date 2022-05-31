@@ -1,4 +1,102 @@
-<div *ngIf="isOpenedAdvancedSearch" class="advancedSearch">
+<!-- <div appAdvancedSearch> -->
+<div [hidden]="!isOpenedAdvancedSearch" class="advancedSearch">
+  <div class="advancedSearch__header">מאפייני דירה</div>
+  <div class="advancedSearch__top">
+    <div #apartmentProperty class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
+      <div (click)="onApartmentPropertyCheck(apartmentProperty)" appCheckbox class="advancedSearch__checkboxItemArea">
+        <span class="checkbox"></span>
+        {{ item }}
+      </div>
+    </div>
+  </div>
+  <div class="advancedSearch__center">
+    <div class="advancedSearch__center__data">
+      קומה
+      <div class="advancedSearch__center__data__boxesArea">
+        <div appDropdown>
+          <div class="dropdown">
+            <input id="inputFromDropdown" #floorFrom placeholder="מ-"
+              class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <div class="arrowContainer">
+              <i #arrowFrom class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
+            </div>
+            <div #dropdownListFloorFrom style="display: none;" class="storiesDropdownList dropdownList">
+              <div class="storiesDropdownItem" *ngFor="let value of floorsFrom"
+                (click)="onFloorValueClick(floorFrom, floorTo, value)">{{ value }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div appDropdown>
+          <div class="dropdown">
+            <input id="inputToDropdown" #floorTo placeholder="עד-"
+              class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <div class="arrowContainer_to">
+              <i #arrowTo class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
+            </div>
+            <div #dropdownListFloorTo style="display: none;"
+              class="storiesDropdownList storiesToDropdownListMargin dropdownList">
+              <div class="storiesDropdownItem" *ngFor="let value of floorsTo"
+                (click)="onFloorValueClick(floorTo, floorFrom, value, dropdownListFloorTo, arrowTo)">{{ value }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="advancedSearch__center__data">
+      גודל דירה
+      <div class="advancedSearch__center__data__boxesArea">
+        <input appAmountInput [(ngModel)]='apartmentSizeFrom' (valueEntered)="onApartmentSizeFromValueEntered($event)"
+          placeholder="מ-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+        <input appAmountInput [(ngModel)]='apartmentSizeTo' (valueEntered)="onApartmentSizeToValueEntered($event)"
+          placeholder="עד-" class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+      </div>
+    </div>
+    <div class="advancedSearch__center__data">
+      תאריך כניסה
+      <div class="advancedSearch__center__data__boxesArea">
+        <div>
+          <input #entranceDateInput readonly matInput [matDatepicker]="datepicker" placeholder="החל מ- הזינו תאריך"
+            (dateInput)="addOneToNumberOfAdvancedSelections(immediateEntranceCheckbox)"
+            class="advancedSearch__center__dateBox" type="text">
+        </div>
+        <div (click)="openDatepicker(datepicker)" class="datePickerSignContainer">
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        </div>
+
+        <mat-datepicker color="primary" #datepicker></mat-datepicker>
+
+        <div class="advancedSearch__center__immediateEntrance">
+          <div (click)="checkOrUncheckImmediateEntrance(immediateEntranceCheckbox, entranceDateInput)"
+            class="immediateEntranceCheckboxContainer" appCheckbox>
+            <span #immediateEntranceCheckbox class="checkbox"></span>
+            כניסה מיידית
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="advancedSearch__bottom">
+    <div class="advancedSearch__bottom__freeSearch">
+      חיפוש חופשי
+      <input type="text" class="advancedSearch__bottom__freeSearch_Input">
+    </div>
+    <div class="advancedSearch__bottom__moshavimKibuzim">
+      <input disabled class="checkbox" type="checkbox">
+      הצגת מושבים וקיבוצים בלבד
+      <i class="fa fa-question-circle" style="margin-right: 5px;font-size:18px;color:#ccc"></i>
+    </div>
+  </div>
+  <div class="advancedSearch__footer">
+    <div></div>
+    <button class="advancedSearch__footer__searchButton">חיפוש</button>
+    <button class="advancedSearch__footer__clearButton">נקה</button>
+  </div>
+</div>
+<!-- </div> -->
+
+<!-- <div *ngIf="isOpenedAdvancedSearch" class="advancedSearch">
   <div class="advancedSearch__header">מאפייני דירה</div>
   <div class="advancedSearch__top">
     <div #apartmentProperty class="advancedSearch__checkboxArea" *ngFor="let item of advancedSearchCheckboxData">
@@ -92,4 +190,4 @@
     <button class="advancedSearch__footer__searchButton">חיפוש</button>
     <button class="advancedSearch__footer__clearButton">נקה</button>
   </div>
-</div>
+</div> -->
