@@ -119,6 +119,7 @@ mat-datepicker-toggle {
 }
 
 .storiesDropdownList {
+  z-index: 10;
   width: 7.6975rem;
   max-height: 20rem;
   color: #363636;
