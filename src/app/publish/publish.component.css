@@ -136,7 +136,6 @@
   background: #000000;
   position: fixed;
   opacity: 0.6;
-  z-index: 99;
   cursor: pointer;
 }
 
@@ -150,13 +149,11 @@
   justify-content: center;
   align-items: center;
   opacity: 2;
-  z-index: 1000;
   position: relative;
   bottom: 115px;
 }
 
 .popupMessage {
-  z-index: 999;
   width: 18.125rem;
   height: 14.1875rem;
   background-color: #fff;
@@ -173,7 +170,6 @@
   cursor: pointer;
   width: 30px;
   font-size: 27px;
-  z-index: 100;
   background-color: hsla(0, 0%, 100%, 0);
   border: 0;
 }

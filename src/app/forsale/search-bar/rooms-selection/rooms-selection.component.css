@@ -60,6 +60,7 @@
 }
 
 .roomsMenu__values_Dropdown {
+  z-index: 10;
   width: 4.6875rem;
   max-height: 20rem;
   border: 1px solid #ccc;

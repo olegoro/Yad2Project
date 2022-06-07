@@ -1,4 +1,5 @@
 .searchBar__data__asset_Dropdown__values {
+  z-index: 10;
   width: 17.329375rem;
   min-height: 16.08625rem;
   color: #363636;
