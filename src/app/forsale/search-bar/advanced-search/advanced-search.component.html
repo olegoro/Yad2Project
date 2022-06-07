@@ -15,8 +15,11 @@
       <div class="advancedSearch__center__data__boxesArea">
         <div appDropdown>
           <div class="dropdown">
-            <input id="inputFromDropdown" #floorFrom placeholder="מ-"
+            <!-- (click)="onFloorFromArrowClick(floorFrom, floorTo)" -->
+            <!-- (keyup)="onFloorFromKeyPress(floorFrom, floorTo)" -->
+            <input readonly id="inputFromDropdown" #floorFrom placeholder="מ-"
               class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <!-- (click)="onFloorFromArrowClick(floorFrom, floorTo)" -->
             <div class="arrowContainer">
               <i #arrowFrom class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
             </div>
@@ -29,8 +32,11 @@
         </div>
         <div appDropdown>
           <div class="dropdown">
-            <input id="inputToDropdown" #floorTo placeholder="עד-"
+            <!-- (click)="onFloorToArrowClick(floorTo, floorFrom)" -->
+            <!-- (keyup)="onFloorToKeyPress(floorTo, floorFrom)" -->
+            <input readonly id="inputToDropdown" #floorTo placeholder="עד-"
               class="advancedSearch__center__box advancedSearch__center__boxWidth" type="text">
+            <!-- (click)="onFloorToArrowClick(floorTo, floorFrom)" -->
             <div class="arrowContainer_to">
               <i #arrowTo class="advancedSearch_boxArrow" [ngClass]="'arrow down'"></i>
             </div>

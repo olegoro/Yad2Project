@@ -24,8 +24,11 @@ export class AdvancedSearchComponent implements OnInit {
   numberOfAdvancedSearchSelections: number = 0;
   isApartmentPropertyChecked = false;
 
-  isFromDropdownOpened = false;
-  isToDropdownOpened = false;
+  // isFloorFromDropdownOpened = false;
+  // isFloorToDropdownOpened = false;
+
+  isFloorFromEmpty = true;
+  isFloorToEmpty = true;
 
   isDropdownOpened = false;
 
@@ -95,6 +98,119 @@ export class AdvancedSearchComponent implements OnInit {
   }
 
   //************************************** */
+
+  onFloorFromKeyPress(floorFrom: HTMLInputElement, floorTo: HTMLInputElement) {
+    let floorFromValue = floorFrom.value;
+    let floorToValue = floorTo.value;
+
+    this.updateNumberOfSelectionsOnFloorInputKeyPress(floorFrom, floorTo);
+
+    this.floorsFrom = [...this.advancedStoriesAmountValues].filter((x) =>
+      x.includes(floorFromValue)
+    );
+
+    // this.floorsFrom = [...this.floorsTo].filter((x) =>
+    //   x.includes(floorFromValue)
+    // );
+
+    this.setCorrectFloorsValuesToDropdownList(
+      floorFrom,
+      floorTo,
+      floorFromValue
+    );
+
+    // if (floorFromValue !== '' && floorToValue === '') {
+    //   this.numberOfAdvancedSearchSelections++;
+    //   this.advancedSearchNewDataAdded.emit(
+    //     this.numberOfAdvancedSearchSelections
+    //   );
+    // } else if (floorFromValue === '' && floorToValue === '') {
+    //   this.numberOfAdvancedSearchSelections--;
+    //   this.advancedSearchNewDataAdded.emit(
+    //     this.numberOfAdvancedSearchSelections
+    //   );
+    // }
+
+    // if (floorFromValue !== '' && this.isFloorFromEmpty) {
+    //   this.numberOfAdvancedSearchSelections++;
+    //   this.isFloorFromEmpty = !this.isFloorFromEmpty;
+    //   this.advancedSearchNewDataAdded.emit(
+    //     this.numberOfAdvancedSearchSelections
+    //   );
+    // } else if (floorFromValue === '' && !this.isFloorFromEmpty) {
+    //   this.numberOfAdvancedSearchSelections--;
+    //   this.isFloorFromEmpty = !this.isFloorFromEmpty;
+    //   this.advancedSearchNewDataAdded.emit(
+    //     this.numberOfAdvancedSearchSelections
+    //   );
+    // }
+  }
+
+  onFloorToKeyPress(floorTo: HTMLInputElement, floorFrom: HTMLInputElement) {
+    let floorToValue = floorTo.value;
+
+    this.updateNumberOfSelectionsOnFloorInputKeyPress(floorTo, floorFrom);
+
+    this.floorsTo = [...this.advancedStoriesAmountValues].filter((x) =>
+      x.includes(floorToValue)
+    );
+
+    // this.floorsTo = [...this.floorsFrom].filter((x) =>
+    //   x.includes(floorToValue)
+    // );
+
+    this.setCorrectFloorsValuesToDropdownList(floorTo, floorFrom, floorToValue);
+
+    // if (floorToValue !== '' && this.isFloorToEmpty) {
+    //   this.numberOfAdvancedSearchSelections++;
+    //   this.isFloorToEmpty = !this.isFloorToEmpty;
+    //   this.advancedSearchNewDataAdded.emit(
+    //     this.numberOfAdvancedSearchSelections
+    //   );
+    // } else if (floorToValue === '' && !this.isFloorToEmpty) {
+    //   this.numberOfAdvancedSearchSelections--;
+    //   this.isFloorToEmpty = !this.isFloorToEmpty;
+    //   this.advancedSearchNewDataAdded.emit(
+    //     this.numberOfAdvancedSearchSelections
+    //   );
+    // }
+  }
+
+  private updateNumberOfSelectionsOnFloorInputKeyPress(
+    selectedInput: HTMLInputElement,
+    secondInput: HTMLInputElement
+  ) {
+    let selectedValue = selectedInput.value;
+    let secondValue = secondInput.value;
+
+    if (selectedValue !== '' && secondValue === '') {
+      this.numberOfAdvancedSearchSelections++;
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
+    } else if (selectedValue === '' && secondValue === '') {
+      this.numberOfAdvancedSearchSelections--;
+      this.advancedSearchNewDataAdded.emit(
+        this.numberOfAdvancedSearchSelections
+      );
+    }
+  }
+
+  onFloorFromArrowClick(floorFrom, floorTo) {
+    //this.floorsFrom = [...this.advancedStoriesAmountValues];
+    let floorFromValue = floorFrom.value;
+    this.setCorrectFloorsValuesToDropdownList(
+      floorFrom,
+      floorTo,
+      floorFromValue
+    );
+  }
+
+  onFloorToArrowClick(floorTo, floorFrom) {
+    //this.floorsTo = [...this.advancedStoriesAmountValues];
+    let floorToValue = floorTo.value;
+    this.setCorrectFloorsValuesToDropdownList(floorTo, floorFrom, floorToValue);
+  }
 
   onFloorValueClick(
     selectedInput: HTMLInputElement,
