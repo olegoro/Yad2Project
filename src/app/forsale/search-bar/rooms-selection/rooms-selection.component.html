@@ -7,8 +7,9 @@
       <i [ngClass]="'arrow down'"></i>
     </button>
     <div style="display: none;" class="roomsMenu dropdownList">
-      <input #fromDropdown autocomplete="off" (click)="openFromSubDropdown(isFromDropdownOpened)" placeholder="מ-"
-        class="roomsMenu_dropdown" [ngClass]="fromDropdown.value === '' ? 'placeholderText': 'regularText'" />
+      <input readonly #fromDropdown autocomplete="off" (click)="openFromSubDropdown(isFromDropdownOpened)"
+        placeholder="מ-" class="roomsMenu_dropdown"
+        [ngClass]="fromDropdown.value === '' ? 'placeholderText': 'regularText'" />
       <button (click)="openOrCloseSubDropdown(true, false)" class="roomsMenu__from_Button">
         <div class="arrowSize">
           <i [ngClass]="isFromDropdownOpened ? 'arrow up' : 'arrow down'"></i>
@@ -19,7 +20,7 @@
         <div (click)="onNumberOfRoomsValueFromClick(fromDropdown, toDropdown, value, roomsDropdownText)"
           *ngFor="let value of numberOfRoomsFrom;let i=index" class="roomsMenu_Dropdown__item">{{value}}</div>
       </div>
-      <input #toDropdown autocomplete="off" (click)="openToSubDropdown(isToDropdownOpened)" placeholder="עד-"
+      <input readonly #toDropdown autocomplete="off" (click)="openToSubDropdown(isToDropdownOpened)" placeholder="עד-"
         class="roomsMenu_dropdown" [ngClass]="toDropdown.value === '' ? 'placeholderText': 'regularText'" />
       <button (click)="openOrCloseSubDropdown(false, true)" class="roomsMenu__to_Button">
         <div class="arrowSize">

@@ -129,6 +129,11 @@ body {
   font-size: 14px;
 }
 
+.dropdown {
+  max-width: 150.83px;
+  max-height: 40px;
+}
+
 html,
 body {
   height: 100%;

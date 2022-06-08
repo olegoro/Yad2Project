@@ -43,15 +43,21 @@ export class DropdownDirective {
   }
 
   private openDropdown(dropdownArrow, dropdownList) {
-    this.renderer.removeClass(dropdownArrow, 'down');
-    this.renderer.addClass(dropdownArrow, 'up');
+    if (dropdownArrow !== null) {
+      this.renderer.removeClass(dropdownArrow, 'down');
+      this.renderer.addClass(dropdownArrow, 'up');
+    }
+
     dropdownList.style.display = 'flex';
     this.isArrowDown = !this.isArrowDown;
   }
 
   private closeDropdown(dropdownArrow, dropdownList) {
-    this.renderer.removeClass(dropdownArrow, 'up');
-    this.renderer.addClass(dropdownArrow, 'down');
+    if (dropdownArrow !== null) {
+      this.renderer.removeClass(dropdownArrow, 'up');
+      this.renderer.addClass(dropdownArrow, 'down');
+    }
+
     dropdownList.style.display = 'none';
     this.isArrowDown = !this.isArrowDown;
   }

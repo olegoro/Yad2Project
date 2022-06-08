@@ -12,6 +12,7 @@ import {
   MatDatepicker,
   MatDatepickerInputEvent,
 } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-advanced-search',
@@ -81,7 +82,11 @@ export class AdvancedSearchComponent implements OnInit {
   floorsFrom = [...this.advancedStoriesAmountValues];
   floorsTo = [...this.advancedStoriesAmountValues];
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -436,6 +441,15 @@ export class AdvancedSearchComponent implements OnInit {
         this.numberOfAdvancedSearchSelections
       );
     }
+  }
+
+  cleanAdvancedSearch() {
+    // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate([
+    //     '/app/forsale/search-bar/advanced-search.component.ts',
+    //   ]);
+    // });
+    // this.router.onSameUrlNavigation = 'reload';
   }
 
   @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
