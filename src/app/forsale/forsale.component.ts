@@ -11,6 +11,8 @@ export class ForsaleComponent implements OnInit {
   isPlusInCircle = true;
   isStoriesFromArrowDown = true;
   isStoriesToArrowDown = true;
+  isWithPriceFilteringCheckboxChecked = false;
+  isWithPictureFilteringCheckboxChecked = false;
 
   private isClickedOutside = true;
 
@@ -40,5 +42,15 @@ export class ForsaleComponent implements OnInit {
 
   onStoriesToArrowClick() {
     this.isStoriesToArrowDown = !this.isStoriesToArrowDown;
+  }
+
+  onWithPriceFilterCheckboxClick() {
+    this.isWithPriceFilteringCheckboxChecked =
+      !this.isWithPriceFilteringCheckboxChecked;
+  }
+
+  onWithPictureFilterCheckboxClick() {
+    this.isWithPictureFilteringCheckboxChecked =
+      !this.isWithPictureFilteringCheckboxChecked;
   }
 }

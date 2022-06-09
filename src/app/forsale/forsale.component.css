@@ -131,6 +131,14 @@
   border-color: #ff7100;
 }
 
+.buttonOrangeBorder {
+  border-color: #ff7100;
+}
+
+.orangeTextColor {
+  color: #ff7100;
+}
+
 .pointInRadioButton {
   position: absolute;
   border-radius: 50%;

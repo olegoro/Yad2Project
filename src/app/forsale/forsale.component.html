@@ -57,16 +57,21 @@
       </div>
       <div class="sortFilterBar__area">
         <div appDropdown>
-          <button class="sortFilterBar__filter dropdown">
+          <button
+            [ngClass]="isWithPriceFilteringCheckboxChecked || isWithPictureFilteringCheckboxChecked ? 'buttonOrangeBorder' : ''"
+            class="sortFilterBar__filter dropdown">
             <i class="fa">&#xf0b0;</i>
-            <span class="sortFilterBar__text">סנן תוצאות</span>
+            <span
+              [ngClass]="isWithPriceFilteringCheckboxChecked || isWithPictureFilteringCheckboxChecked ? 'orangeTextColor' : ''"
+              class="sortFilterBar__text">סנן
+              תוצאות</span>
           </button>
           <div style="display: none;" class="sortFilterBar__filter_Dropdown dropdownList">
-            <div appCheckbox class="sortFilterBar__filter__Dropdown__item">
+            <div appCheckbox (click)="onWithPriceFilterCheckboxClick()" class="sortFilterBar__filter__Dropdown__item">
               <span class="checkbox"></span>
               עם מחיר
             </div>
-            <div appCheckbox class="sortFilterBar__filter__Dropdown__item">
+            <div appCheckbox (click)="onWithPictureFilterCheckboxClick()" class="sortFilterBar__filter__Dropdown__item">
               <span class="checkbox"></span>
               עם תמונה
             </div>
