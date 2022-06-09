@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-forsale',
@@ -16,7 +16,7 @@ export class ForsaleComponent implements OnInit {
 
   private isClickedOutside = true;
 
-  constructor() {}
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {}
 
@@ -52,5 +52,59 @@ export class ForsaleComponent implements OnInit {
   onWithPictureFilterCheckboxClick() {
     this.isWithPictureFilteringCheckboxChecked =
       !this.isWithPictureFilteringCheckboxChecked;
+  }
+
+  sortByRadioButtonClick(
+    sortByRadioButton: HTMLDivElement,
+    uncheckedRadioButton1: HTMLDivElement,
+    uncheckedRadioButton2: HTMLDivElement,
+    sortingDropdownValue: HTMLSpanElement
+  ) {
+    this.onCheckSortingRadioButton(
+      sortByRadioButton,
+      uncheckedRadioButton1,
+      uncheckedRadioButton2,
+      sortingDropdownValue
+    );
+  }
+
+  private setSortingDropdownValue(
+    sortByRadioButton: HTMLDivElement,
+    sortingDropdownValue: HTMLSpanElement
+  ) {
+    sortingDropdownValue.innerText = sortByRadioButton.parentElement.innerText;
+  }
+
+  private onCheckSortingRadioButton(
+    sortByRadioButton: HTMLDivElement,
+    uncheckedRadioButton1: HTMLDivElement,
+    uncheckedRadioButton2: HTMLDivElement,
+    sortingDropdownValue: HTMLSpanElement
+  ) {
+    if (!sortByRadioButton.classList.contains('checkedRadioButtonBorder')) {
+      this.renderer.addClass(sortByRadioButton, 'checkedRadioButtonBorder');
+      this.renderer.addClass(
+        sortByRadioButton.children[0],
+        'pointInRadioButton'
+      );
+
+      this.setSortingDropdownValue(sortByRadioButton, sortingDropdownValue);
+
+      if (
+        uncheckedRadioButton1.classList.contains('checkedRadioButtonBorder')
+      ) {
+        this.uncheckSortingRadioButton(uncheckedRadioButton1);
+      } else {
+        this.uncheckSortingRadioButton(uncheckedRadioButton2);
+      }
+    }
+  }
+
+  private uncheckSortingRadioButton(uncheckedRadioButton: HTMLDivElement) {
+    this.renderer.removeClass(uncheckedRadioButton, 'checkedRadioButtonBorder');
+    this.renderer.removeClass(
+      uncheckedRadioButton.children[0],
+      'pointInRadioButton'
+    );
   }
 }

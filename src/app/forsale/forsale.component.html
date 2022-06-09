@@ -26,28 +26,35 @@
         <div appDropdown>
           <div class="dropdown">
             <button class="sortFilterBar__sort_Dropdown_Button">
-              <span class="sortFilterBar__text">לפי תאריך</span>
+              <span #sortingDropdownValue class="sortFilterBar__text">לפי תאריך</span>
               <i [ngClass]="'arrow down'"></i>
             </button>
             <div style="display: none;" class="sortFilterBar__sort_Dropdown dropdownList">
-              <div class="sortFilterBar__sort_Dropdown__item">
-
-                <div class="sortFilterRadioButton checkedRadioButtonBorder">
+              <div
+                (click)="sortByRadioButtonClick(dateRadioButton, fromCheapToExpensiveRadioButton, fromExpensiveToCheapRadioButton, sortingDropdownValue)"
+                class="sortFilterBar__sort_Dropdown__item">
+                <div id="radioButtonDate" #dateRadioButton class="sortFilterRadioButton checkedRadioButtonBorder">
                   <div class="pointInRadioButton"></div>
                 </div>
                 לפי תאריך
               </div>
-              <div class="sortFilterBar__sort_Dropdown__item">
+              <div #priceFromCheapToExpensive
+                (click)="sortByRadioButtonClick(fromCheapToExpensiveRadioButton, dateRadioButton, fromExpensiveToCheapRadioButton, sortingDropdownValue)"
+                class="sortFilterBar__sort_Dropdown__item">
 
-                <div class="sortFilterRadioButton">
-
+                <div id="radioButtonFromCheapToExpensive" #fromCheapToExpensiveRadioButton
+                  class="sortFilterRadioButton">
+                  <div></div>
                 </div>
                 מחיר - מהזול ליקר
               </div>
-              <div class="sortFilterBar__sort_Dropdown__item">
+              <div
+                (click)="sortByRadioButtonClick(fromExpensiveToCheapRadioButton, dateRadioButton, fromCheapToExpensiveRadioButton, sortingDropdownValue)"
+                class="sortFilterBar__sort_Dropdown__item">
 
-                <div class="sortFilterRadioButton">
-
+                <div #fromExpensiveToCheapRadioButton id="radioButtonFromExpensiveToCheap"
+                  class="sortFilterRadioButton">
+                  <div></div>
                 </div>
                 מחיר - מהיקר לזול
               </div>
