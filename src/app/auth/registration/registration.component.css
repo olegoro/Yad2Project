@@ -1,42 +1,6 @@
-* {
-  direction: rtl;
-}
-
-.container {
-  background: #fff8ef;
-  width: 100vw;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 8% 42% 42% 8%;
-  grid-template-rows: 10% 80% 10%;
-  grid-template-areas:
-    ". header header ."
-    ". form description ."
-    ". footer footer .";
-}
-
-.header {
-  grid-area: header;
-}
-
-.headerLink {
-  padding: 30px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-}
-
-.form {
-  grid-area: form;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 form {
-  width: 31.875rem;
-  height: 35.29125rem;
+  height: 31.109375rem;
+  min-width: 45vw;
   padding: 2.1875rem 2.1875rem 0.9375rem;
   background: #fff;
   border-radius: 0.25rem;
@@ -95,16 +59,6 @@ form {
 .form__forgotPassworrd {
   width: 100%;
   height: 2.599375rem;
-  /* display: flex;
-  flex-direction: row;
-  align-items: flex-end; */
-}
-
-.form__forgotPassword__link {
-  color: #ff7100;
-  margin: 1.25rem 0 0;
-  text-decoration: none;
-  font-weight: 600;
 }
 
 .form__submit {
@@ -141,62 +95,6 @@ form {
   margin-right: 5px;
   text-decoration: none;
   cursor: pointer;
-}
-
-.forMetavhim {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.forMetavhim__link {
-  color: #363636;
-}
-
-.description {
-  grid-area: description;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.description__div {
-  width: 28.125rem;
-  /* height: 12.060625rem; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start; */
-}
-
-.description__div__Sentence {
-  color: #363636;
-  font-size: 36px;
-  font-weight: 300;
-}
-
-.description__images {
-  width: 28.125rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.description__image__div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.description__image__text {
-  color: #363636;
-  font-size: 14px;
-  margin: 0.625rem 0 0;
-}
-
-.footer {
-  grid-area: footer;
-  /* background: green; */
 }
 
 input.ng-invalid.ng-touched {

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { RouterModule } from '@angular/router';
 
 import { ApartmentsComponent } from '../apartments/apartments.component';
 import { ApartmentsDirective } from '../apartments/apartments.directive';
@@ -34,6 +35,7 @@ import { AdvancedSearchDirective } from './search-bar/advanced-search/advanced-s
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
+    RouterModule,
   ],
   exports: [
     ForsaleComponent,

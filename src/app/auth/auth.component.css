@@ -1,10 +1,6 @@
-* {
-  direction: rtl;
-}
-
 .container {
   background: #fff8ef;
-  width: 100vw;
+  min-width: 100vw;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 8% 42% 42% 8%;
@@ -34,110 +30,6 @@
   justify-content: center;
 }
 
-form {
-  width: 31.875rem;
-  height: 31.109375rem;
-  padding: 2.1875rem 2.1875rem 0.9375rem;
-  background: #fff;
-  border-radius: 0.25rem;
-  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.form__greeting {
-  color: #363636;
-  padding: 0.3125rem 0 0;
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-}
-
-.form__textBox__div {
-  width: 100%;
-  height: 5.430625rem;
-  display: flex;
-  margin: 0 0 0.625rem;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.form__textBox {
-  height: 3.125rem;
-  background: #fff;
-  padding: 0.625rem 0.9375rem 0.625rem 2.1875rem;
-  box-shadow: none;
-  border: 1px solid rgb(204, 204, 204);
-  border-radius: 4px;
-  margin-top: 5px;
-  font-size: 100%;
-}
-
-.form__textBox:hover {
-  border: 1px solid black;
-}
-
-.fa-eye {
-  width: 18px;
-  height: 16px;
-  position: relative;
-  right: 25.625rem;
-  bottom: 1.875rem;
-  color: #363636;
-  cursor: pointer;
-}
-
-.fa-eye:hover {
-  color: black;
-}
-
-.form__submit {
-  height: 3.75rem;
-  width: 100%;
-  margin: 1.25rem 0 0;
-}
-
-.form__submitButton {
-  background: #ff7100;
-  height: 3.125rem;
-  padding: 0 1.25rem;
-  width: 100%;
-  border: 1px solid #ff7100;
-  border-radius: 30px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  outline: none;
-}
-
-.form__NoAccount {
-  width: 100%;
-  height: 1.349375rem;
-  color: #363636;
-  margin: 1.875rem 0 0;
-  display: flex;
-  justify-content: center;
-}
-
-.form__NoAccount__subscriptionLink {
-  color: #ff7100;
-  font-weight: 600;
-  margin-right: 5px;
-  /* margin: 1.25rem 0 0; */
-  text-decoration: none;
-}
-
-.forMetavhim {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.forMetavhim__link {
-  color: #363636;
-}
-
 .description {
   grid-area: description;
   display: flex;
@@ -148,10 +40,6 @@ form {
 
 .description__div {
   width: 28.125rem;
-  /* height: 12.060625rem; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start; */
 }
 
 .description__div__Sentence {
@@ -181,5 +69,34 @@ form {
 
 .footer {
   grid-area: footer;
-  /* background: green; */
+}
+
+@media (max-width: 880px) {
+  /* .container {
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+  } */
+
+  .form {
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  .description {
+    display: none;
+  }
 }

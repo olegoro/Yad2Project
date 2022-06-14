@@ -8,32 +8,6 @@
     <app-login *ngIf="!isRegistration" (subscribeClicked)="showSubscriptionForm($event)"></app-login>
     <app-registration *ngIf="isRegistration" (loginClicked)="showLoginForm($event)"></app-registration>
   </div>
-  <!-- <div class="form">
-    <form>
-      <div class="form__greeting">היי, טוב לראות אותך</div>
-      <div class="form__textBox__div">
-        מייל
-        <input class="form__textBox" type="email" placeholder="yourmail@email.co.il">
-      </div>
-      <div class="form__textBox__div">
-        סיסמא
-        <input class="form__textBox" type="password" placeholder="הקלדת סיסמא">
-        <i class="far fa-eye" id="togglePassword"></i>
-      </div>
-      <div class="form__forgotPassword">
-        <a class="form__forgotPassword__link" href="">שכחתי סיסמא</a>
-      </div>
-      <div class="form__submit">
-        <button class="form__submitButton" type="submit">התחברות</button>
-      </div>
-      <div class="form__NoAccount">
-        אין לך חשבון?<a class="form__NoAccount__subscriptionLink" href="">להרשמה</a>
-      </div>
-    </form>
-    <div class="forMetavhim">
-      <a class="forMetavhim__link" href="">כניסה למתווכים</a>
-    </div>
-  </div> -->
   <div class="description">
     <div class="description__div">
       <h1>

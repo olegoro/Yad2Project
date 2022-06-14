@@ -5,9 +5,21 @@
   direction: rtl;
 }
 
-body {
+/* body {
   margin: 0;
+  padding: 0;
+} */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+/* body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+} */
 
 .arrow {
   border: solid black;
@@ -33,6 +45,11 @@ body {
 .up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
 .checkboxBorder {
@@ -132,13 +149,4 @@ body {
 .dropdown {
   max-width: 150.83px;
   max-height: 40px;
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
