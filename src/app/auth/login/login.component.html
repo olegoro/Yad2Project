@@ -1,23 +1,33 @@
-<form>
-  <button class="form__mobileBackButton bigArrow left"></button>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <button type="button" (click)="backClicked()" class="form__mobileBackButton bigArrow left"></button>
   <div class="form__mobileImage">
     <img src="	https://assets.yad2.co.il/login/icon_login.svg" alt="icon-login">
   </div>
   <div class="form__greeting">היי, טוב לראות אותך</div>
   <div class="form__textBox__div">
     מייל
-    <input class="form__textBox" type="email" placeholder="yourmail@email.co.il">
+    <input #email="ngModel" ngModel name="email" type="email" placeholder="yourmail@email.co.il"
+      [ngClass]="email.errors?.required && f.submitted ? 'form__textBox form__textBox__errorBorder' : 'form__textBox form__textBox__Border'"
+      required email>
+    <span *ngIf="email.touched || f.submitted">
+      <span class="form__errorMessage" *ngIf="email.errors?.required">לא לשכוח את המייל</span>
+      <span class="form__errorMessage" *ngIf="email.errors?.email">משהו לא תקין במייל, אולי התפספס @?</span>
+    </span>
   </div>
   <div class="form__textBox__div">
     סיסמא
-    <input class="form__textBox" type="password" placeholder="הקלדת סיסמא">
-    <div>
-      <i class="far fa-eye" id="togglePassword"></i>
+    <input #password="ngModel" ngModel name="password"
+      [ngClass]="password.errors?.required && f.submitted ? 'form__textBox form__textBox__errorBorder' : 'form__textBox form__textBox__Border'"
+      type="password" [type]="hidePassword ? 'password' : 'text'" placeholder="הקלדת סיסמא" required>
+    <div (click)="onPasswordEyeClick()">
+      <i [ngClass]="hidePassword ? 'far fa-eye' : 'far fa-eye-slash'" class="far fa-eye" id="togglePassword"></i>
     </div>
-
+    <span *ngIf="password.touched || f.submitted">
+      <span class="form__errorMessage" *ngIf="password.errors?.required">לא לשכוח להזין סיסמה</span>
+    </span>
   </div>
   <div class="form__forgotPassword">
-    <a class="form__forgotPassword__link" href="">שכחתי סיסמא</a>
+    <a class="form__forgotPassword__link">שכחתי סיסמא</a>
   </div>
   <div class="form__submit">
     <button class="form__submitButton" type="submit">התחברות</button>

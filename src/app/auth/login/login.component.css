@@ -11,6 +11,11 @@ form {
   margin-bottom: 30px;
 }
 
+.form__errorMessage {
+  color: #ff2a2b;
+  margin: 5px 0;
+}
+
 .form__greeting {
   color: #363636;
   padding: 0.3125rem 0 0;
@@ -33,13 +38,26 @@ form {
   background: #fff;
   padding: 0.625rem 0.9375rem 0.625rem 2.1875rem;
   box-shadow: none;
-  border: 1px solid rgb(204, 204, 204);
+  /* border: 1px solid rgb(204, 204, 204); */
   border-radius: 4px;
   margin-top: 5px;
   font-size: 100%;
+  outline: none;
 }
 
-.form__textBox:hover {
+.form__textBox__errorBorder {
+  border: 1px solid red;
+}
+
+.form__textBox__Border {
+  border: 1px solid rgb(204, 204, 204);
+}
+
+/* .form__textBox:hover {
+  border: 1px solid black;
+} */
+
+.form__textBoxBorder {
   border: 1px solid black;
 }
 
@@ -117,6 +135,10 @@ form {
   color: #363636;
 }
 
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
 @media (max-width: 1168px) {
   form {
     width: 100vw;
@@ -142,8 +164,8 @@ form {
     top: 42px;
     -webkit-user-select: none;
     user-select: none;
-    z-index: 2;
     background-color: transparent;
+    cursor: pointer;
   }
 }
 
