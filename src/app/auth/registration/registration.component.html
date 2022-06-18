@@ -1,21 +1,47 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm">
+<form class="registrationForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <button type="button" (click)="backClicked()" class="form__mobileBackButton bigArrow left"></button>
+  <div class="form__mobileImage">
+    <img src="https://assets.yad2.co.il/login/icon_signup.svg" alt="icon-login">
+  </div>
   <div class="form__greeting">היי, נעים להכיר</div>
   <div class="form__textBox__div">
     מייל
-    <input class="form__textBox" placeholder="yourmail@email.co.il" ngModel name="email" #email="ngModel" required
-      email>
-    <span class="spanAlert" *ngIf="!email.valid && email.touched">
-      יש להקליד מייל</span>
+    <input ngModel
+      [ngClass]="email.errors?.required && f.submitted ? 'form__textBox form__textBox__errorBorder' : 'form__textBox form__textBox__Border'"
+      class="form__textBox" placeholder="yourmail@email.co.il" ngModel name="email" type="email" #email="ngModel"
+      required email>
+    <span *ngIf="email.touched || f.submitted">
+      <span class="form__errorMessage" *ngIf="email.errors?.required">לא לשכוח את המייל</span>
+      <span class="form__errorMessage" *ngIf="email.errors?.email">משהו לא תקין במייל, אולי התפספס @?</span>
+    </span>
   </div>
   <div class="form__textBox__div">
     סיסמא
-    <input class="form__textBox" name="password" ngModel placeholder="הקלדת סיסמא" #password="ngModel">
-    <i class="far fa-eye" id="togglePassword"></i>
+    <input [type]="hidePassword ? 'password' : 'text'" class="form__textBox" name="password" ngModel
+      placeholder="הקלדת סיסמא" #password="ngModel"
+      [ngClass]="password.errors?.required && f.submitted ? 'form__textBox form__textBox__errorBorder' : 'form__textBox form__textBox__Border'"
+      required>
+    <div (click)="onPasswordEyeClick()">
+      <i [ngClass]="hidePassword ? 'far fa-eye' : 'far fa-eye-slash'" class="far fa-eye"></i>
+    </div>
+    <!-- <span *ngIf="password.touched || f.submitted">
+      <span class="form__errorMessage" *ngIf="password.errors?.required">לא לשכוח להזין סיסמה</span>
+      <span class="form__errorMessage" *ngIf="password.value != passwordAuthentication.value">הסיסמאות לא זהות</span>
+    </span> -->
   </div>
   <div class="form__textBox__div">
     אימות סיסמא
-    <input class="form__textBox" type="password" placeholder="הקלדת סיסמא">
-    <i class="far fa-eye" id="togglePassword"></i>
+    <input [type]="hidePasswordAuthentication ? 'password' : 'text'" class="form__textBox" name="passwordAuthentication"
+      ngModel placeholder="הקלדת סיסמא" #passwordAuthentication="ngModel"
+      [ngClass]="passwordAuthentication.errors?.required && f.submitted ? 'form__textBox form__textBox__errorBorder' : 'form__textBox form__textBox__Border'"
+      required>
+    <div (click)="onAuthenticatePasswordEyeClick()">
+      <i [ngClass]="hidePasswordAuthentication ? 'far fa-eye' : 'far fa-eye-slash'" class="far fa-eye"></i>
+    </div>
+    <span *ngIf="password.touched || f.submitted">
+      <span class="form__errorMessage" *ngIf="password.errors?.required">לא לשכוח להזין סיסמה</span>
+      <span class="form__errorMessage" *ngIf="password.value != passwordAuthentication.value">הסיסמאות לא זהות</span>
+    </span>
   </div>
   <div class="form__submit">
     <button class="form__submitButton" type="submit">המשך</button>

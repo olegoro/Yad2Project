@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-registration',
@@ -8,7 +10,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class RegistrationComponent implements OnInit {
   @Output() loginClicked = new EventEmitter<boolean>();
 
-  constructor() {}
+  hidePassword = true;
+  hidePasswordAuthentication = true;
+
+  constructor(private _location: Location) {}
 
   ngOnInit(): void {}
 
@@ -16,5 +21,23 @@ export class RegistrationComponent implements OnInit {
     this.loginClicked.emit(false);
   }
 
-  onSubmit() {}
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
+      console.log('The form is not valid');
+      return;
+    }
+    console.log('The form is valid');
+  }
+
+  onPasswordEyeClick() {
+    this.hidePassword = !this.hidePassword;
+  }
+
+  onAuthenticatePasswordEyeClick() {
+    this.hidePasswordAuthentication = !this.hidePasswordAuthentication;
+  }
+
+  backClicked() {
+    this._location.back();
+  }
 }
