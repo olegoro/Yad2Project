@@ -1,5 +1,5 @@
 form {
-  height: 31.109375rem;
+  height: 34.7rem;
   width: 45vw;
   padding: 2.1875rem 2.1875rem 0.9375rem;
   background: #fff;
@@ -16,7 +16,7 @@ form {
   color: #ff2a2b;
   margin: 5px 0;
   position: absolute;
-  bottom: -19px;
+  bottom: -25px;
 }
 
 .form__greeting {
@@ -48,6 +48,7 @@ form {
   margin: 0 0 0.625rem;
   flex-direction: column;
   justify-content: flex-start;
+  margin-bottom: 30px;
 }
 
 .form__textBox {
@@ -68,10 +69,6 @@ form {
 .form__textBox__errorBorder {
   border: 1px solid red;
 }
-
-/* .form__textBox:hover {
-  border: 1px solid black;
-} */
 
 .fa-eye {
   width: 18px;
@@ -133,16 +130,12 @@ input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 
-@media (max-width: 1168px) {
+@media (max-width: 886px) {
   form {
     width: 100vw;
     height: 100vh;
     bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     left: 0;
-    overflow: auto;
     position: fixed;
     right: 0;
     top: 0;
@@ -167,10 +160,23 @@ input.ng-invalid.ng-touched {
   }
 }
 
-@media (min-width: 1169px) {
+@media (min-width: 887px) and (max-width: 1311px) {
   form {
-    width: 31.875rem;
-    height: 34.7rem;
+    max-width: 510px;
+  }
+
+  .form__mobileImage {
+    display: none;
+  }
+
+  .form__mobileBackButton {
+    display: none;
+  }
+}
+
+@media (min-width: 1312px) {
+  form {
+    width: 510px;
   }
 
   .form__mobileImage {
