@@ -13,15 +13,20 @@ export class PublishComponent implements OnInit {
   isHoveringProfession = false;
   isHoveringBusinessRealEstate = false;
   isHoveringMobile = false;
+  isHoveringFurniture = false;
+  isHoveringTourism = false;
+  isHoveringFashion = false;
+  isHoveringPets = false;
+  isHoveringBaby = false;
+  isHoveringStudent = false;
+  isHoveringDrushim = false;
   isPopupClosed = true;
-  @ViewChild('realEstate') el: ElementRef;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onMouseenter(event) {
-    // console.log(event.target.children[0].id);
     switch (event.target.children[0].id) {
       case 'realestateSVG':
         this.isHoveringRealEstate = true;
@@ -43,6 +48,27 @@ export class PublishComponent implements OnInit {
         break;
       case 'mobileSVG':
         this.isHoveringMobile = true;
+        break;
+      case 'furnitureSVG':
+        this.isHoveringFurniture = true;
+        break;
+      case 'tourismSVG':
+        this.isHoveringTourism = true;
+        break;
+      case 'fashionSVG':
+        this.isHoveringFashion = true;
+        break;
+      case 'petsSVG':
+        this.isHoveringPets = true;
+        break;
+      case 'babySVG':
+        this.isHoveringBaby = true;
+        break;
+      case 'studentSVG':
+        this.isHoveringStudent = true;
+        break;
+      case 'drushimSVG':
+        this.isHoveringDrushim = true;
         break;
     }
   }
@@ -69,6 +95,27 @@ export class PublishComponent implements OnInit {
         break;
       case 'mobileSVG':
         this.isHoveringMobile = false;
+        break;
+      case 'furnitureSVG':
+        this.isHoveringFurniture = false;
+        break;
+      case 'tourismSVG':
+        this.isHoveringTourism = false;
+        break;
+      case 'fashionSVG':
+        this.isHoveringFashion = false;
+        break;
+      case 'petsSVG':
+        this.isHoveringPets = false;
+        break;
+      case 'babySVG':
+        this.isHoveringBaby = false;
+        break;
+      case 'studentSVG':
+        this.isHoveringStudent = false;
+        break;
+      case 'drushimSVG':
+        this.isHoveringDrushim = false;
         break;
     }
   }

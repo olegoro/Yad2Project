@@ -31,10 +31,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
-      console.log('The form is not valid');
       return;
     }
-    console.log('The form is valid');
   }
 
   onPasswordEyeClick() {

@@ -54,3 +54,27 @@
   align-items: center;
   color: #606060;
 }
+
+.fa-question-circle {
+  font-size: 24px;
+  color: #ff7100;
+  display: none;
+}
+
+@media (max-width: 660px) {
+  .header__right__publishNewAdv {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .header__left__contact__text {
+    display: none;
+  }
+
+  .fa-question-circle {
+    font-size: 24px;
+    color: #ff7100;
+    display: inline;
+  }
+}
