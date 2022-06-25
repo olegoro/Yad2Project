@@ -1,15 +1,3 @@
-<div (click)="closePopup()" *ngIf="!isPopupClosed" class="popup">
-
-  <!-- <div #popupMessage class="popupMessage">
-    <button (click)="closePopup(popupMessage)" class="popupMessage__closeButton">X</button>
-    <div class="popupMessage__question">איזה סוג מודעה תרצו לפרסם?</div>
-    <div class="popupMessage__buttons">
-      <button class="popupMessage__button">פרטי</button>
-      <button class="popupMessage__button">מתווך</button>
-    </div>
-  </div>
-  <div class="popupOverlay"></div> -->
-</div>
 <div *ngIf="!isPopupClosed" class="popupMessageContainer">
   <div class="popupMessage">
     <div class="iconWrap">
@@ -55,7 +43,7 @@
 <div (click)="closePopup()" *ngIf="!isPopupClosed" class="popupOverlay"></div>
 
 <div class="container">
-  <app-publish-header class="header"></app-publish-header>
+  <app-publish-header class="publishHeader"></app-publish-header>
   <div class="main">
     <h2 class="main__text">
       אני רוצה לפרסם מודעה בלוח...
