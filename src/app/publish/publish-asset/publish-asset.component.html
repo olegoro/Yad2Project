@@ -95,8 +95,14 @@
 
 <div class="container">
   <app-publish-header class="publishHeader"></app-publish-header>
-
-  <div class="assetAccordion">
-    <div class="accordionNumber"></div>
+  <div class="main">
+    <app-publish-asset-type></app-publish-asset-type>
+    <!-- <div *ngFor="let assetTitle of assetTitles; let i = index" class="assetAccordion">
+      <div class="accordionNumber greyAccordionNumber">{{ i + 1 }}</div>
+      <div class="accordionTitle">{{ assetTitle }}</div>
+      <div class="editPenContainer">
+        <i class='fas fa-pen'></i>
+      </div>
+    </div> -->
   </div>
 </div>

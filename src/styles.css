@@ -151,3 +151,96 @@ body {
   background: white;
   height: 7vh;
 }
+
+.greyAccordionNumber {
+  color: #999;
+  border: 2px solid #ccc;
+}
+
+.greenAccordionNumber {
+  color: #0fca80;
+  border: 2px solid #0fca80;
+}
+
+.assetAccordion {
+  grid-area: assetAccordion;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: #f9f9f9; */
+  /* border-radius: 5px; */
+  box-shadow: 0 2px 4px 0 rgb(12 0 51 / 10%);
+  height: 60px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.assetAccordionOpened {
+  background-color: #fff;
+}
+
+.assetAccordionClosed {
+  border-radius: 5px;
+}
+
+.assetAccordionClosed {
+  cursor: pointer;
+}
+
+.assetAccordionBackgroundColorClosed {
+  background-color: #f9f9f9;
+}
+
+.accordionNumber {
+  height: 24px;
+  width: 24px;
+  font-family: Rubik;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: inherit;
+  border-radius: 50px;
+  margin-right: 1.3%;
+  text-align: center;
+}
+
+.accordionFilled {
+  color: #0fca80;
+  border: 2px solid #0fca80;
+}
+
+.accordionTitle {
+  font-size: 24px;
+  color: #acacac;
+  margin-right: 1.5%;
+  /* font-weight: 300; */
+}
+
+.assetAccordionTitleOpened {
+  color: #000;
+  /* margin-bottom: 20px; */
+}
+
+.assetAccordionTitleClosed {
+  color: #acacac;
+  font-weight: 300;
+}
+
+.editPenContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: absolute;
+  text-align: left;
+  right: 48%;
+}
+
+.fa-pen {
+  color: #acacac;
+}
+
+.fa-check {
+  color: #0fca80;
+  font-size: 15px;
+}

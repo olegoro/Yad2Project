@@ -22,6 +22,7 @@ import { ApartmentService } from './apartments/apartments.service';
 import { ForsaleModule } from './forsale/forsale.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PublishAssetTypeComponent } from './publish/publish-asset/publish-asset-type/publish-asset-type.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     PublishHeaderComponent,
     PublishAssetComponent,
+    PublishAssetTypeComponent,
     // SearchBarComponent,
     // DropdownDirective,
     // CheckboxDirective,
