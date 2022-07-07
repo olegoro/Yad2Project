@@ -168,8 +168,6 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  /* background-color: #f9f9f9; */
-  /* border-radius: 5px; */
   box-shadow: 0 2px 4px 0 rgb(12 0 51 / 10%);
   height: 60px;
   position: relative;
@@ -182,6 +180,7 @@ body {
 
 .assetAccordionClosed {
   border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 .assetAccordionClosed {
@@ -213,12 +212,10 @@ body {
   font-size: 24px;
   color: #acacac;
   margin-right: 1.5%;
-  /* font-weight: 300; */
 }
 
 .assetAccordionTitleOpened {
   color: #000;
-  /* margin-bottom: 20px; */
 }
 
 .assetAccordionTitleClosed {
@@ -243,4 +240,10 @@ body {
 .fa-check {
   color: #0fca80;
   font-size: 15px;
+}
+
+@media (max-width: 880px) {
+  .accordionTitle {
+    font-size: 18px;
+  }
 }

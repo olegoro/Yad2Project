@@ -23,6 +23,9 @@ import { ForsaleModule } from './forsale/forsale.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PublishAssetTypeComponent } from './publish/publish-asset/publish-asset-type/publish-asset-type.component';
+import { PublishAssetAddressComponent } from './publish/publish-asset/publish-asset-address/publish-asset-address.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { PublishAssetTypeComponent } from './publish/publish-asset/publish-asset
     PublishHeaderComponent,
     PublishAssetComponent,
     PublishAssetTypeComponent,
+    PublishAssetAddressComponent,
     // SearchBarComponent,
     // DropdownDirective,
     // CheckboxDirective,
@@ -50,6 +54,8 @@ import { PublishAssetTypeComponent } from './publish/publish-asset/publish-asset
     ForsaleModule,
     SharedModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatAutocompleteModule,
   ],
   providers: [ApartmentService],
   bootstrap: [AppComponent],
