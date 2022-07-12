@@ -27,10 +27,12 @@
       </div>
       <div class="fieldContainer">
         <div>ישוב*</div>
-        <input (keyup)="onCityInputKeyup(cityInput, streetField, streetInput)" matInput #cityInput type="text"
-          [matAutocomplete]="autoCities" class="big field" placeholder="איפה נמצא הנכס?">
+        <input [formControl]="publishAssetFormControl" (keyup)="onCityInputKeyup(cityInput, streetField, streetInput)"
+          matInput #cityInput type="text" [matAutocomplete]="autoCities" class="big field"
+          placeholder="איפה נמצא הנכס?">
         <mat-autocomplete #autoCities="matAutocomplete">
-          <mat-option (click)="onCityClick(streetField)" *ngFor="let city of cities;" [value]="city.city">
+          <!-- *ngFor="let city of cities; -->
+          <mat-option (click)="onCityClick(streetField)" *ngFor="let city of filteredCities | async;" [value]="city">
             {{ city.city }}
           </mat-option>
         </mat-autocomplete>
@@ -39,15 +41,18 @@
       </div>
       <div #streetField class="fieldContainer disabled">
         <div>רחוב</div>
-        <input (keyup)="onStreetInputKeyup(streetInput, newsCheckboxContainer)" type="text" matInput #streetInput
-          [matAutocomplete]="autoStreets" class="big field" placeholder="הכנסת שם הרחוב">
+        <input (keyup)="onStreetInputKeyup(streetInput, newsCheckboxContainer, houseNumberContainer, houseNumber)"
+          type="text" matInput #streetInput [matAutocomplete]="autoStreets" class="big field"
+          placeholder="הכנסת שם הרחוב">
         <mat-autocomplete #autoStreets="matAutocomplete">
-          <mat-option (click)="onStreetClick(newsCheckboxContainer)" *ngFor="let city of cities;" [value]="city.street">
+          <!-- *ngFor="let city of cities; -->
+          <mat-option (click)="onStreetClick(newsCheckboxContainer, houseNumberContainer)"
+            *ngFor="let city of filteredCities | async;" [value]="city">
             {{ city.street }}
           </mat-option>
         </mat-autocomplete>
         <span *ngIf="!(streetInput.value.length === 0)"
-          (click)="clearStreetInputText(streetInput, newsCheckboxContainer)"
+          (click)="clearStreetInputText(streetInput, newsCheckboxContainer, houseNumberContainer, houseNumber)"
           class="streetInputTextClearing">&#10006;</span>
         <span class="big fieldExplanation">המידע הזה מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, ממולץ לבחור רחוב קרוב
           אליך</span>
@@ -55,19 +60,20 @@
           class="streetQuestion">לא
           מצאת את הרחוב?</a>
       </div>
-      <div class="fieldContainer disabled">
+      <div #houseNumberContainer class="fieldContainer disabled">
         <div>מס` בית</div>
-        <input type="text" class="small field">
+        <input #houseNumber appNumberInput (keypress)="letMaxFourDigits(houseNumber)" type="text"
+          class="small field houseNumber">
       </div>
       <div class="fieldContainer">
         <div class="floor">
           <div class="fieldContainer">
             <div>קומה*</div>
-            <input type="text" class="medium field" placeholder="הכנסת מספר קומה">
+            <input appNumberInput type="text" class="medium field" placeholder="הכנסת מספר קומה">
           </div>
           <div class="fieldContainer">
             <div>סה"כ קומות בבניין*</div>
-            <input type="text" class="medium field" placeholder='הכנסת סה"כ קומות'>
+            <input appNumberInput type="text" class="medium field" placeholder='הכנסת סה"כ קומות'>
           </div>
           <div appCheckbox>
             <div class="checkbox"></div>

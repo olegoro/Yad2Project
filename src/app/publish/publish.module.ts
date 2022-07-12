@@ -5,6 +5,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, MatInputModule, MatAutocompleteModule],
+  imports: [
+    CommonModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    // ReactiveFormsModule,
+    // FormsModule,
+  ],
 })
 export class PublishModule {}

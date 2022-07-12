@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { CitiesService } from 'src/app/shared/cities.service';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-publish-asset-address',
@@ -9,6 +12,8 @@ import { CitiesService } from 'src/app/shared/cities.service';
 })
 export class PublishAssetAddressComponent implements OnInit {
   isOpened = false;
+
+  publishAssetFormControl: FormControl = new FormControl();
 
   assets = [
     'דירה',
@@ -35,10 +40,23 @@ export class PublishAssetAddressComponent implements OnInit {
 
   cities: { city: string; street: string }[] = [];
 
+  filteredCities: Observable<{ city: string; street: string }[]>;
+
   constructor(private citiesService: CitiesService) {}
 
   ngOnInit(): void {
     this.cities = this.citiesService.cities;
+    this.filteredCities = this.publishAssetFormControl.valueChanges.pipe(
+      startWith(''),
+      map((val) => this.filter(val))
+    );
+  }
+
+  filter(val: string): { city: string; street: string }[] {
+    console.log(val);
+    return this.cities.filter((option) =>
+      option.city.toLowerCase().includes(val.toLowerCase())
+    );
   }
 
   openAccordion() {
@@ -51,29 +69,25 @@ export class PublishAssetAddressComponent implements OnInit {
     streetInput: HTMLInputElement
   ) {
     cityInput.value = '';
-    // if (!streetField.classList.contains('disabled')) {
-    //   streetField.classList.add('disabled');
-    // }
     this.enableStreetField(false, streetField);
     this.clearStreetInputText(streetInput);
   }
 
   clearStreetInputText(
     streetInput: HTMLInputElement,
-    newsCheckboxContainer?: HTMLDivElement
+    newsCheckboxContainer?: HTMLDivElement,
+    houseNumberContainer?: HTMLDivElement,
+    houseNumberInput?: HTMLInputElement
   ) {
     streetInput.value = '';
+    if (newsCheckboxContainer != undefined) {
+      this.enableNewsCheckbox(false, newsCheckboxContainer);
+    }
 
-    this.enableNewsCheckbox(false, newsCheckboxContainer);
+    if (houseNumberContainer != undefined && houseNumberInput != undefined) {
+      this.enableHouseNumber(false, houseNumberContainer, houseNumberInput);
+    }
   }
-
-  // enableStreetField(streetField: HTMLDivElement) {
-  //   // console.log(streetField);
-
-  //   if (streetField.classList.contains('disabled')) {
-  //     streetField.classList.remove('disabled');
-  //   }
-  // }
 
   onCityInputKeyup(
     cityInput: HTMLInputElement,
@@ -92,31 +106,43 @@ export class PublishAssetAddressComponent implements OnInit {
 
   onStreetInputKeyup(
     streetInput: HTMLInputElement,
-    newsCheckboxContainer: HTMLDivElement
+    newsCheckboxContainer: HTMLDivElement,
+    houseNumberContainer: HTMLDivElement,
+    houseNumberInput: HTMLInputElement
   ) {
     if (streetInput.value.length === 0) {
       this.enableNewsCheckbox(false, newsCheckboxContainer);
+      this.enableHouseNumber(false, houseNumberContainer, houseNumberInput);
     }
-    // else {
-    //   this.enableNewsCheckbox(true, newsCheckboxContainer);
-    // }
   }
 
-  onStreetClick(newsCheckboxContainer: HTMLDivElement) {
-    // let newsCheckbox = newsCheckboxContainer.getElementsByClassName('checkbox');
-    // let newsCheckboxTitle =
-    //   newsCheckboxContainer.getElementsByClassName('checkboxTitle');
-    // if (newsCheckboxContainer.classList.contains('disabled')) {
-    //   newsCheckboxContainer.classList.remove('disabled');
-    // }
-    // if (newsCheckbox[0].classList.contains('checkboxDisabled')) {
-    //   newsCheckbox[0].classList.remove('checkboxDisabled');
-    // }
-    // if (newsCheckboxTitle[0].classList.contains('checkboxTitleDisabled')) {
-    //   newsCheckboxTitle[0].classList.remove('checkboxTitleDisabled');
-    // }
-
+  onStreetClick(
+    newsCheckboxContainer: HTMLDivElement,
+    houseNumberContainer: HTMLDivElement
+  ) {
     this.enableNewsCheckbox(true, newsCheckboxContainer);
+    this.enableHouseNumber(true, houseNumberContainer);
+  }
+
+  private enableHouseNumber(
+    enable: boolean,
+    houseNumberContainer: HTMLDivElement,
+    houseNumberInput?: HTMLInputElement
+  ) {
+    if (enable) {
+      if (houseNumberContainer.classList.contains('disabled')) {
+        houseNumberContainer.classList.remove('disabled');
+      }
+    } else {
+      if (!houseNumberContainer.classList.contains('disabled')) {
+        houseNumberContainer.classList.add('disabled');
+        houseNumberInput.value = '';
+      }
+    }
+  }
+
+  letMaxFourDigits(houseNumber: HTMLInputElement) {
+    return houseNumber.value.length < 4;
   }
 
   private enableNewsCheckbox(
