@@ -46,9 +46,9 @@ form {
   outline: none;
 }
 
-.form__textBox__errorBorder {
+/* .form__textBox__errorBorder {
   border: 1px solid red;
-}
+} */
 
 .form__textBox__Border {
   border: 1px solid rgb(204, 204, 204);

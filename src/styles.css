@@ -242,6 +242,10 @@ body {
   font-size: 15px;
 }
 
+/* .form__textBox__errorBorder {
+  border: 2px solid red;
+} */
+
 @media (max-width: 880px) {
   .accordionTitle {
     font-size: 18px;

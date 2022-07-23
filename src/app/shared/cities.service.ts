@@ -11,23 +11,23 @@ export class CitiesService {
   cities = [
     {
       city: 'ארד',
-      street: 'הארדים',
+      street: ['הארדים', 'הרצל'],
     },
     {
       city: 'באר-שבע',
-      street: 'הבארשבעים',
+      street: ['הבארשבעים'],
     },
     {
       city: 'גדרה',
-      street: 'הגדרים',
+      street: ['הגדרים'],
     },
     {
       city: 'דימונה',
-      street: 'הדימונאים',
+      street: ['הדימונאים'],
     },
     {
       city: 'הרצליה',
-      street: 'ההרצליאנים',
+      street: ['ההרצליאנים'],
     },
   ];
 }

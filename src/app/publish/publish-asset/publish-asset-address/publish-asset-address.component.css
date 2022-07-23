@@ -31,7 +31,7 @@
   flex-direction: column;
   margin-bottom: 20px;
   margin-left: 15px;
-  margin: relative;
+  position: relative;
 }
 
 .big {
@@ -87,6 +87,12 @@
 }
 
 .checkboxTitle {
+  color: #333;
+  font-size: 14px;
+  /* margin-bottom: 20px; */
+}
+
+.lowerCheckboxTitle {
   color: #333;
   font-size: 14px;
 }
@@ -148,8 +154,8 @@
 
 .cityInputTextClearing {
   position: absolute;
-  right: 292px;
-  top: 232px;
+  right: 245px;
+  top: 31px;
   color: #666;
   cursor: pointer;
 }
@@ -157,7 +163,23 @@
 .streetInputTextClearing {
   color: #666;
   position: absolute;
-  top: 310px;
-  right: 290px;
+  right: 245px;
+  top: 31px;
   cursor: pointer;
+}
+
+.houseNumberErrorWidth {
+  width: 135px;
+}
+
+.form__error {
+  color: #ff2a2b;
+  /* position: absolute;
+  top: 56px; */
+}
+
+.floorsErrorContainer {
+  /* margin-bottom: 20px; */
+  position: absolute;
+  top: 60px;
 }
