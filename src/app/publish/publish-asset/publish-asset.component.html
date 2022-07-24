@@ -1,109 +1,11 @@
-<!-- <div class="container">
-  <app-publish-header class="publishHeader"></app-publish-header>
-  <div class="main">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div class="main__field">
-        <div>
-          סוג הנכס<span>*</span>
-        </div>
-        <select class="main__Select" [(ngModel)]="selectedAssetValue" name="asset" required #asset="ngModel">
-          <option value="-1">דירה או אולי פנטהאוס?</option>
-          <option value="{{ i }}" *ngFor="let asset of assets;let i = index">{{ asset }}</option>
-        </select>
-        <span class="spanAlert" *ngIf="(!asset.valid || selectedAssetValue  === '-1') && asset.touched">יש לבחור סוג
-          הנכס
-          מתוך
-          הרשימה</span>
-      </div>
-      <div class="main__field">
-        <div>
-          ישוב<span>*</span>
-        </div>
-        <input class="main__Input" placeholder="איפה נמצא הנכס?" type="text" ngModel name="city" required
-          #city="ngModel">
-        <span class="spanAlert" *ngIf="!city.valid && city.touched">
-          יש להקליד ישוב</span>
-      </div>
-      <div class="main__field">
-        <div>
-          רחוב<span>*</span>
-        </div>
-        <input class="main__Input" placeholder="הכנסת שם הרחוב" type="text" ngModel name="street" required
-          #street="ngModel">
-        <span class="spanAlert" *ngIf="!street.valid && street.touched">
-          יש להקליד רחוב</span>
-      </div>
-      <div class="main__field">
-        <div>
-          מס' בית<span>*</span>
-        </div>
-        <input class="main__Input main__HouseNumber__Input__Width" type="number" ngModel name="houseNumber" required
-          #houseNumber="ngModel" min="1">
-        <span class="spanAlert" *ngIf="!houseNumber.valid && houseNumber.touched">יש להקליד מספר בית</span>
-      </div>
-      <div class="main__field">
-        <div>
-          מספר חדרים<span>*</span>
-        </div>
-        <select class="main__Select" [(ngModel)]="selectedNumberOfRoomsValue" name="numberOfRooms" required
-          #amountOfRooms="ngModel">
-          <option value="-1">בחר מספר חדרים</option>
-          <option value="{{ i }}" *ngFor="let number of numberOfRooms;let i = index">{{ number }}</option>
-        </select>
-        <span class="spanAlert"
-          *ngIf="(!amountOfRooms.valid || selectedNumberOfRoomsValue === '-1') && amountOfRooms.touched">
-          יש לבחור מספר חדרים מתוך הרשימה</span>
-      </div>
-      <div class="main__field">
-        <div>
-          קומה<span>*</span>
-        </div>
-        <input class="main__Input main__floor__Input__Width" type="number" ngModel name="floor" required
-          #floor="ngModel" min="0">
-        <span class="spanAlert" *ngIf="!floor.valid && floor.touched">יש להקליד קומה</span>
-      </div>
-      <div class="main__field">
-        <div>
-          גודל במ"ר סך הכל<span>*</span>
-        </div>
-        <input class="main__Input main__floor__Input__Width" type="number" ngModel name="assetSize" required
-          #size="ngModel" min="1">
-        <span class="spanAlert" *ngIf="!size.valid && size.touched">יש להקליד את גודל הנכס במ"ר</span>
-      </div>
-      <div class="main__field">
-        <div>
-          מחיר<span>*</span>
-        </div>
-        <input placeholder="סכום מינימלי 100,000" class="main__Input main__floor__Input__Width" type="number" ngModel
-          name="price" required min="100000" #price="ngModel">
-        <span class="spanAlert" *ngIf="!price.valid && price.touched">יש להקליד את מחיר הדירה</span>
-      </div>
-      <div class="main__field">
-        <div>
-          תמונה<span>*</span>
-        </div>
-        <input class="main__Input" placeholder="הכנסת כתובת עבור תמונה" type="text" ngModel name="imagePath">
-      </div>
-      <div class="main__field">
-        <button [style.visibility]="f.valid ? 'visible' : 'hidden'" type="submit" class="upperHeader__postNewAdd_Link">
-          <span class="upperHeader__postNewAdd_Link_Text">פרסם</span>
-        </button>
-      </div>
-    </form>
-  </div>
-</div> -->
-
 <div class="container">
   <app-publish-header class="publishHeader"></app-publish-header>
   <div class="main">
-    <app-publish-asset-type></app-publish-asset-type>
-    <app-publish-asset-address></app-publish-asset-address>
-    <!-- <div *ngFor="let assetTitle of assetTitles; let i = index" class="assetAccordion">
-      <div class="accordionNumber greyAccordionNumber">{{ i + 1 }}</div>
-      <div class="accordionTitle">{{ assetTitle }}</div>
-      <div class="editPenContainer">
-        <i class='fas fa-pen'></i>
-      </div>
-    </div> -->
+    <div class="accordionParagraph">
+      <app-publish-asset-type class="accordionParagraph"></app-publish-asset-type>
+    </div>
+    <div class="accordionParagraph">
+      <app-publish-asset-address></app-publish-asset-address>
+    </div>
   </div>
 </div>

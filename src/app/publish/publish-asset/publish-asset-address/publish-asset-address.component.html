@@ -4,7 +4,7 @@
     <div class="accordionTitle assetAccordionTitleClosed">כתובת הנכס</div>
   </div>
   <!-- *ngIf="isOpened" -->
-  <div class="assetAccordion assetAccordionOpened">
+  <div *ngIf="isOpened" class="assetAccordion assetAccordionOpened">
     <div class="accordionNumber greenAccordionNumber">2</div>
     <div class="accordionTitle assetAccordionTitleOpened">כתובת הנכס</div>
     <div class="container">
@@ -13,7 +13,8 @@
         <div>סוג הנכס*</div>
         <!-- [(ngModel)]="selectedAssetValue" -->
         <!-- #asset="ngModel" -->
-        <select [style.border]="!assetPublishingForm.get('assetType').valid && form.submitted ? '1px solid #ff0000':''"
+        <select [(ngModel)]="selectedAssetValue"
+          [style.border]="!assetPublishingForm.get('assetType').valid && form.submitted ? '1px solid #ff0000':''"
           class="big field pointer" formControlName="assetType">
           <option selected [ngValue]="null">דירה או אולי פנטהאוס?</option>
           <!-- <option disabled selected value="-1">דירה או אולי פנטהאוס?</option> -->
@@ -78,7 +79,7 @@
         <span *ngIf="!(streetInput.value.length === 0)"
           (click)="clearStreetInputText(streetInput, newsCheckboxContainer, houseNumberContainer, houseNumber)"
           class="streetInputTextClearing">&#10006;</span>
-        <span class="big fieldExplanation">המידע הזה מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, ממולץ לבחור רחוב קרוב
+        <span class="fieldExplanation">המידע הזה מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, ממולץ לבחור רחוב קרוב
           אליך</span>
         <a [ngStyle]="{ 'color': streetField.classList.contains('disabled') ? '#ccc' : '#ff7100'}"
           class="streetQuestion">לא
@@ -86,7 +87,7 @@
         <span *ngIf="!assetPublishingForm.get('street').valid && form.submitted" class="form__error">יש לבחור רחוב מתוך
           הרשימה</span>
       </div>
-      <div #houseNumberContainer class="fieldContainer disabled">
+      <div #houseNumberContainer class="fieldContainer disabled houseNumberContainer">
         <div>מס` בית*</div>
 
         <input [style.border]="!assetPublishingForm.get('houseNumber').valid && form.submitted ? '1px solid #ff0000':''"
@@ -96,42 +97,33 @@
         <span *ngIf="!assetPublishingForm.get('houseNumber').valid && form.submitted" class="form__error">יש לבחור מס
           בית מתוך הרשימה</span>
       </div>
-      <div class="fieldContainer">
-        <div class="floor">
-          <div class="fieldContainer">
-            <div>קומה*</div>
-            <input [style.border]="!assetPublishingForm.get('floor').valid && form.submitted ? '1px solid #ff0000':''"
-              ngModel formControlName="floor" appNumberInput type="text" class="medium field"
-              placeholder="הכנסת מספר קומה">
-            <div class="floorsErrorContainer">
-              <span *ngIf="!assetPublishingForm.get('floor').valid && form.submitted" class="form__error">שדה
-                חובה</span>
-            </div>
-            <!-- <span *ngIf="!assetPublishingForm.get('floor').valid && form.submitted" class="form__error">שדה חובה</span> -->
+      <div class="floor">
+        <div class="fieldContainer">
+          <div>קומה*</div>
+          <input [style.border]="!assetPublishingForm.get('floor').valid && form.submitted ? '1px solid #ff0000':''"
+            ngModel formControlName="floor" appNumberInput type="text" class="medium field"
+            placeholder="הכנסת מספר קומה">
+          <div class="floorsErrorContainer">
+            <span *ngIf="!assetPublishingForm.get('floor').valid && form.submitted" class="form__error">שדה
+              חובה</span>
           </div>
-          <div class="fieldContainer">
-            <div>סה"כ קומות בבניין*</div>
-            <input
-              [style.border]="!assetPublishingForm.get('numberOfFloors').valid && form.submitted ? '1px solid #ff0000':''"
-              ngModel formControlName="numberOfFloors" appNumberInput type="text" class="medium field"
-              placeholder='הכנסת סה"כ קומות'>
-
-            <div class="floorsErrorContainer">
-              <span *ngIf="!assetPublishingForm.get('numberOfFloors').valid && form.submitted" class="form__error">שדה
-                חובה</span>
-            </div>
-            <!-- <span *ngIf="!assetPublishingForm.get('numberOfFloors').valid && form.submitted" class="form__error">שדה
-              חובה</span> -->
-          </div>
-          <div class="checkboxContainer" appCheckbox>
-            <div class="checkbox"></div>
-          </div>
-          <!-- <div class="checkboxContainer"> -->
-          <div class="checkboxTitle">על עמודים</div>
         </div>
-
+        <div class="fieldContainer">
+          <div>סה"כ קומות בבניין*</div>
+          <input
+            [style.border]="!assetPublishingForm.get('numberOfFloors').valid && form.submitted ? '1px solid #ff0000':''"
+            ngModel formControlName="numberOfFloors" appNumberInput type="text" class="medium field"
+            placeholder='הכנסת סה"כ קומות'>
+          <div class="floorsErrorContainer">
+            <span *ngIf="!assetPublishingForm.get('numberOfFloors').valid && form.submitted" class="form__error">שדה
+              חובה</span>
+          </div>
+        </div>
+        <div class="checkboxContainer" appCheckbox>
+          <div class="checkbox"></div>
+        </div>
+        <div class="checkboxTitle">על עמודים</div>
       </div>
-      <!-- </div> -->
       <div class="fieldContainer disabled">
         <div>שכונה</div>
         <input type="text" class="big field">
@@ -147,7 +139,7 @@
         </span>
       </div>
       <div #newsCheckboxContainer class="fieldContainer disabled">
-        <div class="floor">
+        <div class="newsCheckboxContainer">
           <div class="checkboxContainer" appCheckbox>
             <div class="checkbox checkboxDisabled">
             </div>

@@ -40,6 +40,7 @@ export class PublishAssetTypeComponent implements OnInit {
   }
 
   openAccordion() {
+    console.log('OPENED');
     this.isOpened = true;
   }
 }

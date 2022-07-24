@@ -111,6 +111,14 @@ select.ng-invalid.ng-touched {
   color: red;
 }
 
+.accordionParagraph {
+  margin-bottom: 20px;
+}
+
+/* .publishAssetContainer {
+  position: relative;
+} */
+
 @media (max-width: 885px) {
   .container {
     grid-template-columns: 1fr;

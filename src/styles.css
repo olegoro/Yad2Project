@@ -163,15 +163,16 @@ body {
 }
 
 .assetAccordion {
-  grid-area: assetAccordion;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 2px 4px 0 rgb(12 0 51 / 10%);
   height: 60px;
   position: relative;
-  margin-bottom: 20px;
+}
+
+.assetAccordionBoxShadow {
+  box-shadow: 0 2px 4px 0 rgb(12 0 51 / 10%);
 }
 
 .assetAccordionOpened {

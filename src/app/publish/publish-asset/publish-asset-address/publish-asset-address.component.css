@@ -16,7 +16,8 @@
   /* left: 10px; */
   right: -50px;
   background-color: white;
-  padding-right: 50px;
+  /* padding-right: 50px; */
+  padding: 0 8%;
 }
 
 .formStarExplanation {
@@ -62,6 +63,7 @@
 }
 
 .fieldExplanation {
+  width: 263.36px;
   font-size: 11px;
   color: #666666;
   margin-bottom: 6px;
@@ -81,6 +83,13 @@
 }
 
 .floor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.newsCheckboxContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -179,7 +188,44 @@
 }
 
 .floorsErrorContainer {
-  /* margin-bottom: 20px; */
   position: absolute;
   top: 60px;
+}
+
+@media (max-width: 680px) {
+  .container {
+    align-items: center;
+  }
+
+  .formStarExplanation {
+    align-self: flex-start;
+  }
+
+  .fieldExplanation {
+    width: 80vw;
+  }
+
+  .small,
+  .medium {
+    max-width: 60%;
+  }
+
+  .houseNumberContainer {
+    align-self: flex-start;
+    margin-right: 20% + 50px;
+  }
+
+  .floor {
+    margin-bottom: 20px;
+  }
+
+  .fieldContainer,
+  .field,
+  .checkboxTitle {
+    font-size: 16px;
+  }
+
+  .field {
+    width: 80vw;
+  }
 }
