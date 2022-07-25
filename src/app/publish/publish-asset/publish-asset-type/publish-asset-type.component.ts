@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-publish-asset-type',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishAssetTypeComponent implements OnInit {
   isOpened = true;
+  @Output() accordionClosed = new EventEmitter();
+  @Output() accordionOpened = new EventEmitter();
   publishCategoryText: string;
   constructor() {}
 
@@ -22,6 +24,8 @@ export class PublishAssetTypeComponent implements OnInit {
 
   chooseCategory(squareText: HTMLDivElement) {
     this.isOpened = false;
+
+    this.accordionClosed.emit();
 
     switch (squareText.innerText) {
       case 'מכירה':
@@ -40,7 +44,8 @@ export class PublishAssetTypeComponent implements OnInit {
   }
 
   openAccordion() {
-    console.log('OPENED');
     this.isOpened = true;
+
+    this.accordionOpened.emit();
   }
 }

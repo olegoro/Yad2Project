@@ -2,10 +2,12 @@
   <app-publish-header class="publishHeader"></app-publish-header>
   <div class="main">
     <div class="accordionParagraph">
-      <app-publish-asset-type class="accordionParagraph"></app-publish-asset-type>
+      <app-publish-asset-type (accordionOpened)="onAccordionOpened()" (accordionClosed)="onAccordionClosed()"
+        class="accordionParagraph">
+      </app-publish-asset-type>
     </div>
     <div class="accordionParagraph">
-      <app-publish-asset-address></app-publish-asset-address>
+      <app-publish-asset-address [isOpened]="openAccordion"></app-publish-asset-address>
     </div>
   </div>
 </div>

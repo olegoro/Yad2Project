@@ -1,9 +1,9 @@
 <form [formGroup]="assetPublishingForm" #form="ngForm" (ngSubmit)="onSubmit()">
-  <div (click)="openAccordion()" *ngIf="!isOpened" class="assetAccordion assetAccordionClosed">
+  <div [ngClass]="!isOpened ? 'assetAccordionBoxShadow' : ''" (click)="openAccordion()" *ngIf="!isOpened"
+    class="assetAccordion assetAccordionClosed">
     <div class="accordionNumber greyAccordionNumber">2</div>
     <div class="accordionTitle assetAccordionTitleClosed">כתובת הנכס</div>
   </div>
-  <!-- *ngIf="isOpened" -->
   <div *ngIf="isOpened" class="assetAccordion assetAccordionOpened">
     <div class="accordionNumber greenAccordionNumber">2</div>
     <div class="accordionTitle assetAccordionTitleOpened">כתובת הנכס</div>
@@ -11,14 +11,9 @@
       <span class="formStarExplanation">סימנו עבורך את שדות החובה. שלא נפספס פרט חשוב</span>
       <div class="fieldContainer">
         <div>סוג הנכס*</div>
-        <!-- [(ngModel)]="selectedAssetValue" -->
-        <!-- #asset="ngModel" -->
-        <select [(ngModel)]="selectedAssetValue"
-          [style.border]="!assetPublishingForm.get('assetType').valid && form.submitted ? '1px solid #ff0000':''"
+        <select [style.border]="!assetPublishingForm.get('assetType').valid && form.submitted ? '1px solid #ff0000':''"
           class="big field pointer" formControlName="assetType">
           <option selected [ngValue]="null">דירה או אולי פנטהאוס?</option>
-          <!-- <option disabled selected value="-1">דירה או אולי פנטהאוס?</option> -->
-          <!-- <option value="-1">דירה או אולי פנטהאוס?</option> -->
           <option ngValue="{{ i }}" *ngFor="let asset of assets;let i = index">{{ asset }}</option>
         </select>
         <span *ngIf="!assetPublishingForm.get('assetType').valid && form.submitted" class="form__error">שדה חובה</span>
@@ -29,7 +24,6 @@
           [style.border]="!assetPublishingForm.get('assetCondition').valid && form.submitted ? '1px solid #ff0000':''"
           class="big field pointer" formControlName="assetCondition">
           <option selected [ngValue]="null">משופץ? חדש מקבלן?</option>
-          <!-- <option value="-1">משופץ? חדש מקבלן?</option> -->
           <option ngValue="{{ i }}" *ngFor="let condition of assetConditions;let i = index">{{ condition }}</option>
         </select>
         <span *ngIf="!assetPublishingForm.get('assetCondition').valid && form.submitted" class="form__error">שדה
@@ -37,26 +31,17 @@
       </div>
       <div class="fieldContainer">
         <div>ישוב*</div>
-        <!-- [matAutocompleteDisabled]="cityInput.value.length === 0 ? true:false" -->
-        <!-- [formControl]="publishAssetFormControl" -->
         <input [style.border]="!assetPublishingForm.get('city').valid && form.submitted ? '1px solid #ff0000':''"
           ngModel formControlName="city" (keyup)="onCityInputKeyup(cityInput, streetField, streetInput)" matInput
           #cityInput type="text" [matAutocomplete]="autoCities" class="big field" placeholder="איפה נמצא הנכס?">
-        <!-- <input ngModel formControlName="city" (keydown)="onCityInputKeyup(cityInput, streetField, streetInput)" matInput
-          #cityInput type="text" [matAutocomplete]="autoCities" class="big field"
-          placeholder="איפה נמצא הנכס?"> -->
         <mat-autocomplete #autoCities="matAutocomplete">
-          <!-- [ngClass]="showAutocomplete ? 'hide-autocomplete' : ''" -->
           <mat-option (click)="onCityClick(streetField)" *ngFor="let city of filteredCities | async;"
             [value]="city.city">
             {{ city.city }}
           </mat-option>
-          <!-- </div> -->
         </mat-autocomplete>
-        <!-- (click)="clearCityInputText(cityInput, streetField, streetInput)" -->
         <span *ngIf="!(cityInput.value.length === 0)" (click)="clearCityInputText(streetField)"
           class="cityInputTextClearing">&#10006;</span>
-        <!-- *ngIf="!assetPublishingForm.get('city').valid && assetPublishingForm.get('city').touched" -->
         <span *ngIf="!assetPublishingForm.get('city').valid && form.submitted" class="form__error">יש לבחור ישוב מתוך
           הרשימה</span>
       </div>
@@ -68,7 +53,6 @@
           type="text" matInput #streetInput [matAutocomplete]="autoStreets" class="big field"
           placeholder="הכנסת שם הרחוב">
         <mat-autocomplete #autoStreets="matAutocomplete">
-          <!-- *ngFor="let city of cities; -->
           <ng-container *ngFor="let city of filteredCities | async;">
             <mat-option (click)="onStreetClick(newsCheckboxContainer, houseNumberContainer)"
               *ngFor="let street of city.street;" [value]="street">

@@ -7,6 +7,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./publish-asset.component.css'],
 })
 export class PublishAssetComponent implements OnInit {
+  openAccordion = false;
+
   assets = [
     'דירה',
     'דירת גן',
@@ -51,6 +53,14 @@ export class PublishAssetComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onAccordionClosed() {
+    this.openAccordion = true;
+  }
+
+  onAccordionOpened() {
+    this.openAccordion = false;
+  }
 
   onSubmit(form: NgForm) {
     console.log(form);

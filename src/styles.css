@@ -51,7 +51,6 @@ body {
 
 .checkbox {
   background-color: #ffffff;
-  /* background-color: #ff7100; */
   border: 1px solid #363636;
   position: relative;
   display: inline-block;
@@ -184,7 +183,7 @@ body {
   background-color: #f9f9f9;
 }
 
-.assetAccordionClosed {
+.assetAccordionPointer {
   cursor: pointer;
 }
 

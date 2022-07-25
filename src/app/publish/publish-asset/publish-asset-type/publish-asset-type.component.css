@@ -5,7 +5,6 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* position: absolute; */
   background-color: white;
   top: 60px;
   border-radius: 0 0 4px 4px;
@@ -61,7 +60,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /* position: absolute; */
     background-color: white;
     top: 60px;
     border-radius: 0 0 4px 4px;

@@ -1,5 +1,5 @@
-import { Component, DoCheck, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { CitiesService } from 'src/app/shared/cities.service';
 import { map, startWith } from 'rxjs/operators';
@@ -12,12 +12,13 @@ import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
   providers: [CitiesService],
 })
 export class PublishAssetAddressComponent implements OnInit {
-  isOpened = false;
+  @Input() isOpened = false;
   autocompleteDisabled = true;
   @ViewChild(MatAutocompleteTrigger) autocomplete: MatAutocompleteTrigger;
 
   publishAssetFormControl: FormControl = new FormControl();
   assetPublishingForm: FormGroup;
+  allowedForOpening = false;
 
   assets = [
     'דירה',
@@ -86,41 +87,23 @@ export class PublishAssetAddressComponent implements OnInit {
   }
 
   openAccordion() {
-    this.isOpened = true;
+    if (this.allowedForOpening) {
+      this.isOpened = true;
+    }
   }
 
-  clearCityInputText(
-    // cityInput: HTMLInputElement,
-    streetField: HTMLDivElement
-    // streetInput: HTMLInputElement
-  ) {
-    // cityInput.value = null;
+  clearCityInputText(streetField: HTMLDivElement) {
     this.assetPublishingForm.get('city').setValue('');
     this.enableStreetField(false, streetField);
-    // this.clearStreetInputText();
     this.assetPublishingForm.get('street').setValue('');
   }
 
   clearStreetInputText(
-    // streetInput: HTMLInputElement,
-    // newsCheckboxContainer?: HTMLDivElement,
-    // houseNumberContainer?: HTMLDivElement,
-    // houseNumberInput?: HTMLInputElement
     streetInput: HTMLInputElement,
     newsCheckboxContainer?: HTMLDivElement,
     houseNumberContainer?: HTMLDivElement,
     houseNumberInput?: HTMLInputElement
   ) {
-    // this.assetPublishingForm.get('street').setValue('');
-
-    // if (newsCheckboxContainer != undefined) {
-    //   this.enableNewsCheckbox(false, newsCheckboxContainer);
-    // }
-
-    // if (houseNumberContainer != undefined && houseNumberInput != undefined) {
-    //   this.enableHouseNumber(false, houseNumberContainer, houseNumberInput);
-    // }
-
     this.assetPublishingForm.get('street').setValue('');
 
     if (newsCheckboxContainer != undefined) {
@@ -137,17 +120,9 @@ export class PublishAssetAddressComponent implements OnInit {
     streetField: HTMLDivElement,
     streetInput: HTMLInputElement
   ) {
-    // if (cityInput.value.length === 0) {
-    //   console.log('autocomplete disabled');
-    //   this.enableStreetField(false, streetField);
-    //   this.clearStreetInputText(streetInput);
-    // } else {
-    //   console.log('autocomplete enabled');
-    // }
     if (cityInput.value.length === 0) {
       this.enableStreetField(false, streetField);
       this.clearStreetInputText(streetInput);
-      // this.assetPublishingForm.get('street').setValue('');
     }
   }
 
@@ -181,7 +156,9 @@ export class PublishAssetAddressComponent implements OnInit {
 
   // form: NgForm
   onSubmit() {
-    console.log(this.assetPublishingForm);
+    if (this.assetPublishingForm.valid) {
+      this.allowedForOpening = true;
+    }
   }
 
   private enableHouseNumber(
