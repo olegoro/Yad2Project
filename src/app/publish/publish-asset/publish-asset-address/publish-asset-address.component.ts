@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { CitiesService } from 'src/app/shared/cities.service';
 import { map, startWith } from 'rxjs/operators';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { PublishAssetService } from '../publish-asset.service';
 
 @Component({
   selector: 'app-publish-asset-address',
@@ -11,7 +12,7 @@ import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
   styleUrls: ['./publish-asset-address.component.css'],
   providers: [CitiesService],
 })
-export class PublishAssetAddressComponent implements OnInit {
+export class PublishAssetAddressComponent implements OnInit, OnDestroy {
   @Input() isOpened = false;
   autocompleteDisabled = true;
   @ViewChild(MatAutocompleteTrigger) autocomplete: MatAutocompleteTrigger;
@@ -19,6 +20,7 @@ export class PublishAssetAddressComponent implements OnInit {
   publishAssetFormControl: FormControl = new FormControl();
   assetPublishingForm: FormGroup;
   allowedForOpening = false;
+  private activatedSub: Subscription;
 
   assets = [
     'דירה',
@@ -55,7 +57,17 @@ export class PublishAssetAddressComponent implements OnInit {
 
   filteredCities: Observable<{ city: string; street: string[] }[]>;
 
-  constructor(private citiesService: CitiesService) {}
+  constructor(
+    private citiesService: CitiesService,
+    private publishAssetService: PublishAssetService
+  ) {
+    // publishAssetService.asssetCategoryAccordionClosed.subscribe(() => {
+    //   this.isOpened = true;
+    // });
+    // publishAssetService.asssetCategoryAccordionOpened.subscribe((isOpened) => {
+    //   this.isOpened = isOpened;
+    // });
+  }
 
   ngOnInit(): void {
     this.cities = this.citiesService.cities;
@@ -66,6 +78,18 @@ export class PublishAssetAddressComponent implements OnInit {
       startWith(''),
       map((val) => this.filter(val))
     );
+
+    this.activatedSub =
+      this.publishAssetService.asssetCategoryAccordionOpened.subscribe(
+        (isOpened) => {
+          this.isOpened = isOpened;
+        }
+      );
+  }
+
+  ngOnDestroy(): void {
+    // this.publishAssetService.asssetCategoryAccordionOpened.unsubscribe();
+    this.activatedSub.unsubscribe();
   }
 
   filter(val: string): { city: string; street: string[] }[] {
